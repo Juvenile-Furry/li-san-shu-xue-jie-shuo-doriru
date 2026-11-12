@@ -274,32 +274,32 @@ body{margin:0}
 <header class="hero">
   <div class="kicker">離散数学B（4E）第1〜6回 ・ 解説＋ドリル</div>
   <h1>「関係」から始める、<br>離散数学の読み方</h1>
-  <p class="lead">このページは、<strong>読んで理解する解説</strong>と<strong>解いて定着させるドリル</strong>を1つにまとめた教材です。解説ではすべての概念を「身近な例え → 正式な定義 → 小さな例を一歩ずつ計算 → よくある誤解 → 演習へのつながり」の順に説明します。数学が苦手でも、記号が出てくるたびに読み方を添えるので、そのまま読み進められます。読み終えたら画面上部の「ドリルで解く」から、各回の問題にそのまま挑戦できます。</p>
+  <p class="lead">第1〜6回（2項関係・同値関係・順序）の要点だけをまとめた解説です。各概念は「定義＋要点＋例＋注意」で確認できます。読んだら上部の「ドリルで解く」へ。</p>
   <div class="readme">
-    <span>📖 解説で読んで理解</span><span>✏️ ドリルで即時採点</span><span>🔤 記号は初出で読み方つき</span><span>🧩 図解（矢印図・ハッセ図）多数</span><span>✍️ 演習16.1〜21.4の解き方つき</span>
+    <span>定義は1〜2文で</span><span>要点は最大3点</span><span>例は1つだけ</span><span>演習16.1〜21.4対応</span>
   </div>
 </header>
 
 <div class="roadmap" id="map">
   <h2>全体マップ — 6回分の流れ</h2>
-  <p>6回の講義は、実は<strong>1本のストーリー</strong>です。「つながりを集める → つながりに条件を付けるとグループ分けになる → 別の条件を付けると順序になる」という流れを掴めば、あとは細部です。</p>
+  <p>流れは1本：関係に条件を付けると、同値関係（グループ分け）と順序（ランキング）に分かれる。</p>
   <div class="flow" role="img" aria-label="関係から同値関係と順序へ分岐する流れ図">
-    <div class="flowrow"><div class="fnode c1"><b>2項関係（第1〜2回）</b><small>ペアの集まり＝「つながりのリスト」。逆・合成・閉包など、つながりの扱い方を学ぶ土台。</small></div></div>
-    <div class="farrow">▼ 条件を付けると、2つの世界に分かれる ▼</div>
+    <div class="flowrow"><div class="fnode c1"><b>2項関係（第1〜2回）</b><small>ペアの集まり。逆・合成・閉包。</small></div></div>
+    <div class="farrow">▼ 条件を付けると2つに分かれる ▼</div>
     <div class="flowrow">
-      <div class="fnode c2"><b>同値関係（第3〜4回）</b><small>反射＋対称＋推移 →「同じグループ分け」。同値類・分割・商集合・剰余類。</small></div>
-      <div class="fnode c3"><b>順序（第4〜6回）</b><small>反射＋反対称＋推移 →「ランキング」。極大元・上界・sup・束・閉包・ソート。</small></div>
+      <div class="fnode c2"><b>同値関係（第3〜4回）</b><small>反射＋対称＋推移。同値類・分割・商集合・剰余類。</small></div>
+      <div class="fnode c3"><b>順序（第4〜6回）</b><small>反射＋反対称＋推移。極大元・sup・束・閉包・ソート。</small></div>
     </div>
   </div>
   <nav class="toc" aria-label="目次">
-    <a href="#ch0"><span class="no">0</span><span><b>超入門：集合・直積・関数の言葉</b><small>∈、⊆、べき集合、A×B、∀と∃ — すべての土台</small></span></a>
-    <a href="#ch1"><span class="no">1</span><span><b>2項関係 1/2：関係とは何か</b><small>逆関係 R⁻¹、Dom／Range、関数になる条件（演習16）</small></span></a>
-    <a href="#ch2"><span class="no">2</span><span><b>2項関係 2/2：合成と閉包</b><small>合成＝乗り継ぎ、冪 Rⁿ、推移閉包 R⁺／反射推移閉包 R*</small></span></a>
-    <a href="#ch3"><span class="no">3</span><span><b>同値関係 1/2：グループ分け</b><small>同値類 [a]、分割、商集合、mod m 合同（演習18）</small></span></a>
-    <a href="#ch4"><span class="no">4</span><span><b>同値関係 2/2・半順序の入口</b><small>剰余類、細分、半順序と全順序（演習19）</small></span></a>
-    <a href="#ch5"><span class="no">5</span><span><b>順序 1/2：擬順序と辞書式順序</b><small>双対、極大元と最大元の違い（演習20）</small></span></a>
-    <a href="#ch6"><span class="no">6</span><span><b>順序 2/2：束・閉包・ソート</b><small>sup／inf、∨＝lcm・∧＝gcd、閉包、トポロジカルソート（演習21）</small></span></a>
-    <a href="#dict"><span class="no">あ</span><span><b>用語・記号 総まとめ辞典</b><small>読み方と意味を一覧で確認（検索つき）</small></span></a>
+    <a href="#ch0"><span class="no">0</span><span><b>超入門：集合・直積・関数</b><small>∈、⊆、2^A、A×B、∀／∃</small></span></a>
+    <a href="#ch1"><span class="no">1</span><span><b>2項関係 1/2</b><small>R⁻¹、Dom／Range、関数になる条件（演習16）</small></span></a>
+    <a href="#ch2"><span class="no">2</span><span><b>2項関係 2/2</b><small>合成、Rⁿ、R⁺／R*</small></span></a>
+    <a href="#ch3"><span class="no">3</span><span><b>同値関係 1/2</b><small>[a]、分割、商集合、mod m（演習18）</small></span></a>
+    <a href="#ch4"><span class="no">4</span><span><b>同値関係 2/2・半順序</b><small>剰余類、細分、半順序／全順序（演習19）</small></span></a>
+    <a href="#ch5"><span class="no">5</span><span><b>順序 1/2</b><small>擬順序、辞書式順序、極大元／最大元（演習20）</small></span></a>
+    <a href="#ch6"><span class="no">6</span><span><b>順序 2/2</b><small>sup／inf、束、閉包、ソート（演習21）</small></span></a>
+    <a href="#dict"><span class="no">あ</span><span><b>用語・記号辞典</b><small>1行説明・検索つき</small></span></a>
   </nav>
 </div>
 
@@ -307,81 +307,75 @@ body{margin:0}
 <section class="chapter" id="ch0">
   <div class="ch-head"><div class="no">第0章 ・ 超入門</div>
   <h2>まず「言葉」から：集合・直積・関数</h2>
-  <p>第1回以降はすべてこの章の言葉で書かれています。ここだけ先に読めば、講義の記号に怖さはなくなります。</p></div>
+  <p>第1回以降で使う記号の最小セット。</p></div>
   <div class="ch-toc"><b>この章の内容</b><ul>
-    <li><a href="#c0-1">集合と ∈（所属）</a></li><li><a href="#c0-2">部分集合 ⊆ と べき集合 2^A</a></li><li><a href="#c0-3">直積 A×B ＝ ペアの全リスト</a></li><li><a href="#c0-4">関数とは</a></li><li><a href="#c0-5">∀ と ∃ の読み方</a></li>
+    <li><a href="#c0-1">集合と ∈</a></li><li><a href="#c0-2">部分集合 ⊆ と 2^A</a></li><li><a href="#c0-3">直積 A×B</a></li><li><a href="#c0-4">関数とは</a></li><li><a href="#c0-5">∀ と ∃</a></li>
   </ul></div>
 
-  <h3 class="sec" id="c0-1">集合とは — 「ものの集まり」に名前を付ける</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>集合は<strong>「袋」</strong>だと思ってください。中に何が入っているかだけが大事で、入っている順番や、同じものを2回書くことは意味を持ちません。{a, b} と {b, a} と {a, a, b} はすべて同じ袋です。</p>
-  <p><span class="step-tag tag-def">② 定義</span></p>
+  <h3 class="sec" id="c0-1">集合と ∈（所属）</h3>
   <div class="defbox">
-    <p class="math">{a, b, c} … 外延的記法</p>
-    <p>中身をすべて書き並べて表す書き方を<strong>外延的記法</strong>といいます（「外に延べる＝全部並べる」）。逆に「偶数全体」のように性質で指定する書き方もあります。</p>
-    <p class="math">a ∈ A …「a は A の元（要素）である」</p>
-    <p><span class="sym">∈</span> は「∈（ぞくする）」と読み、「〜に入っている」という意味。a ∉ A は「入っていない」。袋の中の1つ1つのものを<strong>元（げん）／要素</strong>と呼びます。何も入っていない袋が<strong>空集合 ∅（くうしゅうごう）</strong>です。</p>
+    <p class="math">a ∈ A …「a は A の元である」／ {a, b, c} … 外延的記法</p>
+    <p>集合は元の集まりで、順序と重複は無視する。中身を全て並べる書き方が外延的記法、元が無い集合が空集合 ∅、元の個数が |A|。</p>
   </div>
-  <p><span class="step-tag tag-ex">③ 具体例</span>　A = {1, 2, 3} なら、2 ∈ A（2は入っている）、5 ∉ A（5は入っていない）。A の元の個数を |A| と書き、この場合は |A| = 3 です。</p>
-  <div class="trap"><b>④ よくある誤解</b>「{1, 2} ∈ {1, 2, 3}」は<strong>間違い</strong>です。{1,2,3} の中に入っているのは 1, 2, 3 という「数」であって、{1,2} という「袋」ではありません。袋が袋の中に入る話は次の ⊆ で出てきます。</div>
+  <ul class="tight">
+    <li>{a, b} = {b, a} = {a, a, b}（順序・重複は関係ない）。</li>
+    <li>a ∉ A は「a は A の元でない」。</li>
+  </ul>
+  <p class="calc">例：A = {1, 2, 3} なら 2 ∈ A、5 ∉ A、|A| = 3。</p>
+  <div class="trap"><b>注意</b>　{1, 2} ∈ {1, 2, 3} は誤り。入っているのは数 1, 2, 3 で、集合 {1,2} ではない。</div>
 
   <h3 class="sec" id="c0-2">部分集合 ⊆ と べき集合 2^A</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>部分集合は<strong>「小さい袋が、大きい袋の中身だけで作られている」</strong>状態。コンビニの棚（全体）の中から買う物だけを抜き出した買い物かご、が部分集合のイメージです。</p>
   <div class="defbox">
-    <p class="math">B ⊆ A …「B は A の部分集合である」</p>
-    <p><span class="sym">⊆</span> は「部分集合（ぶぶんしゅうごう）」の記号。意味は「B の元はすべて A の元でもある」。B = A の場合も含みます（含めたくないときは ⊂ や ⊊ を使う流儀もあります）。</p>
-    <p class="math">2^A …「A のべき集合」＝ A の部分集合を全部集めた集合</p>
-    <p><span class="sym">2^A</span> は「2のA乗」と読みます。A の部分集合は全部で 2<sup>|A|</sup> 個あるので、この名前が付いています。</p>
+    <p class="math">B ⊆ A …「B の元はすべて A の元」／ 2^A …「A の部分集合全体の集合」</p>
+    <p>⊆ は B = A の場合を含む。部分集合は全部で 2<sup>|A|</sup> 個ある。</p>
   </div>
-  <div class="calc"><span class="step-tag tag-ex">③ 一歩ずつ</span>　A = {a, b} のべき集合を作ります。各元について「入れる／入れない」の2択があるので 2² = 4 個：
-  <ol>
-    <li>両方入れない → ∅</li>
-    <li>a だけ → {a}、b だけ → {b}</li>
-    <li>両方入れる → {a, b}</li>
-  </ol>
-  よって 2<sup>{a,b}</sup> = { ∅, {a}, {b}, {a,b} }。なお<strong>∅ と A 自身も必ず部分集合に数えます</strong>（ここを忘れるのが定番のミス）。</div>
+  <ul class="tight">
+    <li>∅ と A 自身も必ず部分集合に数える。</li>
+    <li>各元を「入れる／入れない」の2択で数えると 2<sup>|A|</sup> 個になる。</li>
+  </ul>
+  <p class="calc">例：A = {a, b} なら 2<sup>A</sup> = {∅, {a}, {b}, {a, b}}（4個）。</p>
+  <div class="trap"><b>注意</b>　∅ を数え忘れるのが定番のミス。</div>
 
-  <h3 class="sec" id="c0-3">直積 A×B — 「ペアの全リスト」</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>シャツ {赤, 青} とズボン {黒, 白} のコーディネートは (赤,黒), (赤,白), (青,黒), (青,白) の4通り。この<strong>「組み合わせを全部ペアで書き出したもの」</strong>が直積です。</p>
+  <h3 class="sec" id="c0-3">直積 A×B</h3>
   <div class="defbox">
     <p class="math">A × B = { (a, b) | a ∈ A, b ∈ B }</p>
-    <p><span class="sym">×</span> は直積（ちょくせき）の記号。<span class="sym">(a, b)</span> は<strong>順序対（じゅんじょつい）</strong>といい、集合と違って<strong>順番が大事</strong>です：(a, b) ≠ (b, a)（ただし a ≠ b のとき）。|A×B| = |A| × |B|。</p>
+    <p>(a, b) は順序対で順番が大事（a ≠ b なら (a,b) ≠ (b,a)）。|A×B| = |A| × |B|。</p>
   </div>
-  <p><span class="step-tag tag-ex">③ 具体例</span>　{a, b} × {1, 2, 3} = {(a,1), (a,2), (a,3), (b,1), (b,2), (b,3)} の6個。第1回で学ぶ「関係」は、まさにこの直積の中からペアをいくつか選んだものになります。</p>
+  <p class="calc">例：{a, b} × {1, 2, 3} = {(a,1), (a,2), (a,3), (b,1), (b,2), (b,3)}（6個）。</p>
+  <div class="trap"><b>注意</b>　第1回の「関係」は、この直積の部分集合として定義される。</div>
 
-  <h3 class="sec" id="c0-4">関数とは — 「入力1つに、出力がちょうど1つ」</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>関数は<strong>自動販売機</strong>です。ボタン（入力）を1つ押すと、必ず決まった商品（出力）がちょうど1つ出てきます。「押しても何も出ない」「1つのボタンで2つ出てくる」自販機は壊れていて、関数とは呼びません。</p>
-  <div class="defbox"><p class="math">f : A → B</p>
-  <p>「f は A から B への関数」と読みます。条件は2つ：<strong>(i) A のどの元にも行き先がある</strong>、<strong>(ii) 行き先は1つだけ</strong>。行き先が重なる（2つの入力が同じ出力）のはOKです。y = f(x) の x を<strong>独立変数</strong>、y を<strong>従属変数</strong>ともいいます。</p></div>
-  <div class="trap"><b>④ よくある誤解</b>「出力が1つ」ではなく「<strong>入力1つに対して</strong>出力が1つ」です。また第1回では「関係が関数になる条件」として同じ話が再登場します。</div>
-
-  <h3 class="sec" id="c0-5">∀ と ∃ — 論理の記号の読み方</h3>
+  <h3 class="sec" id="c0-4">関数とは</h3>
   <div class="defbox">
-    <p class="math">∀x P(x) …「すべての x について P(x)」</p>
-    <p><span class="sym">∀</span> は All の A をひっくり返した形で「任意の／すべての」と読みます。</p>
-    <p class="math">∃x P(x) …「P(x) を満たす x が存在する」</p>
-    <p><span class="sym">∃</span> は Exist の E の鏡文字で「存在する／ある〜があって」と読みます。</p>
+    <p class="math">f : A → B …「A の各元に、B の元がちょうど1つ対応する」</p>
+    <p>条件は2つ：(i) A のどの元にも行き先がある、(ii) 行き先は1つだけ。</p>
   </div>
-  <p><span class="step-tag tag-ex">③ 具体例</span>　「∀a ∈ A, aRa」は「A のどの元 a についても aRa が成り立つ」。定義文でこの2記号が読めれば、講義の定義はほぼすべて「日本語の文」として読めます。</p>
-  <p><span class="step-tag" style="background:var(--teal-soft);color:var(--teal)">⑤ つながり</span>　次の第1回では、集合 A 上の「関係」を A×A の部分集合として定義します。つまりここまでの言葉（集合・部分集合・直積）がそっくりそのまま定義になります。</p>
+  <ul class="tight">
+    <li>行き先が重なる（f(a) = f(b)）のは可。</li>
+    <li>「行き先なし」と「行き先が2つ以上」はどちらも不可。</li>
+  </ul>
+  <div class="trap"><b>注意</b>　「出力が1つ」ではなく「入力1つに対して出力が1つ」。</div>
+
+  <h3 class="sec" id="c0-5">∀ と ∃ の読み方</h3>
+  <div class="defbox">
+    <p class="math">∀x P(x) …「すべての x について P(x)」／ ∃x P(x) …「P(x) を満たす x が存在する」</p>
+  </div>
+  <p class="calc">例：「∀a ∈ A, aRa」は「A のどの元 a でも aRa」。</p>
   <div class="prevnext"><a href="#map">← 目次<b>全体マップへ</b></a><a class="next" href="#ch1">次へ →<b>第1回 2項関係 1/2</b></a></div>
 </section>
 
 <!-- ================= 第1回 ================= -->
 <section class="chapter" id="ch1">
   <div class="ch-head"><div class="no">第1回 ・ 2項関係 1/2</div>
-  <h2>関係とは「つながりのリスト」である</h2>
-  <p>この回のゴール：関係を「ペアの集まり」として読み書きでき、逆関係・Dom／Range が求められ、「いつ関数になるか」を判定できること。</p></div>
+  <h2>関係とは「ペアの集まり」である</h2>
+  <p>ゴール：R⁻¹・Dom／Range を求め、関数になる条件を判定できる。</p></div>
   <div class="ch-toc"><b>この回の内容</b><ul>
-    <li><a href="#c1-1">関係の定義と aRb</a></li><li><a href="#c1-2">逆関係 R⁻¹ と R(a)</a></li><li><a href="#c1-3">空関係・全関係・恒等関係</a></li><li><a href="#c1-4">Dom と Range</a></li><li><a href="#c1-5">関係が関数になる条件</a></li><li><a href="#c1-ex">例題：演習16.1・16.2 の解き方</a></li>
+    <li><a href="#c1-1">関係の定義と aRb</a></li><li><a href="#c1-2">逆関係 R⁻¹ と R(a)</a></li><li><a href="#c1-3">空関係・全関係・恒等関係</a></li><li><a href="#c1-4">Dom と Range</a></li><li><a href="#c1-5">関係が関数になる条件</a></li><li><a href="#c1-ex">例題：演習16.1・16.2</a></li>
   </ul></div>
 
   <h3 class="sec" id="c1-1">関係の定義 — ペアの集まり</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>SNSの「フォロー」を思い浮かべてください。「太郎が花子をフォローしている」「花子が次郎をフォローしている」…という<strong>つながりの記録を全部集めたリスト</strong>、それが関係です。誰と誰がつながっているか、だけが情報です。</p>
   <div class="defbox">
-    <p class="math">R ⊆ A × B …「R は A から B への（二項）関係」</p>
-    <p>関係（かんけい）とは直積 A×B の<strong>部分集合</strong>、つまりペアの集まりのこと。A = B のとき「A 上の関係」といいます。3つの集合にまたがるものは<strong>3項関係</strong>、一般に<strong>n項関係</strong>です。</p>
-    <p class="math">(a, b) ∈ R ⇔ aRb</p>
-    <p>ペア (a,b) が R に含まれるとき、<span class="sym">aRb</span> とも書きます（読み方：「a アール b」／「a は b と関係 R にある」）。2つの書き方は同じ意味で、場面で使い分けます。</p>
+    <p class="math">R ⊆ A × B …「R は A から B への（二項）関係」／ (a, b) ∈ R ⇔ aRb</p>
+    <p>関係とは直積の部分集合のこと。A = B のとき「A 上の関係」という。</p>
   </div>
   <figure class="fig">
     <svg width="520" height="190" viewBox="0 0 520 190" role="img" aria-label="関係Rの矢印図">
@@ -397,84 +391,63 @@ body{margin:0}
       <path d="M110,108 C230,120 320,140 408,158" stroke="var(--teal)" stroke-width="2" fill="none" marker-end="url(#ar1)"/>
       <text x="260" y="20" text-anchor="middle" font-size="14" fill="var(--ink2)">R = {(a,a), (a,b), (b,c)} を矢印で描いた図</text>
     </svg>
-    <figcaption>左の集合から右の集合へ、ペアがあるところにだけ矢印を引く。これが<strong>矢印図（有向グラフ）</strong>で、関係を目で見る基本の方法です。この例では aRa、aRb、bRc が成り立ち、c からは矢印が出ていません。</figcaption>
+    <figcaption>R = {(a,a), (a,b), (b,c)} の矢印図。</figcaption>
   </figure>
 
-  <h3 class="sec" id="c1-2">逆関係 R⁻¹ — 矢印を全部逆向きにする</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>「フォローしている」の逆は「フォローされている」。すべてのつながりの<strong>向きをひっくり返したリスト</strong>が逆関係です。</p>
+  <h3 class="sec" id="c1-2">逆関係 R⁻¹ と R(a)</h3>
   <div class="defbox">
-    <p class="math">R⁻¹ = { (b, a) | (a, b) ∈ R }</p>
-    <p><span class="sym">R⁻¹</span> は「R の逆関係（ぎゃくかんけい）」と読みます。各ペアの前後を入れ替えるだけです。当然 (R⁻¹)⁻¹ = R（2回ひっくり返せば元通り）。</p>
-    <p class="math">R(a) = { b | aRb }</p>
-    <p><span class="sym">R(a)</span> は「a から矢印が届く相手の集まり」。a の<strong>像（ぞう）</strong>ともいいます。</p>
+    <p class="math">R⁻¹ = { (b, a) | (a, b) ∈ R } ／ R(a) = { b | aRb }</p>
+    <p>R⁻¹ は各ペアの前後を入れ替えた関係で、(R⁻¹)⁻¹ = R。R(a) は a から届く相手の集合（a の像）。</p>
   </div>
-  <div class="calc"><span class="step-tag tag-ex">③ 一歩ずつ</span>　講義の例：A = {a, b, c} 上の R = {(a,a), (a,b), (b,c)}。
-    <ol>
-      <li>各ペアを入れ替える：(a,a)→(a,a)、(a,b)→(b,a)、(b,c)→(c,b)。</li>
-      <li>よって <strong>R⁻¹ = {(a,a), (b,a), (c,b)}</strong>。</li>
-      <li>R(a) = {a, b}（a から出る矢印の先）、R(b) = {c}、R(c) = ∅（c からは何も出ない）。</li>
-    </ol>
-  </div>
-  <div class="calc"><span class="step-tag tag-ex">③ もう一つの講義例</span>　べき集合 2<sup>{a,b,c}</sup> 上の関係 <span class="sym">⊆</span>（部分集合である、という関係）も立派な関係です。たとえば {a} ⊆ {a,b} だから ({a}, {a,b}) がこの関係に含まれます。この関係の逆関係は <span class="sym">⊇</span>（含む）になります——「小さい側から大きい側へ」の矢印を逆にすると「大きい側から小さい側へ」になるからです。</div>
+  <p class="calc">例：R = {(a,a), (a,b), (b,c)} なら R⁻¹ = {(a,a), (b,a), (c,b)}、R(a) = {a, b}、R(c) = ∅。</p>
+  <div class="trap"><b>注意</b>　べき集合上の関係 ⊆ の逆関係は ⊇ になる。</div>
 
   <h3 class="sec" id="c1-3">3つの特別な関係</h3>
   <div class="defbox">
     <p class="math">空関係 ∅ ／ 全関係 A×A ／ 恒等関係 id<sub>A</sub> = { (a, a) | a ∈ A }</p>
-    <p>ペアが1つもない関係が<strong>空関係</strong>、ありうるペアが全部ある関係が<strong>全関係</strong>、自分自身へのペアだけを集めたものが<strong>恒等関係（こうとうかんけい）id</strong> です。id は第2回の「R⁰ = id」や閉包の話で何度も登場する重要人物です。</p>
+    <p>id は第2回の R⁰ = id や閉包で繰り返し使う。</p>
   </div>
 
-  <h3 class="sec" id="c1-4">Dom と Range — 出発点と到着点の集まり</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>矢印図で、<strong>矢印が出ている駅の全体</strong>が Dom、<strong>矢印が着いている駅の全体</strong>が Range です。</p>
+  <h3 class="sec" id="c1-4">Dom と Range</h3>
   <div class="defbox">
     <p class="math">Dom(R) = { a | ∃b, aRb }、Range(R) = { b | ∃a, aRb }</p>
-    <p><span class="sym">Dom(R)</span> は「定義域（ていぎいき）」、<span class="sym">Range(R)</span> は「値域（ちいき）」と読みます。∃（存在する）が効いていて、「相方が1つでもいれば入る」という意味です。</p>
+    <p>Dom は矢印が出ている元の全体（定義域）、Range は矢印が着く元の全体（値域）。</p>
   </div>
-  <p><span class="step-tag tag-ex">③ 具体例</span>　R = {(a,a), (a,b), (b,c)}（A={a,b,c}）なら、Dom(R) = {a, b}（c からは矢印が出ていない）、Range(R) = {a, b, c}。なお Dom(R⁻¹) = Range(R) のように、逆関係ではこの2つが入れ替わります。</p>
+  <p class="calc">例：R = {(a,a), (a,b), (b,c)} なら Dom(R) = {a, b}、Range(R) = {a, b, c}。</p>
+  <div class="trap"><b>注意</b>　逆関係では入れ替わる：Dom(R⁻¹) = Range(R)。</div>
 
   <h3 class="sec" id="c1-5">関係が関数になる条件</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>第0章の自販機の話を矢印図で言い直すと：<strong>「すべての出発点から矢印が出ていて、しかも各出発点からの矢印はちょうど1本」</strong>。これを満たす関係が関数です。</p>
   <div class="defbox"><p class="math">R が関数 ⇔ ∀a ∈ A に対して、aRb となる b がちょうど1つ存在する</p>
-  <p>チェックは2段階：(i) Dom(R) = A か（矢印のない元はないか）、(ii) 1つの a から2本以上矢印が出ていないか。どちらかが崩れれば関数ではありません。</p></div>
-  <div class="trap"><b>④ よくある誤解</b>「行き先が重なる」のは違反ではありません。f(a)=f(b)=c のような「2人から同じ相手へ」はOK。ダメなのは「1人から2人へ」と「誰にも行かない人がいる」場合です。</div>
+  <p>判定は2点：(i) Dom(R) = A か、(ii) 1つの a から2本以上出ていないか。</p></div>
+  <div class="trap"><b>注意</b>　行き先の重なり（f(a) = f(b)）は違反ではない。</div>
 
   <details class="ex" id="c1-ex">
-    <summary>例題で確認：演習16.1・16.2 の解き方<span class="open-hint">開いて読む ▾</span></summary>
+    <summary>例題：演習16.1・16.2<span class="open-hint">開いて読む ▾</span></summary>
     <div class="body">
-      <div class="q"><strong>演習16.1</strong>　A = {a, b, c} とする。べき集合 2<sup>A</sup> の中で、(1) a を含む集合すべての集まり、(2) a を含まない集合すべての集まり、を求めよ。</div>
-      <p><b>考え方</b>：まず 2<sup>A</sup> の元は8個：∅, {a}, {b}, {c}, {a,b}, {a,c}, {b,c}, {a,b,c}。あとは「a が入っているか」で仕分けるだけです。各元 {b},{c} の運命は a とは無関係に自由なので、各グループは 2² = 4 個ずつになります。</p>
-      <div class="ans"><p><b class="lab">解答</b></p>
-      <p>(1) <span class="math">{{a}, {a,b}, {a,c}, {a,b,c}}</span><br>(2) <span class="math">{∅, {b}, {c}, {b,c}}</span></p>
-      <p>ポイント：2<sup>A</sup> の元は「集合の集合」なので、外側の { } の中に {a} のような集合が並びます。{a} と a を混同しないこと。</p></div>
-      <div class="q"><strong>演習16.2</strong>　実数上の関係 y = x²、y = |x|、y = 2x+3、y = log x について、それぞれ<strong>逆関係</strong>は関数になるか？</div>
-      <p><b>考え方</b>：逆関係が関数かどうかは、「逆向きにしたとき、入力1つに出力が2つ以上ぶら下がらないか」を見る問題。元の関係で言い換えると「同じ y に対して x が2つ以上あるか」と同じことです。</p>
-      <div class="ans"><p><b class="lab">解答</b></p>
-      <ul class="tight">
-        <li><b>y = x²</b>：y = 4 に対して x = 2 と x = −2 の2つがある → 逆関係で 4 の行き先が2つ → <strong>関数でない</strong>。</li>
-        <li><b>y = |x|</b>：y = 1 に対して x = 1 と −1 → 同じ理由で<strong>関数でない</strong>。</li>
-        <li><b>y = 2x+3</b>：x = (y−3)/2 と一意に解ける → 逆関係も<strong>関数である</strong>。</li>
-        <li><b>y = log x</b>：逆関係は x = e<sup>y</sup>（指数関数）→ <strong>関数である</strong>。</li>
-      </ul>
-      <p>合言葉：<strong>「逆が関数でない ＝ 1つの入力（y）に相手（x）が2つ」</strong>。グラフでいえば、横向きの直線が2点で交わるかどうか（水平線テスト）でも判定できます。</p></div>
+      <div class="q"><strong>演習16.1</strong>　A = {a, b, c}。2<sup>A</sup> の中で、(1) a を含む集合全体、(2) a を含まない集合全体を求めよ。</div>
+      <p><b>考え方</b>：2<sup>A</sup> の8元を「a を含むか」で仕分けるだけ。各グループは 2² = 4 個。</p>
+      <div class="ans"><p><b class="lab">解答</b>　(1) {{a}, {a,b}, {a,c}, {a,b,c}}　(2) {∅, {b}, {c}, {b,c}}</p></div>
+      <div class="q"><strong>演習16.2</strong>　y = x²、y = |x|、y = 2x+3、y = log x の逆関係は関数になるか？</div>
+      <p><b>考え方</b>：逆関係が関数でない ⇔ 同じ y に対して x が2つ以上ある。</p>
+      <div class="ans"><p><b class="lab">解答</b>　x²：y=4 で x=±2 → 関数でない。|x|：y=1 で x=±1 → 関数でない。2x+3：x=(y−3)/2 と一意 → 関数。log x：逆は e<sup>y</sup> → 関数。</p></div>
     </div>
   </details>
-  <p><span class="step-tag" style="background:var(--teal-soft);color:var(--teal)">⑤ つながり</span>　次回は関係を2つつなぐ「合成」を学びます。逆関係 R⁻¹ は合成の公式 (S∘R)⁻¹ = R⁻¹∘S⁻¹ で再登場します。</p>
   <div class="prevnext"><a href="#ch0">← 前へ<b>第0章 超入門</b></a><a class="next" href="#ch2">次へ →<b>第2回 2項関係 2/2</b></a></div>
 </section>
 
 <!-- ================= 第2回 ================= -->
 <section class="chapter" id="ch2">
   <div class="ch-head"><div class="no">第2回 ・ 2項関係 2/2</div>
-  <h2>合成は「乗り継ぎ」、閉包は「届く範囲すべて」</h2>
-  <p>ゴール：合成 S∘R を「真ん中の元探し」で計算でき、冪 Rⁿ、推移閉包 R⁺、反射推移閉包 R* を具体的に求められること。</p></div>
+  <h2>合成と閉包</h2>
+  <p>ゴール：S∘R、Rⁿ、R⁺、R* を計算できる。</p></div>
   <div class="ch-toc"><b>この回の内容</b><ul>
-    <li><a href="#c2-1">合成 S∘R</a></li><li><a href="#c2-2">結合法と逆関係の公式</a></li><li><a href="#c2-3">冪 Rⁿ と R⁰ = id</a></li><li><a href="#c2-4">R⁺ と R*（閉包）</a></li><li><a href="#c2-5">講義例を全部計算する</a></li>
+    <li><a href="#c2-1">合成 S∘R</a></li><li><a href="#c2-2">結合法と逆関係の公式</a></li><li><a href="#c2-3">冪 Rⁿ</a></li><li><a href="#c2-4">R⁺ と R*</a></li><li><a href="#c2-5">計算例</a></li>
   </ul></div>
 
-  <h3 class="sec" id="c2-1">合成 S∘R — 電車の乗り継ぎ</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>「東京 →（JRで）→ 横浜 →（私鉄で）→ 鎌倉」。2つの路線をつないで1本の旅程にするのが合成です。ポイントは<strong>乗り換え駅（真ん中の元）</strong>が存在すること。</p>
+  <h3 class="sec" id="c2-1">合成 S∘R</h3>
   <div class="defbox">
     <p class="math">S ∘ R = { (a, c) | ∃b, aRb かつ bSc }</p>
-    <p><span class="sym">S∘R</span> は「S 合成 R」と読み、<strong>先に R、次に S</strong> の順にたどります（関数の合成 f(g(x)) と同じ向きの約束）。「∃b」が心臓部で、「真ん中の b が（1つでも）存在すれば (a,c) を入れる」という定義です。</p>
+    <p>先に R、次に S の順にたどる。「真ん中の元 b が存在する」ことが条件。</p>
   </div>
   <figure class="fig">
     <svg width="520" height="150" viewBox="0 0 520 150" role="img" aria-label="合成の乗り継ぎ図">
@@ -489,73 +462,61 @@ body{margin:0}
       <path d="M70,115 C180,145 340,145 450,115" stroke="var(--amber)" stroke-width="2" stroke-dasharray="6 4" fill="none" marker-end="url(#ar2)"/>
       <text x="260" y="143" text-anchor="middle" font-size="14" fill="var(--amber)" font-weight="bold">合成の結果：(a, c) ∈ S∘R</text>
     </svg>
-    <figcaption>a →R→ b →S→ c と乗り継げるとき、(a, c) が合成 S∘R のペアになります。計算手順は「すべての a について R の行き先を列挙し、その各々から S で行ける先を列挙する」だけです。</figcaption>
+    <figcaption>a →R→ b →S→ c のとき (a, c) ∈ S∘R。</figcaption>
   </figure>
-  <div class="trap"><b>④ 最大のひっかけ：合成の向き</b>S∘R なのに「先に R」。なぜこの順かというと、関数の書き方 f(g(x))（先に g を適用）を関係に引き継いだためです。「∘ の<strong>右側から</strong>たどる」と覚えてください。順序を逆にすると答えが変わります。</div>
+  <div class="trap"><b>注意</b>　S∘R なのに先に R（∘ の右側からたどる）。向きを逆にすると答えが変わる。</div>
 
   <h3 class="sec" id="c2-2">結合法と、逆関係の公式</h3>
   <div class="defbox">
     <p class="math">T ∘ (S ∘ R) = (T ∘ S) ∘ R … 結合法則</p>
-    <p class="math">(S ∘ R)⁻¹ = R⁻¹ ∘ S⁻¹ … 逆関係では順序もひっくり返る</p>
-    <p>2つ目の公式は「靴下を履いて靴を履いたら、脱ぐときは逆順」というあの原則です。旅程全体を逆向きにたどるには、各区間を逆向きにし、かつ区間の順序も逆にしなければなりません。</p>
+    <p class="math">(S ∘ R)⁻¹ = R⁻¹ ∘ S⁻¹ … 逆関係では順序も逆になる</p>
   </div>
-  <p>また関係どうしの<strong>和集合 R∪S</strong>（どちらかの矢印があれば引く）や<strong>共通部分 R∩S</strong>（両方の矢印があるときだけ引く）も、ペアの集まりとして普通の集合演算で定義されます。</p>
+  <ul class="tight">
+    <li>和集合 R∪S、共通部分 R∩S もペアの集合演算として定義される。</li>
+  </ul>
 
-  <h3 class="sec" id="c2-3">冪 Rⁿ — n回乗り継ぎ</h3>
+  <h3 class="sec" id="c2-3">冪 Rⁿ</h3>
   <div class="defbox">
     <p class="math">R¹ = R、R² = R∘R、R³ = R∘R∘R、…、R⁰ = id</p>
-    <p><span class="sym">Rⁿ</span> は「R の n 乗／n回合成」。R² のペア (a,c) は「R を<strong>ちょうど2回</strong>乗り継いで a から c へ行ける」という意味です。R⁰ は「0回移動＝その場にいる」なので恒等関係 id になります。</p>
+    <p>(a,c) ∈ Rⁿ ⇔ R をちょうど n 回たどる長さ n のパスが a から c へ存在する（定理3.2）。</p>
   </div>
 
   <h3 class="sec" id="c2-4">推移閉包 R⁺ ／ 反射推移閉包 R*</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>乗り継ぎ回数を「何回でもよい」にしたとき、a から届く駅のすべて——それが閉包の発想です。「友達の友達の友達…」とたどれる人全員、と思ってもらっても構いません。</p>
   <div class="defbox">
-    <p class="math">R⁺ = R ∪ R² ∪ R³ ∪ … （1回以上の乗り継ぎで届く範囲）</p>
-    <p class="math">R* = R⁺ ∪ id = R⁰ ∪ R¹ ∪ R² ∪ … （自分自身も含める）</p>
-    <p><span class="sym">R⁺</span> は<strong>推移閉包（すいいへいほう）</strong>、<span class="sym">R*</span> は<strong>反射推移閉包（はんしゃすいいへいほう）</strong>と読みます。R* は「0回移動」も許すぶん、必ず (a,a) を含みます。</p>
-    <p class="math">定理3.2：(a, b) ∈ Rⁿ ⇔ a から b へ長さ n のパス（道）が存在する</p>
-    <p>つまり Rⁿ の計算は「長さ n の道を全部数える」ことと等しい、という橋渡し定理です。</p>
+    <p class="math">R⁺ = R ∪ R² ∪ R³ ∪ … ／ R* = R⁺ ∪ id = R⁰ ∪ R¹ ∪ R² ∪ …</p>
+    <p>R⁺ は1回以上で届く範囲、R* は0回（自分自身）も含む範囲。</p>
   </div>
+  <div class="trap"><b>注意</b>　R⁺ と R* の差は (a,a) を入れるかどうかだけ。</div>
 
-  <h3 class="sec" id="c2-5">講義例を、全部計算してみる</h3>
-  <div class="calc"><span class="step-tag tag-ex">③ 一歩ずつ</span>　A = {a, b, c}、<strong>R = {(a,b), (a,c), (b,c)}</strong>（矢印：a→b、a→c、b→c）として、R²、R³、R⁺、R* を求めます。
-  <ol>
-    <li><strong>R²</strong>：「真ん中」を探します。a→b→c が唯一の2段乗り継ぎ（a→c の先には何もない、b→c の先にも何もない）。よって <strong>R² = {(a,c)}</strong>。</li>
-    <li><strong>R³</strong> = R²∘R：(a,c) の先 c からは矢印が出ないので、3段の道は存在せず <strong>R³ = ∅</strong>。以降 R⁴, R⁵, … もすべて ∅ です。</li>
-    <li><strong>R⁺</strong> = R ∪ R² ∪ R³ ∪ … = {(a,b), (a,c), (b,c)} ∪ {(a,c)} = <strong>{(a,b), (a,c), (b,c)}</strong>（今回は R と一致）。</li>
-    <li><strong>R*</strong> = R⁺ ∪ id = <strong>{(a,b), (a,c), (b,c), (a,a), (b,b), (c,c)}</strong>。</li>
+  <h3 class="sec" id="c2-5">計算例</h3>
+  <div class="calc">A = {a, b, c}、R = {(a,b), (a,c), (b,c)} とする。
+  <ol class="tight">
+    <li>R²：2段の道 a→b→c のみ → R² = {(a,c)}。</li>
+    <li>R³：3段の道なし → R³ = ∅（以降も ∅）。</li>
+    <li>R⁺ = R ∪ R² = {(a,b), (a,c), (b,c)}、R* = R⁺ ∪ id = {(a,b), (a,c), (b,c), (a,a), (b,b), (c,c)}。</li>
   </ol>
-  行列風にまとめると、どのペアが何回で届くか一目瞭然です（数字＝必要な乗り継ぎ回数、0 は自分自身、× は届かない）：
-  <table class="mat" aria-label="到達回数表">
-    <tr><th>出発＼到着</th><th>a</th><th>b</th><th>c</th></tr>
-    <tr><th>a</th><td class="on">0回（R*のみ）</td><td class="on">1回</td><td class="on">1回・2回</td></tr>
-    <tr><th>b</th><td>×</td><td class="on">0回（R*のみ）</td><td class="on">1回</td></tr>
-    <tr><th>c</th><td>×</td><td>×</td><td class="on">0回（R*のみ）</td></tr>
-  </table>
   </div>
-  <div class="trap"><b>④ よくある誤解</b>R⁺ と R* の違いは「自分自身 (a,a) を入れるかどうか」だけです。また、R² は「R のペアを2回使う」のであって「同じペアを2回」ではありません。真ん中の元は毎回探し直します。</div>
-  <p><span class="step-tag" style="background:var(--teal-soft);color:var(--teal)">⑤ つながり</span>　R* は第6回で「反射推移閉包 rt(R) = R*」として再登場します。ここで計算に慣れておくと第6回が一気に楽になります。</p>
   <div class="prevnext"><a href="#ch1">← 前へ<b>第1回 2項関係 1/2</b></a><a class="next" href="#ch3">次へ →<b>第3回 同値関係 1/2</b></a></div>
 </section>
 
 <!-- ================= 第3回 ================= -->
 <section class="chapter" id="ch3">
   <div class="ch-head"><div class="no">第3回 ・ 同値関係 1/2</div>
-  <h2>同値関係 ＝「同じグループ分け」のルール</h2>
-  <p>ゴール：反射・対称・推移の3条件を自分の言葉で説明でき、同値類 [a] と商集合 A/R を具体的に書き出せること。</p></div>
+  <h2>同値関係 ＝ グループ分けのルール</h2>
+  <p>ゴール：3条件を判定し、[a] と A/R を書き出せる。</p></div>
   <div class="ch-toc"><b>この回の内容</b><ul>
-    <li><a href="#c3-1">3つの性質：反射・対称・推移</a></li><li><a href="#c3-2">同値類 [a]</a></li><li><a href="#c3-3">定理3.4と分割・商集合</a></li><li><a href="#c3-4">mod m 合同</a></li><li><a href="#c3-ex">例題：演習18.1〜18.3 の考え方</a></li>
+    <li><a href="#c3-1">反射・対称・推移</a></li><li><a href="#c3-2">同値類 [a]</a></li><li><a href="#c3-3">定理3.4と分割・商集合</a></li><li><a href="#c3-4">mod m 合同</a></li><li><a href="#c3-ex">例題：演習18.1〜18.3</a></li>
   </ul></div>
 
-  <h3 class="sec" id="c3-1">反射・対称・推移 — グループ分けの3条件</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>「同じクラスである」という関係を考えてください。(i) 自分は自分と同じクラス（当たり前）、(ii) 私があなたと同じクラスなら、あなたも私と同じクラス、(iii) 私とあなた、あなたと彼が同じクラスなら、私と彼も同じクラス。この3つが成り立つ関係は、クラスという<strong>「きれいなグループ分け」</strong>を生みます。</p>
+  <h3 class="sec" id="c3-1">反射・対称・推移</h3>
   <div class="defbox">
-    <p class="math">反射的：∀a, aRa</p>
-    <p class="math">対称的：∀a,b, aRb ⇒ bRa</p>
-    <p class="math">推移的：∀a,b,c, aRb かつ bRc ⇒ aRc</p>
-    <p class="math">同値関係 ＝ 反射的 ＋ 対称的 ＋ 推移的 な関係</p>
-    <p>1つでも欠けると「グループ分け」としては破綻します。対称でない関係（例：フォロー）はグループにならず、推移でない関係（例：「友達である」は友達の友達が友達とは限らない）もグループになりません。</p>
+    <p class="math">反射的：∀a, aRa ／ 対称的：aRb ⇒ bRa ／ 推移的：aRb かつ bRc ⇒ aRc</p>
+    <p class="math">同値関係 ＝ 反射的 ＋ 対称的 ＋ 推移的</p>
   </div>
+  <ul class="tight">
+    <li>1つでも欠ければ同値関係ではない（反例1つで判定終了）。</li>
+    <li>対称でない例：フォロー関係。推移でない例：「友達である」。</li>
+  </ul>
   <figure class="fig">
     <svg width="520" height="170" viewBox="0 0 520 170" role="img" aria-label="同値類のグループ図">
       <ellipse cx="130" cy="85" rx="105" ry="62" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="1.5"/>
@@ -569,155 +530,125 @@ body{margin:0}
       <text x="130" y="162" text-anchor="middle" font-size="13.5" fill="var(--ink2)">[1] = {1, 4, 7, …}（3で割ると余り1）</text>
       <text x="390" y="162" text-anchor="middle" font-size="13.5" fill="var(--ink2)">[2] = {2, 5, 8, …}（余り2）</text>
     </svg>
-    <figcaption>同値関係は全体を「重ならないグループ」にきれいに分けます。グループ同士は交わらず、全部集めると元の集合に戻ります。</figcaption>
+    <figcaption>同値類は互いに重ならず、全体を覆う。</figcaption>
   </figure>
 
-  <h3 class="sec" id="c3-2">同値類 [a] — グループの名簿</h3>
+  <h3 class="sec" id="c3-2">同値類 [a]</h3>
   <div class="defbox">
     <p class="math">[a] = { b | aRb } ＝ R(a)</p>
-    <p><span class="sym">[a]</span> は「a の同値類（どうちるい）」と読み、a と関係のある元すべての集まり、つまり<strong>a が所属するグループの名簿</strong>そのものです。第1回の R(a) と定義は同じで、「関係が同値関係のときは特別に [a] と書く」と思えばOKです。a をその類の<strong>代表元</strong>といいますが、代表は誰でもよく、[a] = [b]（a と b が同じグループなら名簿は同一）となります。</p>
+    <p>a と関係する元全体、つまり a の属するグループ。a はその代表元で、同じグループなら [a] = [b]。</p>
   </div>
 
   <h3 class="sec" id="c3-3">定理3.4・分割・商集合</h3>
   <div class="defbox">
-    <p class="math">定理3.4：任意の a, b について、[a] = [b] か [a] ∩ [b] = ∅ のどちらか。そして全ての同値類の和集合は A 全体。</p>
-    <p>つまり同値類は「<strong>完全に一致するか、まったく重ならないか</strong>」のどちらかで、しかも全体を漏れなく覆います。このような分け方を<strong>分割（ぶんかつ）</strong>といい、「同値関係」と「分割」は同じものの裏表です。</p>
+    <p class="math">定理3.4：[a] = [b] か [a] ∩ [b] = ∅ のどちらかで、同値類の和集合は A 全体</p>
     <p class="math">A/R = { [a] | a ∈ A } … 商集合</p>
-    <p><span class="sym">A/R</span> は「A 割る R」と読み、<strong>グループそのものを元として集めた集合</strong>です。「クラス名簿の一覧表」が商集合です。</p>
+    <p>同値類による重ならない分け方が分割で、「同値関係」と「分割」は1対1に対応する。A/R はグループそのものを集めた集合。</p>
   </div>
+  <div class="trap"><b>注意</b>　A/R の元の個数は「グループの数」であって、A の元の個数ではない。</div>
 
-  <h3 class="sec" id="c3-4">mod m 合同 — 「余りが同じ」という同値関係</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>時計は mod 12 の世界です。13時と1時は「12で割った余りが同じ」ので同じ位置を指します。「余りでグループ分けする」のが合同の発想です。</p>
+  <h3 class="sec" id="c3-4">mod m 合同</h3>
   <div class="defbox">
     <p class="math">a ≡ b (mod m) ⇔ m | (a − b) ⇔ a と b を m で割った余りが等しい</p>
-    <p><span class="sym">≡</span> は合同（ごうどう）の記号で「a コングルエント b モッド m」と読みます。≡<sub>m</sub> と書くこともあります。これは同値関係です（反射：余りは自分と同じ／対称：明らか／推移：余りが同じもの同士は同じ）。</p>
+    <p>≡<sub>m</sub> は同値関係。類を剰余類という。</p>
   </div>
-  <div class="calc"><span class="step-tag tag-ex">③ 一歩ずつ</span>　m = 3 で整数を仕分けします。余りは 0, 1, 2 の3通りしかないので、グループも3つ：
-  <ul class="tight">
-    <li>[0] = {…, −3, 0, 3, 6, 9, …}（3の倍数）</li>
-    <li>[1] = {…, −2, 1, 4, 7, 10, …}</li>
-    <li>[2] = {…, −1, 2, 5, 8, 11, …}</li>
-  </ul>
-  確認：7 ∈ [1] なのは 7 = 3×2 + 1 と余り1だから。[7] と書いても [1] と同じ名簿です（7≡1 mod 3）。</div>
+  <p class="calc">例（m=3）：[0] = {…, −3, 0, 3, 6, …}、[1] = {…, −2, 1, 4, 7, …}、[2] = {…, −1, 2, 5, 8, …}。[7] = [1]。</p>
 
   <details class="ex" id="c3-ex">
-    <summary>例題で確認：演習18.1〜18.3 の考え方<span class="open-hint">開いて読む ▾</span></summary>
+    <summary>例題：演習18.1〜18.3<span class="open-hint">開いて読む ▾</span></summary>
     <div class="body">
-      <div class="q"><strong>演習18 の共通テーマ</strong>：与えられた関係が同値関係か判定し、同値類と商集合を求める。</div>
-      <p><b>考え方（手順）</b></p>
-      <ol class="tight">
-        <li><strong>3条件チェック</strong>：反射（自分自身とのペアは常にあるか）→ 対称（矢印は常に戻れるか）→ 推移（2段乗り継ぎでショートカットがあるか）。1つ反例を見つければ「同値関係でない」で終了です。反例探しは小さい元から試すのがコツ。</li>
-        <li><strong>同値類を書き出す</strong>：まだ名簿に入っていない一番小さい元を代表に取り、その元と関係のあるものを全部集めて1グループ。尽きるまで繰り返します（定理3.4のおかげで、重なりを心配しなくてよい）。</li>
-        <li><strong>商集合にまとめる</strong>：できたグループを { } で包んで並べれば A/R の完成。</li>
-      </ol>
-      <div class="ans"><p><b class="lab">解答の型（≡₃ の場合）</b></p>
-      <p><span class="math">Z/≡₃ = { [0], [1], [2] }</span>、各類は上の③で書き出した通り。商集合の元は「数」ではなく「グループ（集合）」である点に注意——だから外側にもう一段 { } が付きます。</p></div>
+      <div class="q"><strong>演習18 の型</strong>：関係が同値関係か判定し、同値類と商集合を求める。</div>
+      <p><b>考え方</b>：反射→対称→推移の順に反例を探し、同値類は未処理の最小元から書き出す。</p>
+      <div class="ans"><p><b class="lab">解答の型</b>　Z/≡₃ = { [0], [1], [2] }。商集合の元は数ではなくグループ（集合）なので、外側にもう一段 { } が付く。</p></div>
     </div>
   </details>
-  <div class="trap"><b>④ よくある誤解</b>[a] は「a を含む集合」ではありますが、[a] の中身は a だけではありません。また商集合 A/R の元の個数は、元の集合 A の元の個数ではなく「グループの数」です（≡₃ なら無限の整数がたった3グループ）。</div>
   <div class="prevnext"><a href="#ch2">← 前へ<b>第2回 2項関係 2/2</b></a><a class="next" href="#ch4">次へ →<b>第4回 同値関係 2/2</b></a></div>
 </section>
 
 <!-- ================= 第4回 ================= -->
 <section class="chapter" id="ch4">
   <div class="ch-head"><div class="no">第4回 ・ 同値関係 2/2 ＋ 半順序</div>
-  <h2>細分でグループを割り、半順序で「比べられない」を許す</h2>
-  <p>ゴール：剰余類 Z/≡<sub>m</sub> の構造と「負の数を作る」同値関係が分かり、細分と半順序／全順序の違いを説明できること。</p></div>
+  <h2>細分と半順序</h2>
+  <p>ゴール：剰余類・細分・半順序／全順序を説明できる。</p></div>
   <div class="ch-toc"><b>この回の内容</b><ul>
     <li><a href="#c4-1">剰余類 Z/≡_m</a></li><li><a href="#c4-2">N×N で負の数を「作る」</a></li><li><a href="#c4-3">細分</a></li><li><a href="#c4-4">半順序と全順序</a></li><li><a href="#c4-ex">例題：演習19.2</a></li>
   </ul></div>
 
-  <h3 class="sec" id="c4-1">剰余類 Z/≡<sub>m</sub> — 余りのグループの正式名</h3>
+  <h3 class="sec" id="c4-1">剰余類 Z/≡<sub>m</sub></h3>
   <div class="defbox">
-    <p class="math">Z/≡<sub>m</sub> = { [0], [1], …, [m−1] }（m 個の類）</p>
-    <p>≡<sub>m</sub> による同値類を<strong>剰余類（じょうよるい）</strong>と呼びます。「整数全体を m で割った余りで仕分ける」と、無限の整数が<strong>ちょうど m 個のグループ</strong>に収まります。第3回の ≡₃ はその m=3 の場合でした。</p>
+    <p class="math">Z/≡<sub>m</sub> = { [0], [1], …, [m−1] }（ちょうど m 個の類）</p>
+    <p>整数全体を m で割った余りで分けると、類は m 個で尽きる。</p>
   </div>
 
-  <h3 class="sec" id="c4-2">N×N の同値関係 — 負の数を「作る」話</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>自然数（0,1,2,…）の世界には「−2」がありません。でも「3 − 5」のような<strong>引き算の“つもり”をペアで表す</strong>ことはできます。(a, b) を「a − b のつもり」と読む約束にすると、(1, 3) も (4, 6) も (0, 2) も、すべて「−2 のつもり」です。</p>
+  <h3 class="sec" id="c4-2">N×N の同値関係 — 負の数の構成</h3>
   <div class="defbox">
     <p class="math">(a, b) ∼ (c, d) ⇔ a + d = b + c</p>
-    <p>この ∼ は N×N 上の同値関係です。条件 a+d = b+c は「a−b = c−d（引き算が同じ）」を、負の数を使わずに言い換えたものです。同値類 [(1,3)] が、数学的には<strong>整数 −2 そのもの</strong>として扱われます。商集合 (N×N)/∼ が整数の集合 Z の「設計図」になっている、という壮大な話の入口です。</p>
+    <p>(a, b) を「a − b のつもり」と読む同値関係で、同値類が整数そのものになる（例：[(1,3)] が −2）。商集合 (N×N)/∼ が Z の構成になる。</p>
   </div>
-  <div class="calc"><span class="step-tag tag-ex">③ 確認</span>　(1,3) ∼ (4,6) か？ a+d = 1+6 = 7、b+c = 3+4 = 7 で等しい → 同じ類（どちらも −2）。(2,5) は？ 2+6=8 ≠ 3+4=7 → 別々の類（−3 の側）。</div>
+  <p class="calc">例：(1,3) ∼ (4,6) ⇔ 1+6 = 3+4 = 7 → 同じ類（−2）。(2,5) は 2+6 ≠ 3+4 → 別の類。</p>
 
-  <h3 class="sec" id="c4-3">細分 — グループをより細かく割る</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>「学年で分ける」より「クラスで分ける」ほうが細かい。同じ全体を分ける2つの方法について、<strong>片方のグループがもう片方のグループの中にすっぽり収まっている</strong>とき、「より細かい」＝細分といいます。</p>
+  <h3 class="sec" id="c4-3">細分</h3>
   <div class="defbox">
     <p class="math">分割 P が分割 Q の細分 ⇔ P の各ブロックが Q のあるブロックに含まれる</p>
-    <p>同値関係の言葉では「関係が小さい（ペアが少ない）ほど類は細かく」なります。例：<strong>≡₆ は ≡₂ の細分</strong>。6で割った余りが同じ2数は、2で割った余りも当然同じだからです。([0]₆ ⊆ [0]₂、[1]₆ ⊆ [1]₂、[2]₆ ⊆ [0]₂、…のように6個の類が2個の類に分配されます。)</p>
     <p class="math">≡<sub>mn</sub> = ≡<sub>m</sub> ∩ ≡<sub>n</sub></p>
-    <p>「mn で割って余りが同じ」は「m でも n でも余りが同じ」と同等、という形で、共通部分 ∩ が「両方の条件を課す＝より細かい関係」に対応します。</p>
+    <p>関係が小さい（ペアが少ない）ほど類は細かい。</p>
   </div>
+  <p class="calc">例：≡₆ は ≡₂ の細分（6で割って余りが同じなら、2で割っても同じ）。</p>
 
-  <h3 class="sec" id="c4-4">半順序 — 比べられないペアがあってよい</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>社内の「上司である」関係や、単位の「前提科目である」関係では、<strong>横並びで上下を比べられないペア</strong>が普通にあります。それでも「順序っぽい」構造はあります。それを切り取ったのが半順序です。</p>
+  <h3 class="sec" id="c4-4">半順序と全順序</h3>
   <div class="defbox">
-    <p class="math">半順序 ＝ 反射的 ＋ 反対称的 ＋ 推移的</p>
-    <p class="math">反対称的：aRb かつ bRa ⇒ a = b</p>
-    <p><span class="sym">反対称</span>は対称の対極：「両向きに矢印があるのは、自分自身への矢印だけ」という条件です。半順序は通常 ≤ の字で書き、(A, ≤) を<strong>半順序集合</strong>といいます。</p>
+    <p class="math">半順序 ＝ 反射的 ＋ 反対称的 ＋ 推移的（反対称的：aRb かつ bRa ⇒ a = b）</p>
     <p class="math">全順序 ＝ 半順序 ＋ 任意の a, b が比較可能</p>
-    <p>a と b について a ≤ b か b ≤ a の<strong>少なくとも一方が必ず</strong>成り立つ半順序が<strong>全順序</strong>（数直線の ≤ が代表）。半順序で a ≤ b も b ≤ a も成り立たないとき、a と b は<strong>比較不可能</strong>といいます。</p>
+    <p>半順序は ≤ で書き、(A, ≤) を半順序集合という。a ≤ b も b ≤ a も成り立たないとき a, b は比較不可能。</p>
   </div>
-  <p><span class="step-tag tag-ex">③ 具体例</span>　集合の包含 ⊆ は半順序です：{a} と {b} はどちらも他方を含まないので比較不可能。だから ⊆ は（大きな集合については）全順序ではありません。一方、普通の数の ≤ は全順序です。</p>
+  <p class="calc">例：包含 ⊆ は半順序だが、{a} と {b} が比較不可能なので全順序ではない。数の ≤ は全順序。</p>
+  <div class="trap"><b>注意</b>　「半」は「部分的（partial）」の意味。反対称は「対称でない」とは別物。</div>
 
   <details class="ex" id="c4-ex">
-    <summary>例題で確認：演習19.2 の考え方<span class="open-hint">開いて読む ▾</span></summary>
+    <summary>例題：演習19.2<span class="open-hint">開いて読む ▾</span></summary>
     <div class="body">
-      <div class="q"><strong>演習19.2</strong>　べき集合 2<sup>A</sup> 上の包含関係 ⊆ は半順序か？ 全順序になるのはどんな A か？</div>
-      <p><b>考え方</b>：(i) 反射：どの集合 X も X ⊆ X。(ii) 反対称：X ⊆ Y かつ Y ⊆ X なら X = Y（集合の相等そのもの）。(iii) 推移：X ⊆ Y、Y ⊆ Z なら X ⊆ Z。よって ⊆ は常に半順序です。全順序かどうかは「比較不可能なペアを作れるか」で決まります。</p>
-      <div class="ans"><p><b class="lab">解答</b></p>
-      <p>|A| ≥ 2 なら、A の元 a ≠ b に対して {a} と {b} が比較不可能なので全順序ではない。逆に <strong>|A| ≤ 1 のとき全順序になる</strong>：|A| = 0 なら 2<sup>A</sup> = {∅} で1元のみ、|A| = 1 なら 2<sup>A</sup> = {∅, A} で ∅ ⊆ A と鎖状に並びます。</p></div>
+      <div class="q"><strong>演習19.2</strong>　2<sup>A</sup> 上の ⊆ は半順序か？ 全順序になるのはどんな A か？</div>
+      <p><b>考え方</b>：反射・反対称・推移は集合の性質から直ちに従う。全順序性は比較不可能なペアが作れるかで決まる。</p>
+      <div class="ans"><p><b class="lab">解答</b>　⊆ は常に半順序。全順序になるのは |A| ≤ 1 のときのみ（|A| ≥ 2 では {a} と {b} が比較不可能）。</p></div>
     </div>
   </details>
-  <div class="trap"><b>④ よくある誤解</b>「半」は「半分」という意味ではなく「部分的に（partially）順序が付いている」という意味（英語の partial order の訳）です。また反対称と「対称でない」は別物：反対称は a≠b のペアに両向き矢印が<strong>決して</strong>ないこと、を要求します。</div>
   <div class="prevnext"><a href="#ch3">← 前へ<b>第3回 同値関係 1/2</b></a><a class="next" href="#ch5">次へ →<b>第5回 順序 1/2</b></a></div>
 </section>
 
 <!-- ================= 第5回 ================= -->
 <section class="chapter" id="ch5">
   <div class="ch-head"><div class="no">第5回 ・ 順序 1/2</div>
-  <h2>擬順序、辞書式順序、そして「一番」の2つの意味</h2>
-  <p>ゴール：&lt; と ≤ の行き来ができ、辞書式順序で文字列を並べ替えられ、極大元と最大元を図で区別できること。</p></div>
+  <h2>擬順序、辞書式順序、極大元と最大元</h2>
+  <p>ゴール：&lt; と ≤ を変換でき、極大元と最大元を区別できる。</p></div>
   <div class="ch-toc"><b>この回の内容</b><ul>
-    <li><a href="#c5-1">擬順序（&lt; の世界）</a></li><li><a href="#c5-2">&lt; と ≤ の変換、双対</a></li><li><a href="#c5-3">辞書式順序</a></li><li><a href="#c5-4">極大元 vs 最大元</a></li><li><a href="#c5-ex">例題：演習20.1・20.2</a></li>
+    <li><a href="#c5-1">擬順序</a></li><li><a href="#c5-2">&lt; と ≤ の変換、双対</a></li><li><a href="#c5-3">辞書式順序</a></li><li><a href="#c5-4">極大元 vs 最大元</a></li><li><a href="#c5-ex">例題：演習20.1・20.2</a></li>
   </ul></div>
 
-  <h3 class="sec" id="c5-1">擬順序 — 「自分とは比べない」版の順序</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>数の &lt;（小なり）は「自分より小さい」だけを比べ、自分自身とは比べません（a &lt; a は偽）。この「自分を除く」流儀を一般化したものが擬順序です。</p>
+  <h3 class="sec" id="c5-1">擬順序</h3>
   <div class="defbox">
     <p class="math">擬順序 ＝ 非反射的（∀a, ¬(a &lt; a)）＋ 推移的</p>
-    <p><span class="sym">擬順序（ぎじゅんじょ）</span>の代表例は数の &lt; と、集合の真包含 ⊂ です。なお非反射＋推移からは反対称にあたる性質（a&lt;b かつ b&lt;a は起こらない）が自動的に従います。</p>
+    <p>代表例は数の &lt; と真包含 ⊂。非反射＋推移から「a&lt;b かつ b&lt;a は起こらない」が従う。</p>
   </div>
-  <div class="trap"><b>④ 反例の味方：じゃんけん</b>「グーはチョキに勝ち、チョキはパーに勝ち、パーはグーに勝つ」——「勝つ」関係は推移的でありません（グーはチョキに勝ち、チョキはパーに勝つのに、グーはパーに勝たない）。だから「勝つ」は擬順序でも半順序でもありません。<strong>推移性のチェックには、まず循環する例がないか探す</strong>のが近道です。</div>
+  <div class="trap"><b>注意</b>　じゃんけんの「勝つ」は推移的でない（循環する）ので、擬順序でも半順序でもない。</div>
 
   <h3 class="sec" id="c5-2">&lt; と ≤ の変換 ／ 双対</h3>
   <div class="defbox">
-    <p class="math">a &lt; b ⇔ a ≤ b かつ a ≠ b　／　a ≤ b ⇔ a &lt; b または a = b</p>
-    <p>半順序 ≤ から「＝ の分を取り除く」と擬順序 &lt; が得られ、逆に擬順序に「＝ を足す」と半順序が得られます。2つの世界は<strong>「等号を含むかどうか」の1点だけ</strong>で行き来できる、というのがこの回の最初の山です。</p>
+    <p class="math">a &lt; b ⇔ a ≤ b かつ a ≠ b ／ a ≤ b ⇔ a &lt; b または a = b</p>
     <p class="math">双対順序：a ≤<sup>op</sup> b ⇔ b ≤ a</p>
-    <p>順序を上下ひっくり返したものが<strong>双対（そうつい）</strong>。≤ の双対は ≥ です。以後の「最大／最小」「sup／inf」は双対のペアになっていて、片方を理解すればもう片方は上下逆に読むだけです。</p>
+    <p>≤ から「＝」を除くと &lt;、&lt; に「＝」を足すと ≤ になる。≤ の双対は ≥ で、最大⇔最小・sup⇔inf も双対のペア。</p>
   </div>
 
-  <h3 class="sec" id="c5-3">辞書式順序 — 辞書の引き方そのもの</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>国語辞典の並び順を思い出してください。まず1文字目で比べ、それが同じときだけ2文字目を見る。文字列の全順序がこの仕組みで作れます。</p>
+  <h3 class="sec" id="c5-3">辞書式順序</h3>
   <div class="defbox">
-    <p class="math">辞書式順序：最初に異なる位置の文字で勝敗を決める。片方がもう片方の接頭辞（先頭部分）なら、短い方を小さいとする。</p>
+    <p class="math">辞書式順序：最初に異なる位置の文字で決める。片方が接頭辞なら短い方が小さい。</p>
   </div>
-  <div class="calc"><span class="step-tag tag-ex">③ 一歩ずつ</span>　<strong>abc ≺ abcd ≺ abd ≺ ad</strong> を確かめます（≺ は辞書式順序の記号）：
-  <ol class="tight">
-    <li><b>abc vs abcd</b>：3文字目まで完全一致し、abc が尽きる。abc は abcd の接頭辞なので短い方 abc が小さい → abc ≺ abcd。</li>
-    <li><b>abcd vs abd</b>：1文字目 a＝a、2文字目 b＝b、3文字目で c と d が異なる。c ≺ d なので abcd ≺ abd（4文字目は見ない）。</li>
-    <li><b>abd vs ad</b>：2文字目で b と d が異なる。b ≺ d なので abd ≺ ad。</li>
-  </ol>
-  ルールは「<strong>最初に違いが出た場所で決着。それより後ろは見ない</strong>」です。</div>
+  <p class="calc">例：abc ≺ abcd（接頭辞なので短い方）≺ abd（3文字目 c ≺ d）≺ ad（2文字目 b ≺ d）。</p>
+  <div class="trap"><b>注意</b>　最初に違いが出た位置で決着し、それより後ろは見ない。</div>
 
   <h3 class="sec" id="c5-4">極大元／極小元 vs 最大元／最小元</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>山登りで言えば——<strong>極大元は「自分の上に誰もいない人」</strong>（独立した山の頂上は複数ありうる）。<strong>最大元は「全員より上にいる唯一の人」</strong>（世界最高峰は1つだけ）。この違いが第5回最大のテーマです。</p>
   <div class="defbox">
-    <p class="math">極大元：m が極大 ⇔ m より真に大きい元が存在しない</p>
-    <p class="math">最大元：M が最大 ⇔ すべての元 a について a ≤ M</p>
-    <p>最大元があれば、それは唯一の極大元でもあります。しかし極大元が複数あるとき最大元は存在しません（「全員より上」が誰にも当てはまらない）。最小元・極小元は上下逆の双対の概念です。</p>
+    <p class="math">極大元：m より真に大きい元が存在しない ／ 最大元：すべての元 a について a ≤ M</p>
+    <p>最大元があれば、それは唯一の極大元。極大元が複数あれば最大元は存在しない。最小元・極小元は双対。</p>
   </div>
   <figure class="fig">
     <svg width="520" height="235" viewBox="0 0 520 235" role="img" aria-label="約数順序のハッセ図">
@@ -732,23 +663,21 @@ body{margin:0}
       <circle cx="120" cy="80" r="17" fill="var(--card)" stroke="var(--ink2)" stroke-width="1.5"/><text x="120" y="87" text-anchor="middle" font-size="15" fill="var(--ink)">6</text>
       <circle cx="290" cy="80" r="17" fill="var(--card)" stroke="var(--ink2)" stroke-width="1.5"/><text x="290" y="87" text-anchor="middle" font-size="15" fill="var(--ink)">15</text>
       <circle cx="120" cy="22" r="17" fill="var(--amber-soft)" stroke="var(--amber)" stroke-width="1.8"/><text x="120" y="29" text-anchor="middle" font-size="15" fill="var(--ink)">12</text>
-      <text x="262" y="16" font-size="13" fill="var(--amber)" font-weight="bold">← 極大元は 12 と 15 の2つ</text>
+      <text x="262" y="16" font-size="13" fill="var(--amber)" font-weight="bold">← 極大元は 12 と 15（と孤立した 7）</text>
       <text x="262" y="228" font-size="13" fill="var(--teal)" font-weight="bold">極小元は 3, 5, 7 →</text>
       <text x="20" y="228" font-size="13" fill="var(--ink2)">線は「割り切る」関係（3|6, 6|12, 3|15, 5|15）</text>
     </svg>
-    <figcaption><strong>ハッセ図</strong>：半順序を「すぐ上の元とだけ線を結び、反射のループと推移で分かる線を省略」して描いた図。上下の位置そのものが順序を表します。この図では上に行き止まりが2つ（12と15）あるので最大元はなく、下の行き止まりが3つあるので最小元もありません。</figcaption>
+    <figcaption>約数順序のハッセ図。極大元は 7, 12, 15 の3つ（7 は孤立している）。</figcaption>
   </figure>
 
   <details class="ex" id="c5-ex">
-    <summary>例題で確認：演習20.1・20.2 の解き方<span class="open-hint">開いて読む ▾</span></summary>
+    <summary>例題：演習20.1・20.2<span class="open-hint">開いて読む ▾</span></summary>
     <div class="body">
-      <div class="q"><strong>演習20.1</strong>　文字列を辞書式順序で並べ替える問題。</div>
-      <p><b>考え方</b>：比較は必ず「1文字目から順に、最初に違う文字で決める」「接頭辞なら短い方が先」。代表例の並びは <span class="math">abc ≺ abcd ≺ abd ≺ ad</span> で、比べ方は③で一歩ずつ追った通りです。迷ったら2語ずつ取り出して同じ手順を繰り返してください。</p>
-      <div class="q"><strong>演習20.2</strong>　A = {3, 5, 6, 7, 12, 15} 上の約数順序（a ≤ b ⇔ a は b を割り切る）について、極小元・最小元・極大元・最大元を求めよ。</div>
-      <p><b>考え方</b>：ハッセ図を描くのが正攻法です。割り切る関係は 3|6、3|12（6経由でも可）、3|15、5|15（7はどれとも無関係に孤立）。「線が上に出ていない元」が極大元、「線が下に出ていない元」が極小元。最大元は「全元と比較可能で一番上」の元があるかで判定します。</p>
-      <div class="ans"><p><b class="lab">解答</b></p>
-      <p>極小元：<strong>3, 5, 7</strong>／最小元：<strong>なし</strong>（極小元が複数）<br>極大元：<strong>12, 15</strong>／最大元：<strong>なし</strong>（極大元が複数）</p>
-      <p>暗記ではなく「極元は複数ありうる／最大・最小はあれば1つだけ」という原則から導けるのがポイントです。</p></div>
+      <div class="q"><strong>演習20.1</strong>　文字列を辞書式順序で並べ替える。</div>
+      <p><b>考え方</b>：1文字目から順に、最初に違う文字で決める。接頭辞なら短い方が先。例：abc ≺ abcd ≺ abd ≺ ad。</p>
+      <div class="q"><strong>演習20.2</strong>　A = {3, 5, 6, 7, 12, 15}、約数順序（a ≤ b ⇔ a | b）の極小元・最小元・極大元・最大元は？</div>
+      <p><b>考え方</b>：ハッセ図で「上に出る線がない元」が極大元、「下に出る線がない元」が極小元。</p>
+      <div class="ans"><p><b class="lab">解答</b>　極小元：3, 5, 7／最小元：なし。極大元：7, 12, 15／最大元：なし（極元が複数あるため）。</p></div>
     </div>
   </details>
   <div class="prevnext"><a href="#ch4">← 前へ<b>第4回 同値関係 2/2</b></a><a class="next" href="#ch6">次へ →<b>第6回 順序 2/2</b></a></div>
@@ -757,74 +686,50 @@ body{margin:0}
 <!-- ================= 第6回 ================= -->
 <section class="chapter" id="ch6">
   <div class="ch-head"><div class="no">第6回 ・ 順序 2/2</div>
-  <h2>上界・sup、束、そして閉包とソート</h2>
-  <p>ゴール：上界・下界から sup／inf を求められ、束の演算 ∨／∧ を約数順序で計算でき、4つの閉包 r／s／t／rst の役割を説明できること。</p></div>
+  <h2>上界・sup、束、閉包とソート</h2>
+  <p>ゴール：sup／inf・∨／∧ を計算でき、閉包 r／s／t／rst を説明できる。</p></div>
   <div class="ch-toc"><b>この回の内容</b><ul>
-    <li><a href="#c6-1">上界・下界と sup／inf</a></li><li><a href="#c6-2">束と ∨／∧</a></li><li><a href="#c6-3">閉包 r／s／t／rst</a></li><li><a href="#c6-4">トポロジカルソート</a></li><li><a href="#c6-ex">例題：演習21.1〜21.3 の手順</a></li>
+    <li><a href="#c6-1">上界・下界と sup／inf</a></li><li><a href="#c6-2">束と ∨／∧</a></li><li><a href="#c6-3">閉包 r／s／t／rst</a></li><li><a href="#c6-4">トポロジカルソート</a></li><li><a href="#c6-ex">例題：演習21.1〜21.3</a></li>
   </ul></div>
 
-  <h3 class="sec" id="c6-1">上界・下界、sup（上限）・inf（下限）</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>部分集合 B の<strong>上界は「B の全員以上の高さにある天井候補」</strong>、その中で<strong>一番低い天井</strong>が sup（上限）です。天井が部屋の中（B の中）にあるとは限らない——これが sup の一番大事な性質です。</p>
+  <h3 class="sec" id="c6-1">上界・下界、sup・inf</h3>
   <div class="defbox">
-    <p class="math">u が B の上界 ⇔ ∀b ∈ B, b ≤ u</p>
-    <p class="math">sup B ＝ B の上界全体の中で最小のもの（上限）</p>
-    <p class="math">inf B ＝ B の下界全体の中で最大のもの（下限）</p>
-    <p><span class="sym">sup</span> は「スープ（シュプレマム）」、<span class="sym">inf</span> は「インフ（インフィマム）」と読みます。sup B が B に属せばそれは B の最大元と一致しますが、属さないこともあります。</p>
+    <p class="math">u が B の上界 ⇔ ∀b ∈ B, b ≤ u ／ sup B ＝ 上界の中で最小のもの ／ inf B ＝ 下界の中で最大のもの</p>
+    <p>sup B が B に属せば B の最大元と一致するが、属さないこともある。</p>
   </div>
-  <div class="calc"><span class="step-tag tag-ex">③ 具体例：開区間 (0,1)</span>　実数の通常の順序で B = (0, 1)（0と1を含まない）を考えます。
-  <ul class="tight">
-    <li>上界：1 以上の数すべて（1, 1.5, 2, …）。</li>
-    <li>その中で最小は <strong>1</strong> → sup B = 1。</li>
-    <li>しかし <strong>1 ∉ B</strong>。だから B に最大元はないのに sup は存在する——これが「最大元」と「sup」の決定的な違いです。同様に inf B = 0 で、これも B に含まれません。</li>
-  </ul></div>
+  <p class="calc">例：B = (0, 1) では上界は 1 以上の数全体で、sup B = 1。ただし 1 ∉ B なので B に最大元はない。同様に inf B = 0。</p>
+  <div class="trap"><b>注意</b>　「最大元はないのに sup はある」が、最大元と sup の決定的な違い。</div>
 
-  <h3 class="sec" id="c6-2">束（そく）と、結び ∨ ／ 交わり ∧</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>どんな2元にも「共通の天井の一番低いもの」と「共通の床の一番高いもの」が必ず用意されている世界——それが束です。</p>
+  <h3 class="sec" id="c6-2">束と ∨／∧</h3>
   <div class="defbox">
     <p class="math">束：任意の2元 a, b について sup{a,b} と inf{a,b} が存在する半順序集合</p>
-    <p class="math">a ∨ b = sup{a, b} … 結び（ジョイン）、a ∧ b = inf{a, b} … 交わり（ミート）</p>
-    <p><span class="sym">∨</span> は「ヴェー／または型」の記号で結び、<span class="sym">∧</span> は交わりと読みます。</p>
-    <p class="math">(ℕ, |)（約数順序）では：a ∨ b = 最小公倍数 lcm、a ∧ b = 最大公約数 gcd</p>
-    <p>「a と b の両方を割り切る数の中で一番小さいもの」が最小公倍数＝sup、「両方を割り切る中で一番大きいもの」が最大公約数＝inf だからです。</p>
+    <p class="math">a ∨ b = sup{a, b}（結び）、a ∧ b = inf{a, b}（交わり）／ (ℕ, |) では a ∨ b = lcm、a ∧ b = gcd</p>
   </div>
-  <div class="calc"><span class="step-tag tag-ex">③ 一歩ずつ：60 ∨ 55 と 60 ∧ 55</span>
-  <ol class="tight">
-    <li>素因数分解：60 = 2² × 3 × 5、55 = 5 × 11。</li>
-    <li><strong>∧（gcd）</strong>は「共通部分を小さい指数で」：共通する素数は 5 のみ → 60 ∧ 55 = <strong>5</strong>。</li>
-    <li><strong>∨（lcm）</strong>は「全部を大きい指数で」：2² × 3 × 5 × 11 = 4 × 3 × 55 = <strong>660</strong>。</li>
-  </ol>
-  検算：660 ÷ 60 = 11、660 ÷ 55 = 12 で、確かに両方の倍数の中で最小です。</div>
+  <p class="calc">例：60 = 2²×3×5、55 = 5×11 → 60 ∧ 55 = 5（共通部分）、60 ∨ 55 = 2²×3×5×11 = 660。</p>
 
-  <h3 class="sec" id="c6-3">閉包 r／s／t／rst — 足りない性質を最小限だけ補う</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>「閉包」とは、<strong>希望の性質を持つようになるまで、ペアを最小限だけ付け足す</strong>手術です。多く足しすぎてもダメ（元の関係を含む最小のもの、が条件）。</p>
+  <h3 class="sec" id="c6-3">閉包 r／s／t／rst</h3>
   <div class="defbox">
-    <p class="math">反射閉包 r(R) = R ∪ id</p>
-    <p class="math">対称閉包 s(R) = R ∪ R⁻¹</p>
-    <p class="math">推移閉包 t(R) = R⁺</p>
-    <p class="math">反射推移閉包 rt(R) = R*</p>
-    <p class="math">rst(R) ＝ R を含む最小の同値関係</p>
-    <p>各公式は「足りない矢印の正体」をそのまま書いたものです：反射には (a,a) が、対称には逆向きの矢印が、推移には乗り継ぎの結果が足りません。第2回の R⁺・R* がここで閉包として再登場していることに注目してください。rst 閉包は3つの手術の合わせ技で、結果は「R の矢印（とその逆）でたどれる範囲がグループになる」同値関係です。</p>
+    <p class="math">r(R) = R ∪ id ／ s(R) = R ∪ R⁻¹ ／ t(R) = R⁺ ／ rt(R) = R* ／ rst(R) ＝ R を含む最小の同値関係</p>
+    <p>閉包とは、性質を満たすようペアを最小限だけ付け足す操作。</p>
   </div>
-  <div class="trap"><b>④ よくある誤解</b>閉包は「性質を満たすまで足す」のであって、「性質を満たすものなら何でもよい」わけではありません。<strong>最小性</strong>（それ以上削れない）が定義の半分です。また rt(R) = r(t(R)) = t(r(R)) のように順序を入れ替えられる組もありますが、s と t は単純には入れ替えられず、rst は正しい順序で合成する必要があります。</div>
+  <div class="trap"><b>注意</b>　最小性が定義の半分。足しすぎは不可で、s と t は単純には入れ替えられない。</div>
 
-  <h3 class="sec" id="c6-4">ソートとトポロジカルソート</h3>
-  <p><span class="step-tag tag-intuition">① 例え</span><br>「前提科目を先に履修する」「下着→シャツ→ジャケットの順に着る」のように、<strong>半順序の制約を壊さず一列に並べ替える</strong>のがトポロジカルソートです。全順序でない半順序でも、「一列化」なら可能なことが多いのです。</p>
+  <h3 class="sec" id="c6-4">トポロジカルソート</h3>
   <div class="defbox"><p class="math">トポロジカルソート：a &lt; b なら a が b より前に来るような全元の列挙</p>
-  <p>手順：<strong>極小元（今のところ前提が残っていない元）を1つ選んで先頭に置き、取り除く</strong>。これを繰り返すだけです。選ぶ極小元が複数あれば、そのぶん答えも複数通りあります（どれも正解）。</p></div>
-  <div class="calc"><span class="step-tag tag-ex">③ 具体例</span>　第5回の約数順序 A = {3, 5, 6, 7, 12, 15} を並べます。極小元は {3, 5, 7}。たとえば 3 を取り除くと極小元は {5, 6, 7}、次に 5 を取ると {6, 7, 15}、…という具合に進めて、たとえば <strong>3, 5, 6, 7, 12, 15</strong> や <strong>7, 3, 5, 6, 15, 12</strong> などが得られます。どちらも「割り切る側が先」という制約を守っています。</div>
+  <p>手順：極小元を1つ選んで取り除くことを繰り返す。選び方が複数あれば答えも複数ある。</p></div>
+  <p class="calc">例：{3, 5, 6, 7, 12, 15} の約数順序では 3, 5, 6, 7, 12, 15 など（割り切る側が先）。</p>
 
   <details class="ex" id="c6-ex">
-    <summary>例題で確認：演習21.1〜21.3 の解き方（手順まとめ）<span class="open-hint">開いて読む ▾</span></summary>
+    <summary>例題：演習21.1〜21.3<span class="open-hint">開いて読む ▾</span></summary>
     <div class="body">
-      <div class="q"><strong>演習21.1（上界・sup／inf 型）</strong></div>
-      <p><b>手順</b>：(1) 対象の部分集合 B の全員以上にある元をすべて挙げる＝上界の集合。(2) 上界の中で最小のものを探す＝sup。(3) 下側も双対に繰り返す＝inf。(4) sup が B に属すかチェックし、属せば「それが最大元」とも言える。ハッセ図があれば、上界は「B の全元から上にたどって共通して届く点」として目で探せます。</p>
-      <div class="q"><strong>演習21.2（束の演算 型）</strong></div>
-      <p><b>手順</b>：約数順序なら a∨b＝lcm、a∧b＝gcd に翻訳してから素因数分解で計算（③の 60 と 55 の型）。包含順序 2<sup>A</sup> なら a∨b＝和集合、a∧b＝共通部分です。「順序 → 演算への翻訳表」を先に作るのがコツ。</p>
-      <div class="q"><strong>演習21.3（閉包 型）</strong></div>
-      <p><b>手順</b>：求める閉包に応じて公式をそのまま適用します。r なら id のペアを全追加、s なら各ペアの逆を追加、t なら乗り継ぎで生まれるペアを（なくなるまで）追加。有限集合なら矢印図に書き足していく方法が確実で、「もう追加できない」状態が答えです。rst が問われたら、まず対称化→推移化の順に進め、最後に反射ペアを確認します。</p>
+      <div class="q"><strong>演習21.1（上界・sup／inf）</strong></div>
+      <p><b>考え方</b>：上界を全部挙げ、その最小が sup。下側は双対に inf。最後に sup が B に属すか確認する。</p>
+      <div class="q"><strong>演習21.2（束の演算）</strong></div>
+      <p><b>考え方</b>：約数順序なら ∨＝lcm、∧＝gcd、包含順序なら ∨＝和集合、∧＝共通部分に翻訳して計算する。</p>
+      <div class="q"><strong>演習21.3（閉包）</strong></div>
+      <p><b>考え方</b>：公式どおり、r は id、s は逆向き、t は乗り継ぎのペアを追加する。rst は対称化→推移化の順に進め、最後に反射を確認する。</p>
     </div>
   </details>
-  <p><span class="step-tag" style="background:var(--teal-soft);color:var(--teal)">⑤ 6回の総まとめ</span>　第1回「ペアの集まり」から出発し、合成と閉包（第2回）、同値関係とグループ分け（第3〜4回）、半順序と極元・sup（第4〜6回）まで、すべては「関係にどんな条件を付けるか」の違いでした。この一文が腑に落ちれば、講義6回分の地図は完成です。</p>
   <div class="prevnext"><a href="#ch5">← 前へ<b>第5回 順序 1/2</b></a><a class="next" href="#dict">次へ →<b>用語・記号辞典</b></a></div>
 </section>
 
@@ -832,56 +737,55 @@ body{margin:0}
 <section class="chapter" id="dict">
   <div class="ch-head"><div class="no">付録 ・ 総まとめ</div>
   <h2>用語・記号辞典</h2>
-  <p>講義6回分に出てきた記号と用語の総一覧です。読み返しのときに「あの記号なんだっけ？」をここで解決してください。検索窓で絞り込みもできます。</p></div>
-  <input class="searchbox" id="dictSearch" type="search" placeholder="🔍 記号・用語を検索（例：閉包、⊆、sup）" aria-label="辞典を検索">
+  <p>各項目1行。検索で絞り込みできます。</p></div>
+  <input class="searchbox" id="dictSearch" type="search" placeholder="記号・用語を検索（例：閉包、⊆、sup）" aria-label="辞典を検索">
   <div class="gloss" id="glossList">
-    <div class="g"><b><span class="sym">∈</span>所属</b><p>a ∈ A：「a は A の元である」。読み方「ぞくする」。</p></div>
-    <div class="g"><b><span class="sym">⊆</span>部分集合</b><p>B ⊆ A：B の元はすべて A の元。等しい場合も含む。</p></div>
-    <div class="g"><b><span class="sym">2^A</span>べき集合</b><p>A の部分集合全部の集合。元の数は 2^|A| 個。</p></div>
-    <div class="g"><b><span class="sym">∅</span>空集合</b><p>元が1つもない集合。空関係（ペアなしの関係）にも同じ記号。</p></div>
-    <div class="g"><b><span class="sym">A×B</span>直積</b><p>順序対 (a,b) 全体の集合。|A×B| = |A|·|B|。</p></div>
-    <div class="g"><b><span class="sym">∀ / ∃</span>全称・存在</b><p>∀「すべての」、∃「存在する」。定義文を読む鍵。</p></div>
-    <div class="g"><b><span class="sym">aRb</span>関係の表記</b><p>(a,b) ∈ R と同じ意味。「a は b と関係 R にある」。</p></div>
-    <div class="g"><b><span class="sym">R⁻¹</span>逆関係</b><p>全ペアの前後を入れ替えた関係。矢印を逆向きにする。</p></div>
-    <div class="g"><b><span class="sym">R(a)</span>像</b><p>{ b | aRb }、a から矢印が届く相手の集まり。同値関係では [a] と一致。</p></div>
-    <div class="g"><b><span class="sym">id</span>恒等関係</b><p>{ (a,a) | a∈A }。自分自身へのペアだけの関係。R⁰ でもある。</p></div>
-    <div class="g"><b><span class="sym">Dom / Range</span>定義域・値域</b><p>Dom＝矢印が出ている元の全体、Range＝矢印が着く元の全体。</p></div>
-    <div class="g"><b><span class="sym">S∘R</span>合成</b><p>先に R、次に S。「真ん中の元」が存在するペアの集まり。(S∘R)⁻¹ = R⁻¹∘S⁻¹。</p></div>
-    <div class="g"><b><span class="sym">Rⁿ</span>冪</b><p>R の n 回合成。長さ n のパスで結ばれるペア全体（定理3.2）。</p></div>
-    <div class="g"><b><span class="sym">R⁺</span>推移閉包 t(R)</b><p>R ∪ R² ∪ …、1回以上の乗り継ぎで届く範囲。</p></div>
-    <div class="g"><b><span class="sym">R*</span>反射推移閉包 rt(R)</b><p>R⁺ ∪ id、0回移動（自分自身）も含む到達範囲。</p></div>
-    <div class="g"><b>反射的・対称的・推移的</b><p>∀a aRa／aRb⇒bRa／aRb∧bRc⇒aRc。関係の基本3性質。</p></div>
-    <div class="g"><b>同値関係</b><p>反射＋対称＋推移。「同じグループ分け」を与える関係。</p></div>
-    <div class="g"><b><span class="sym">[a]</span>同値類</b><p>a と関係する元の全体＝a のグループ名簿。[a]=[b] か交わらない（定理3.4）。</p></div>
+    <div class="g"><b><span class="sym">∈</span>所属</b><p>a ∈ A：a は A の元。</p></div>
+    <div class="g"><b><span class="sym">⊆</span>部分集合</b><p>B ⊆ A：B の元はすべて A の元（等しい場合を含む）。</p></div>
+    <div class="g"><b><span class="sym">2^A</span>べき集合</b><p>A の部分集合全体。個数は 2^|A|。</p></div>
+    <div class="g"><b><span class="sym">∅</span>空集合</b><p>元が1つもない集合。ペアのない関係（空関係）にも使う。</p></div>
+    <div class="g"><b><span class="sym">A×B</span>直積</b><p>順序対 (a,b) 全体。|A×B| = |A|·|B|。</p></div>
+    <div class="g"><b><span class="sym">∀ / ∃</span>全称・存在</b><p>∀「すべての」、∃「存在する」。</p></div>
+    <div class="g"><b><span class="sym">aRb</span>関係の表記</b><p>(a,b) ∈ R と同じ意味。</p></div>
+    <div class="g"><b><span class="sym">R⁻¹</span>逆関係</b><p>全ペアの前後を入れ替えた関係。</p></div>
+    <div class="g"><b><span class="sym">R(a)</span>像</b><p>{ b | aRb }。同値関係では [a] と一致。</p></div>
+    <div class="g"><b><span class="sym">id</span>恒等関係</b><p>{ (a,a) | a∈A }。R⁰ でもある。</p></div>
+    <div class="g"><b><span class="sym">Dom / Range</span>定義域・値域</b><p>Dom＝矢印が出る元全体、Range＝矢印が着く元全体。</p></div>
+    <div class="g"><b><span class="sym">S∘R</span>合成</b><p>先に R、次に S。(S∘R)⁻¹ = R⁻¹∘S⁻¹。</p></div>
+    <div class="g"><b><span class="sym">Rⁿ</span>冪</b><p>R の n 回合成＝長さ n のパスで結ばれるペア全体。</p></div>
+    <div class="g"><b><span class="sym">R⁺</span>推移閉包 t(R)</b><p>R ∪ R² ∪ …（1回以上で届く範囲）。</p></div>
+    <div class="g"><b><span class="sym">R*</span>反射推移閉包 rt(R)</b><p>R⁺ ∪ id（0回も含む範囲）。</p></div>
+    <div class="g"><b>反射的・対称的・推移的</b><p>∀a aRa／aRb⇒bRa／aRb∧bRc⇒aRc。</p></div>
+    <div class="g"><b>同値関係</b><p>反射＋対称＋推移。グループ分けを与える関係。</p></div>
+    <div class="g"><b><span class="sym">[a]</span>同値類</b><p>a と関係する元全体。[a]=[b] か交わらない（定理3.4）。</p></div>
     <div class="g"><b>分割</b><p>全体を重ならず漏れなく分けたブロックの集まり。同値関係と対応。</p></div>
-    <div class="g"><b><span class="sym">A/R</span>商集合</b><p>同値類全体の集合。「グループの一覧表」。</p></div>
-    <div class="g"><b><span class="sym">≡ (mod m)</span>合同</b><p>m で割った余りが等しい、という同値関係。同値類は剰余類。</p></div>
-    <div class="g"><b>剰余類</b><p>Z/≡_m の類 [0]…[m−1] のこと。ちょうど m 個ある。</p></div>
-    <div class="g"><b>細分</b><p>分割の各ブロックがより粗い分割のブロックに含まれるとき、より細かい方を細分という。例：≡₆ は ≡₂ の細分。</p></div>
+    <div class="g"><b><span class="sym">A/R</span>商集合</b><p>同値類全体の集合。</p></div>
+    <div class="g"><b><span class="sym">≡ (mod m)</span>合同</b><p>m で割った余りが等しい、という同値関係。</p></div>
+    <div class="g"><b>剰余類</b><p>Z/≡_m の類 [0]…[m−1]。ちょうど m 個。</p></div>
+    <div class="g"><b>細分</b><p>各ブロックがより粗い分割のブロックに含まれる分け方。例：≡₆ は ≡₂ の細分。</p></div>
     <div class="g"><b>半順序</b><p>反射＋反対称＋推移。比較不可能なペアがあってよい。</p></div>
-    <div class="g"><b>反対称的</b><p>aRb かつ bRa ⇒ a=b。両向き矢印は自分自身だけ。</p></div>
-    <div class="g"><b>全順序</b><p>どの2元も比較可能な半順序。比較不可能＝どちらも成り立たない状態。</p></div>
-    <div class="g"><b>擬順序</b><p>非反射＋推移の順序（&lt; 型）。≤ とは「＝」の分だけで行き来できる。</p></div>
-    <div class="g"><b>双対</b><p>順序を上下反転したもの。≤ の双対は ≥。最大⇔最小、sup⇔inf も双対。</p></div>
-    <div class="g"><b>辞書式順序</b><p>最初に異なる文字で決める文字列の全順序。接頭辞なら短い方が小さい。</p></div>
-    <div class="g"><b>極大元・極小元</b><p>「自分より上（下）がいない」元。複数ありうる。</p></div>
-    <div class="g"><b>最大元・最小元</b><p>「全員より上（下）」の元。あれば1つだけ。極元のうち全員と比較可能なもの。</p></div>
-    <div class="g"><b>ハッセ図</b><p>半順序を、直上の関係だけ線で結んで描く図。上下位置が順序を表す。</p></div>
+    <div class="g"><b>反対称的</b><p>aRb かつ bRa ⇒ a=b。</p></div>
+    <div class="g"><b>全順序</b><p>どの2元も比較可能な半順序。</p></div>
+    <div class="g"><b>擬順序</b><p>非反射＋推移（&lt; 型）。≤ とは「＝」の分だけで行き来できる。</p></div>
+    <div class="g"><b>双対</b><p>順序の上下反転。≤ の双対は ≥、sup⇔inf も双対。</p></div>
+    <div class="g"><b>辞書式順序</b><p>最初に異なる文字で決める全順序。接頭辞なら短い方が小さい。</p></div>
+    <div class="g"><b>極大元・極小元</b><p>自分より上（下）がない元。複数ありうる。</p></div>
+    <div class="g"><b>最大元・最小元</b><p>全員より上（下）の元。あれば1つだけ。</p></div>
+    <div class="g"><b>ハッセ図</b><p>直上の関係だけを線で結んだ半順序の図。</p></div>
     <div class="g"><b>上界・下界</b><p>上界＝部分集合の全元以上の元、下界＝全元以下の元。</p></div>
-    <div class="g"><b><span class="sym">sup</span>上限</b><p>上界の中で最小のもの。部分集合に含まれるとは限らない（例：(0,1) の sup=1）。</p></div>
-    <div class="g"><b><span class="sym">inf</span>下限</b><p>下界の中で最大のもの。sup と双対。</p></div>
+    <div class="g"><b><span class="sym">sup</span>上限</b><p>上界の中で最小のもの。集合に含まれるとは限らない。</p></div>
+    <div class="g"><b><span class="sym">inf</span>下限</b><p>下界の中で最大のもの。</p></div>
     <div class="g"><b>束（そく）</b><p>任意の2元に sup と inf が存在する半順序集合。</p></div>
     <div class="g"><b><span class="sym">∨ / ∧</span>結び・交わり</b><p>a∨b = sup{a,b}、a∧b = inf{a,b}。約数順序では lcm／gcd。</p></div>
-    <div class="g"><b><span class="sym">r / s / t</span>閉包</b><p>r(R)=R∪id、s(R)=R∪R⁻¹、t(R)=R⁺。「最小限だけ付け足す」操作。rst(R) は最小の同値閉包。</p></div>
-    <div class="g"><b>トポロジカルソート</b><p>半順序の制約を守って全元を一列に並べること。極小元を繰り返し取り除く。</p></div>
+    <div class="g"><b><span class="sym">r / s / t</span>閉包</b><p>r(R)=R∪id、s(R)=R∪R⁻¹、t(R)=R⁺。rst(R) は最小の同値閉包。</p></div>
+    <div class="g"><b>トポロジカルソート</b><p>半順序の制約を守る全元の一列化。極小元を繰り返し取り除く。</p></div>
   </div>
   <p class="kbd-note" id="noHit" style="display:none">該当する用語がありません。別の言葉で試してみてください。</p>
   <div class="prevnext"><a href="#ch6">← 前へ<b>第6回 順序 2/2</b></a><a class="next" href="#map">↑ 目次<b>全体マップへ戻る</b></a></div>
 </section>
 
 <footer>
-  <p><strong>離散数学 解説＋ドリル</strong> — 離散数学B（4E）第1〜6回（2項関係・同値関係・順序）の講義資料と演習（問16.1〜21.4）に沿った学習テキストです。問題演習は画面上部の「ドリルで解く」タブからどうぞ。</p>
-  <p>読み方のコツ：1回分を「例えだけ先に全部読む → 定義に戻る」の2周読みにすると、記号への抵抗感がかなり減ります。</p>
+  <p><strong>離散数学 解説＋ドリル</strong> — 離散数学B（4E）第1〜6回（演習16.1〜21.4対応）。演習は上部の「ドリルで解く」タブから。</p>
 </footer>
 </div>
 <script>
@@ -904,6 +808,7 @@ body{margin:0}
 </script>
 
 </main>
+
 <main id="partD" hidden>
 
     <div class="wrap">
@@ -911,7 +816,7 @@ body{margin:0}
       <!-- ================= HOME ================= -->
       <section id="view-home">
         <h1>離散数学ドリル ― 関係・同値関係・順序</h1>
-        <p class="lead">離散数学B（4E）第1〜6回の範囲（演習16.1〜21.4）を、解くたびに数値や元が変わる「生成問題」で何度でも練習できます。まず身近な例えでイメージをつかみ、それから正式な定義に進む構成です。</p>
+        <p class="lead">離散数学B（4E）第1〜6回（演習16.1〜21.4）の生成問題ドリル。解くたびに数値や元が変わります。</p>
 
         <div class="stats" id="stats-bar"></div>
 
@@ -943,35 +848,28 @@ body{margin:0}
         </div>
 
         <div class="card" id="primer-card">
-          <h2>はじめの5分：超入門（前提知識の確認）</h2>
-          <div class="analogy"><span class="h">たとえば</span><br>
-            集合は「ものの集まりを入れた袋」、関係は「袋の中のもの同士のつながりを書いたリスト」です。この2つが分かれば第1回から進めます。</div>
-          <div class="kpoint"><span class="term">集合と外延的記法</span>
-            <div class="plain">中身を全部書き並べて表す書き方です。</div>
-            <div class="formal"><span class="m">A = {a, b, c}</span> は「元（なかみ）が a, b, c の集合」。順番は関係なく、重複は書きません。<span class="m">a ∈ A</span> は「a は A の元である（a が袋に入っている）」という意味です。</div></div>
-          <div class="kpoint"><span class="term">部分集合 ⊆</span>
-            <div class="plain">「小さい袋の中身が、全部大きい袋にも入っている」状態です。</div>
-            <div class="formal"><span class="m">A ⊆ B</span> ⟺ A の元はすべて B の元でもある。例：<span class="m">{a, c} ⊆ {a, b, c}</span>。A の部分集合を全部集めた集合を冪集合といい <span class="m">2<sup>A</sup></span> と書きます（A の元が n 個なら部分集合は 2<sup>n</sup> 個）。</div></div>
+          <h2>はじめの確認：前提知識</h2>
+          <div class="kpoint"><span class="term">集合と ∈</span>
+            <div class="formal"><span class="m">A = {a, b, c}</span> は元 a, b, c の集合（順序・重複は無視）。<span class="m">a ∈ A</span> は「a は A の元」。</div></div>
+          <div class="kpoint"><span class="term">部分集合 ⊆ と 2^A</span>
+            <div class="formal"><span class="m">A ⊆ B</span> ⟺ A の元はすべて B の元。部分集合全体が冪集合 <span class="m">2<sup>A</sup></span>（元 n 個なら 2<sup>n</sup> 個）。</div></div>
           <div class="kpoint"><span class="term">直積 A × B</span>
-            <div class="plain">A の元と B の元で作れる「ペア」の全パターンです。席の組み合わせ表をイメージしてください。</div>
-            <div class="formal"><span class="m">A × B = {(a, b) | a ∈ A, b ∈ B}</span>。ペア (a, b) は順序が大事（(a,b) と (b,a) は別物）。元の個数は <span class="m">|A × B| = |A| · |B|</span>。</div></div>
+            <div class="formal"><span class="m">A × B = {(a, b) | a ∈ A, b ∈ B}</span>。順序対は順番が大事で、<span class="m">|A × B| = |A| · |B|</span>。</div></div>
           <div class="kpoint"><span class="term">写像（関数）</span>
-            <div class="plain">「入力1つに対して出力がちょうど1つ決まる対応」です。自販機のボタン1つに商品1つ、が関数のイメージ。</div>
-            <div class="formal"><span class="m">f : A → B</span> は、A のどの元にも B の元がちょうど1つ対応する決まり。第1回では「関係が関数になる条件」として再登場します。</div></div>
-          <div class="kpoint"><span class="term">論理記号 ∀ と ∃</span>
-            <div class="plain">∀ は「すべて」、∃ は「（少なくとも1つ）存在する」の略記です。</div>
-            <div class="formal"><span class="m">∀a ∈ A [ … ]</span> は「A のすべての a について …」、<span class="m">∃b [ … ]</span> は「… を満たす b が存在する」。定義はこの記号で書かれることが多いので、読み方だけ覚えておきましょう。</div></div>
+            <div class="formal"><span class="m">f : A → B</span> は A の各元に B の元がちょうど1つ対応する決まり。</div></div>
+          <div class="kpoint"><span class="term">∀ と ∃</span>
+            <div class="formal"><span class="m">∀</span> は「すべての」、<span class="m">∃</span> は「存在する」。</div></div>
         </div>
 
         <div class="card">
           <h2>各回の要点とドリル</h2>
-          <p class="small">「要点カード」は ①身近な例え → ②かみ砕いた説明 → ③正式な定義・記号 の順に書いてあります。読んでから「この回を解く」を押すのがおすすめです。</p>
+          <p class="small">要点を確認してから「この回を解く」へ。</p>
           <div class="chlist" id="chapter-list"></div>
         </div>
 
         <div class="card">
           <h2>用語ミニ辞典・記号の読み方</h2>
-          <p class="small">記号は「読み方＋一言の意味」で覚えるのが近道です。問題や解説で分からない記号が出てきたら、ここに戻って確認してください。</p>
+          <p class="small">各記号1行で確認できます。</p>
           <div class="gloss" id="glossary"></div>
         </div>
 
@@ -1089,79 +987,79 @@ function multiOpts(pool, correctArr){
    用語ミニ辞典
    ============================================================ */
 var GLOSSARY=[
- {sym:'∈', read:'ぞくする／ふくまれる', def:'「a ∈ A」は「a は集合 A の元（なかみ）である」。例：b ∈ {a, b, c}。'},
- {sym:'⊆', read:'ぶぶんしゅうごう', def:'「A ⊆ B」は「A の元がすべて B にも入っている」。袋の中身が全部もう一方の袋にも入っている状態。'},
- {sym:'∅', read:'くうしゅうごう', def:'元が1つもない集合。「答えは空っぽ」ということもあるので、選択肢にあっても驚かないこと。'},
- {sym:'A × B', read:'ちょくせき', def:'A の元と B の元のペア全体。|A × B| = |A| · |B|。ペアは順序つきで (a,b) ≠ (b,a)。'},
- {sym:'2^A', read:'べきしゅうごう', def:'A の部分集合を全部集めた集合。元の数が n なら部分集合は 2ⁿ 個。'},
- {sym:'R(a)', read:'アール かっこ えー', def:'「a と関係 R でつながっている相手の集合」＝ { b | aRb }。R⁻¹(a) は逆向きの相手の集合。'},
- {sym:'R⁻¹', read:'逆関係（ぎゃくかんけい）', def:'R の矢印を全部逆向きにした関係。(a,b) ∈ R ⟺ (b,a) ∈ R⁻¹。読みは「アール・インバース」。'},
- {sym:'S ∘ R', read:'合成（ごうせい）', def:'「まず R、次に S」と2つの関係をつないだ関係。書く順番とたどる順番が逆なので最重要のひっかけポイント。'},
- {sym:'Rⁿ', read:'アールの n 乗', def:'R を n 回つないだ関係。xRⁿy ⟺ 長さ n のパス（道のり）で x から y に行ける。R⁰ = id_A、R¹ = R。'},
- {sym:'R* , R⁺', read:'閉包（へいほう）', def:'R* = R⁰∪R¹∪R²∪…（反射推移閉包：何歩でも行ける）、R⁺ = R¹∪R²∪…（推移閉包：1歩以上で行ける）。'},
- {sym:'Dom / Range', read:'定義域／値域', def:'Dom R は矢印の出発点の集合、Range R は到着点の集合。'},
- {sym:'id_A', read:'恒等関係', def:'「自分自身とだけつながる」関係 id_A = {(a,a) | a ∈ A}。対角線だけの関係。'},
- {sym:'[a]', read:'同値類（どうちるい）', def:'「a と同じグループのメンバー全員」の集合。[a]_R = { x | xRa }。代表1人を決めれば類が決まる。'},
- {sym:'A/R', read:'商集合（しょうしゅうごう）', def:'同値類を全部集めた集合＝「グループ分けの結果そのもの」。元の集合をグループという単位で見たもの。'},
- {sym:'≡ (mod m)', read:'ごうどう', def:'「x ≡ y (mod m)」は「x − y が m で割り切れる」。余りが同じ、ということと同じ。講義では ≡_m と書く。'},
- {sym:'∨ / ∧', read:'けつび／まじわり', def:'束（そく）での記号。a ∨ b = sup{a,b}（2つの上限）、a ∧ b = inf{a,b}（2つの下限）。(ℕ, |) では ∨ が最小公倍数、∧ が最大公約数。'},
- {sym:'sup / inf', read:'上限／下限', def:'sup は「上界の中でいちばん小さいもの」、inf は「下界の中でいちばん大きいもの」。集合の元とは限らない（例：sup(0,1) = 1）。'},
- {sym:'∀ / ∃', read:'すべての／存在する', def:'∀ は「すべての」、∃ は「〜が（少なくとも1つ）存在する」。定義を読むときの基本記号。'},
- {sym:'∪ / ∩', read:'和集合／共通部分', def:'A ∪ B は「どちらかに入っている元全部」、A ∩ B は「両方に入っている元だけ」。'},
- {sym:'|A|', read:'元の個数（濃度）', def:'集合 A の元の数。有限集合ではただの「個数」。'}
+ {sym:'∈', read:'ぞくする', def:'a ∈ A：a は A の元。'},
+ {sym:'⊆', read:'ぶぶんしゅうごう', def:'A ⊆ B：A の元はすべて B の元。'},
+ {sym:'∅', read:'くうしゅうごう', def:'元が1つもない集合。'},
+ {sym:'A × B', read:'ちょくせき', def:'順序対 (a,b) 全体。|A × B| = |A| · |B|。'},
+ {sym:'2^A', read:'べきしゅうごう', def:'A の部分集合全体。元 n 個なら 2ⁿ 個。'},
+ {sym:'R(a)', read:'アール かっこ えー', def:'{ b | aRb }、a の行き先の集合。'},
+ {sym:'R⁻¹', read:'逆関係', def:'全ペアの前後を入れ替えた関係。'},
+ {sym:'S ∘ R', read:'合成', def:'先に R、次に S。順序に注意。'},
+ {sym:'Rⁿ', read:'アールの n 乗', def:'R の n 回合成＝長さ n のパス。R⁰ = id_A。'},
+ {sym:'R* , R⁺', read:'閉包', def:'R* = R⁰∪R¹∪…（0歩含む）、R⁺ = R¹∪R²∪…。'},
+ {sym:'Dom / Range', read:'定義域／値域', def:'Dom＝出発点全体、Range＝到着点全体。'},
+ {sym:'id_A', read:'恒等関係', def:'{(a,a) | a ∈ A}。'},
+ {sym:'[a]', read:'同値類', def:'a と同じグループの元全体。'},
+ {sym:'A/R', read:'商集合', def:'同値類全体の集合。'},
+ {sym:'≡ (mod m)', read:'ごうどう', def:'x ≡ y (mod m) ⟺ m | (x − y)。'},
+ {sym:'∨ / ∧', read:'けつび／まじわり', def:'a ∨ b = sup{a,b}、a ∧ b = inf{a,b}。(ℕ,|) では lcm／gcd。'},
+ {sym:'sup / inf', read:'上限／下限', def:'sup は上界の最小、inf は下界の最大。集合の元とは限らない。'},
+ {sym:'∀ / ∃', read:'すべての／存在する', def:'∀ は「すべての」、∃ は「存在する」。'},
+ {sym:'∪ / ∩', read:'和集合／共通部分', def:'∪ はどちらか、∩ は両方に入る元。'},
+ {sym:'|A|', read:'元の個数', def:'集合 A の元の数。'}
 ];
 
 /* ============================================================
-   各回の要点カード（例え → かみ砕き → 正式な定義）
+   各回の要点カード（要点 → 定義）
    ============================================================ */
 var CHAPTERS=[
 { n:1, title:'2項関係 1/2', sub:'直積・逆関係・R(a)・関数になる条件',
-  analogy:'関係とは「誰と誰がつながっているか」を書き出したリストです。SNSのフォロー一覧のようなもの：(a, b) がリストにあれば「a が b をフォローしている」。集合 A×B は「ありうるペアの全パターン表」で、その中から実際に起きているペアを選び出したものが関係です。',
+  analogy:'関係は「つながりのリスト」。A×B の中から起きているペアを選んだもの。',
   points:[
-   {term:'2項関係 R : A ⇀ B', plain:'A の元から B の元への「つながり」の集まり。aRb と書いたら「a と b がつながっている」という意味です。', formal:'R ⊆ A × B。aRb ⟺ (a, b) ∈ R（中置記法）。R が空集合なら空関係、R = A × B なら全関係、A = B で対角線だけなら恒等関係 id_A。'},
-   {term:'R(a)（a の行く先の集合）', plain:'リストの中で「a から出ている矢印の相手」を全部集めたものです。', formal:'R(a) = { b ∈ B | aRb }。Dom R = { a | R(a) ≠ ∅ }（矢印が出ている元の集合）、Range R = R の到着点全体。'},
-   {term:'逆関係 R⁻¹', plain:'矢印を全部ひっくり返した関係。フォロー関係の逆は「フォロワー関係」です。', formal:'R⁻¹ = { (b, a) | (a, b) ∈ R }。R⁻¹(b) は「b に向かってくる元」の集合で、R⁻¹(b) = { a | aRb }。'},
-   {term:'関係が関数になる条件', plain:'「どの出発点からも、行き先がちょうど1つだけ」に決まっているとき、関係は関数（写像）と同じものになります。行き先が0個でも2個以上でもダメです。', formal:'R : A ⇀ B が関数 ⟺ ∀a ∈ A [ |R(a)| = 1 ]。'}
+   {term:'2項関係 R : A ⇀ B', plain:'aRb は「a と b がつながっている」。', formal:'R ⊆ A × B、aRb ⟺ (a, b) ∈ R。空関係 ∅、全関係 A × B、恒等関係 id_A。'},
+   {term:'R(a)', plain:'a から出る矢印の相手の集合。', formal:'R(a) = { b | aRb }。Dom R = { a | R(a) ≠ ∅ }、Range R は到着点全体。'},
+   {term:'逆関係 R⁻¹', plain:'矢印を全部逆向きにした関係。', formal:'R⁻¹ = { (b, a) | (a, b) ∈ R }。'},
+   {term:'関数になる条件', plain:'各出発点の行き先がちょうど1つ。', formal:'R が関数 ⟺ ∀a ∈ A [ |R(a)| = 1 ]。'}
   ]},
 { n:2, title:'2項関係 2/2', sub:'合成・冪・閉包 R* と R⁺',
-  analogy:'合成は「乗り換え」です。a から電車で b 駅へ、乗り換えて c 駅へ行けたら、(a, c) が合成の関係に入ります。書く順番に注意：S∘R は「先に R の電車、次に S の電車」。日本語の読む順（左から）と逆向きにたどります。',
+  analogy:'合成は乗り継ぎ。S∘R は「先に R、次に S」。',
   points:[
-   {term:'合成 S ∘ R', plain:'「R で1歩、続けて S で1歩」行けるペアの集まり。中継地点 b が存在することが条件です。', formal:'S ∘ R = { (a, c) ∈ A × C | ∃b ∈ B [ aRb ∧ bSc ] }。結合法則 (T∘S)∘R = T∘(S∘R) が成り立つ（定理3.1）。'},
-   {term:'合成と逆関係', plain:'乗り換えの逆は「帰り道」：帰りは逆の順番に、しかも各区間も逆向きにたどります。靴下と靴を脱ぐ順番と同じです。', formal:'(S ∘ R)⁻¹ = R⁻¹ ∘ S⁻¹（順番が入れ替わる！）。'},
-   {term:'冪 Rⁿ とパス', plain:'R を n 回繰り返すこと。「n 歩でたどり着けるか」と同じ意味です。', formal:'R⁰ = id_A、Rⁿ = R ∘ Rⁿ⁻¹。定理3.2：xRⁿy ⟺ R の矢印をちょうど n 本たどるパスが x から y へ存在する。'},
-   {term:'推移閉包 R⁺ と反射推移閉包 R*', plain:'「何歩かかってもいいから、たどり着けるペア」を全部集めたもの。R* は「0歩＝その場にいる」も含みます。', formal:'R⁺ = R¹ ∪ R² ∪ R³ ∪ …、R* = R⁰ ∪ R¹ ∪ R² ∪ …。R⁺ は R を含む最小の推移的関係、R* は R を含む最小の反射的かつ推移的な関係。'}
+   {term:'合成 S ∘ R', plain:'中継地点 b が存在するペアの集まり。', formal:'S ∘ R = { (a, c) | ∃b [ aRb ∧ bSc ] }。結合法則が成り立つ（定理3.1）。'},
+   {term:'合成と逆関係', plain:'逆にすると順序も入れ替わる。', formal:'(S ∘ R)⁻¹ = R⁻¹ ∘ S⁻¹。'},
+   {term:'冪 Rⁿ とパス', plain:'R を n 回繰り返すこと。', formal:'R⁰ = id_A。定理3.2：xRⁿy ⟺ 長さ n のパスが存在する。'},
+   {term:'R⁺ と R*', plain:'何歩でも届くペア全体。R* は0歩も含む。', formal:'R⁺ = R¹ ∪ R² ∪ …、R* = R⁰ ∪ R¹ ∪ …。'}
   ]},
 { n:3, title:'同値関係 1/2', sub:'反射・対称・推移、同値類と商集合',
-  analogy:'同値関係とは「同じグループに分ける基準」のことです。「同じクラス」「血液型が同じ」「m で割った余りが同じ」――どれも、みんなを重なりなくグループ分けできます。逆に「仲が良い」は推移的でない（友達の友達は友達とは限らない）ので、きれいなグループ分けにはなりません。',
+  analogy:'同値関係は「同じグループ分け」の基準。',
   points:[
-   {term:'同値関係の3条件', plain:'①自分は自分と同じグループ（反射）、②a と b が同じなら b と a も同じ（対称）、③a と b、b と c が同じなら a と c も同じ（推移）。この3つがそろえばグループ分けができます。', formal:'R が同値関係 ⟺ (i) ∀a [aRa]（反射律）(ii) aRb ⇒ bRa（対称律）(iii) aRb ∧ bRc ⇒ aRc（推移律）。ひっかけ：対称＋推移だけでは反射は言えません（18.2）。'},
-   {term:'関数から作る同値関係', plain:'「テストの点数が同じ」を基準にすればグループ分けできる、という話の一般形です。', formal:'f : X → Y に対し x₁ ∼ x₂ ⟺ f(x₁) = f(x₂) と定めると ∼ は同値関係になる。'},
-   {term:'合同 ≡_m（mod m）', plain:'「m で割った余りが同じ」というグループ分け。時計の文字盤（mod 12）が身近な例です。', formal:'x ≡_m y ⟺ m | (x − y)（x − y が m で割り切れる）。≡_m は Z 上の同値関係。'},
-   {term:'同値類 [a] と商集合 A/R', plain:'[a] は「a と同じグループのメンバー全員」、A/R は「グループの名札の集まり」。クラス分け名簿そのものです。', formal:'[a]_R = { x ∈ A | xRa }。定理3.4：[a] = [b] か [a] ∩ [b] = ∅ のどちらかで、すべての同値類の和は A 全体。A/R = { [a] | a ∈ A }。同値関係と A の分割（partition）は1対1に対応する。'}
+   {term:'同値関係の3条件', plain:'反射＋対称＋推移がそろえばグループ分けできる。', formal:'(i) ∀a [aRa] (ii) aRb ⇒ bRa (iii) aRb ∧ bRc ⇒ aRc。対称＋推移だけでは反射は言えない（18.2）。'},
+   {term:'関数から作る同値関係', plain:'「f の値が同じ」でグループ分けできる。', formal:'x₁ ∼ x₂ ⟺ f(x₁) = f(x₂) と定めると ∼ は同値関係。'},
+   {term:'合同 ≡_m', plain:'m で割った余りが同じ、という分け方。', formal:'x ≡_m y ⟺ m | (x − y)。Z 上の同値関係。'},
+   {term:'同値類 [a] と商集合 A/R', plain:'[a] は a のグループ、A/R はグループ全体の集合。', formal:'[a] = { x | xRa }。定理3.4：[a] = [b] か [a] ∩ [b] = ∅。A/R = { [a] | a ∈ A }。同値関係と分割は1対1対応。'}
   ]},
 { n:4, title:'同値関係 2/2・半順序', sub:'剰余類・整数の構成・細分・半順序',
-  analogy:'剰余類は「余りで分けたグループに 0, 1, 2, …と名札をつけたもの」。半順序は「一部だけ比べられるランキング」です。仕事の先行関係（Aが終わらないとBが始められない）のように、比べられるペアと比べられないペアが混在します。',
+  analogy:'剰余類は余りのグループ。半順序は一部だけ比べられる順序。',
   points:[
-   {term:'剰余類 Z/≡_m', plain:'整数を「m で割った余り」で分けると、グループはちょうど m 個できます。', formal:'Z/≡_m = { [0], [1], …, [m−1] }、ただし [n] = { mk + n | k ∈ Z }（… n のグループは m おきに無限に続く）。'},
-   {term:'N × N による整数の構成', plain:'引き算ができない自然数だけの世界で、「(a, b) は a − b のつもり」という組を同一視して整数を作る、という壮大な話です。', formal:'(a, b) ∼ (c, d) ⟺ a + d = b + c。[(0,2)] が −2、[(1,0)] が 1 に対応する。'},
-   {term:'同値関係の細分', plain:'グループ分けを「より細かく割る」こと。学年で分けるより、クラスで分ける方が細かい、という関係です。', formal:'R₁ が R₂ の細分 ⟺ R₁ ⊆ R₂ ⟺ 任意の a で [a]_{R₁} ⊆ [a]_{R₂}。例：≡_{mn} = ≡_m ∩ ≡_n、≡₆ は ≡₂ の細分（6で割って余りが同じなら、2で割っても余りは同じ）。'},
-   {term:'半順序', plain:'「比べられる相手とは順序が決まっていて、自分より大きくも小さくもない別人」という関係。⊆（部分集合）や |（割り切る）が代表例。全部のペアが比べられるなら全順序です。', formal:'半順序 ⟺ 反射律＋反対称律（aRb ∧ bRa ⇒ a = b）＋推移律。aRb も bRa も成り立たないとき a, b は比較不可能、どちらかが成り立てば比較可能。'}
+   {term:'剰余類 Z/≡_m', plain:'グループはちょうど m 個。', formal:'Z/≡_m = { [0], [1], …, [m−1] }、[n] = { mk + n | k ∈ Z }。'},
+   {term:'N × N による整数の構成', plain:'(a, b) を「a − b のつもり」として整数を作る。', formal:'(a, b) ∼ (c, d) ⟺ a + d = b + c。[(0,2)] が −2 に対応。'},
+   {term:'細分', plain:'グループ分けをより細かくすること。', formal:'R₁ が R₂ の細分 ⟺ R₁ ⊆ R₂。例：≡_{mn} = ≡_m ∩ ≡_n、≡₆ は ≡₂ の細分。'},
+   {term:'半順序', plain:'比べられないペアがあってよい順序。', formal:'反射＋反対称（aRb ∧ bRa ⇒ a = b）＋推移。全部比べられれば全順序。'}
   ]},
 { n:5, title:'順序 1/2', sub:'擬順序・双対・辞書式・極大元と最大元',
-  analogy:'擬順序は「厳密なランキング」：自分と同点は認めず（非反射）、両方向に勝つこともありません。極大元と最大元の違いは重要：極大元は「自分の上に誰もいない人」（複数いてもよい）、最大元は「全員の上にいる唯一の人」。山の「峰」はたくさんあっても、「最高峰」は1つだけ、というイメージです。',
+  analogy:'極大元は「上に誰もいない元」（複数可）、最大元は「全員より上」（あれば1つ）。',
   points:[
-   {term:'擬順序', plain:'「<」のような厳しい順序。同点なし、です。じゃんけんは グー→チョキ→パー→グー と循環して推移律が壊れるので擬順序ではありません。', formal:'擬順序 ⟺ 非反射律（∀a [¬aR′a]）＋非対称律（aR′b ⇒ ¬bR′a）＋推移律。擬順序 R′ から xRy ⟺ xR′y ∨ x = y と置くと半順序 R が得られ、逆もできる。'},
-   {term:'双対 ⊒', plain:'順序をひっくり返したもの。「以上」と「以下」を入れ替えた世界です。', formal:'x ⊒ y ⟺ y ⊑ x。⊑ が半順序（擬順序）なら ⊒ も半順序（擬順序）。'},
-   {term:'辞書式順序', plain:'国語辞典の並び順そのもの。まず1文字目で比べ、同じなら2文字目へ。短い方が前、という決まりも含みます。', formal:'例（a ⊏ b ⊏ c ⊏ d の字母順）：abc ≺ abcd ≺ abd ≺ ad。字母自体の順序を変えると並び順も変わる（20.1）。'},
-   {term:'極大元・極小元と最大元・最小元', plain:'極大元＝「上に誰もいない元」（複数ありうる、互いに比較不可能）。最大元＝「全員以上である元」で、あれば唯一つだけ。極大元が1つだけでも、それが最大元とは限りません…と言いたいところですが、実は有限集合では「極大元が唯一なら最大元」になります。用語の定義の違いを正確に覚えましょう。', formal:'a が極大元 ⟺ ∀x [ a ⊑ x ⇒ x = a ]。a が最大元 ⟺ ∀x [ x ⊑ a ]。最大元は存在すれば唯一。極大元は複数ありえ、相異なる極大元同士は比較不可能。極小元・最小元も同様。'}
+   {term:'擬順序', plain:'「&lt;」型の、同点なしの順序。', formal:'非反射＋非対称＋推移。xRy ⟺ xR′y ∨ x = y と置くと半順序になる。じゃんけんは推移律を満たさず擬順序でない。'},
+   {term:'双対 ⊒', plain:'順序を上下反転したもの。', formal:'x ⊒ y ⟺ y ⊑ x。半順序（擬順序）の双対も半順序（擬順序）。'},
+   {term:'辞書式順序', plain:'最初に異なる文字で決め、接頭辞なら短い方が前。', formal:'例：abc ≺ abcd ≺ abd ≺ ad。字母の順序を変えると並びも変わる（20.1）。'},
+   {term:'極大元と最大元', plain:'極大元は複数ありうる。最大元はあれば唯一。', formal:'a が極大元 ⟺ ∀x [ a ⊑ x ⇒ x = a ]。a が最大元 ⟺ ∀x [ x ⊑ a ]。極小元・最小元も同様。'}
   ]},
 { n:6, title:'順序 2/2', sub:'上限 sup・下限 inf・束・閉包・トポロジカルソート',
-  analogy:'閉包とは「足りないつながりを補って、望む性質を持つように完成させる」こと。上界は「天井」、上限 sup は「いちばん低い天井」。天井が部屋の中（集合の中）にあるとは限らないのがポイントです。',
+  analogy:'sup は上界の中で最小のもの。集合の元とは限らない。',
   points:[
-   {term:'上界・上限 sup／下界・下限 inf', plain:'A の上界＝「A の全員以上である元（天井）」。その中でいちばん小さいものが上限 sup A。下界・下限はその逆（床といちばん高い床）。sup が A の元なら、それは最大元と一致します。', formal:'x₀ が A の上界 ⟺ ∀a ∈ A [ a ≦ x₀ ]。sup A = A の上界全体の最小元。例：(ℝ, ≦) で (0,1) の sup は 1（ただし 1 ∉ (0,1)）。'},
-   {term:'束（lattice）と ∨, ∧', plain:'どの2元にも「結び（2つの上限）」と「交わり（2つの下限）」が存在する半順序集合。', formal:'a ∨ b = sup{a, b}、a ∧ b = inf{a, b}。(ℕ, |) では a ∨ b = 最小公倍数、a ∧ b = 最大公約数（例：60 ∨ 55 = 660、60 ∧ 55 = 5）。(2^A, ⊆) では ∨ が和集合、∧ が共通部分。'},
-   {term:'関係の閉包 r, s, t, rt, rst', plain:'r＝自分自身への矢印を全部足す、s＝逆向きの矢印を全部足す、t＝「乗り換えで行ける」矢印を全部足す。rst は3つ全部やって同値関係に仕上げます。', formal:'r(R) = R ∪ id_A、s(R) = R ∪ R⁻¹、t(R) = R⁺、rt(R) = R*、rst(R) = R を含む最小の同値関係。'},
-   {term:'トポロジカルソート', plain:'「前提条件を全部満たす順番」に一列に並べること。料理の手順や履修順序の決定版です。', formal:'半順序 (X, ⊑) のトポロジカルソートは、x ⊏ y なら x が y より前に来るような X の元の列挙。半順序の元を全順序に拡張したものとも言える。'}
+   {term:'上界・sup／下界・inf', plain:'sup が集合の元なら最大元と一致する。', formal:'x₀ が上界 ⟺ ∀a ∈ A [ a ≦ x₀ ]。sup A は上界全体の最小元。例：sup(0,1) = 1（1 ∉ (0,1)）。'},
+   {term:'束と ∨, ∧', plain:'どの2元にも sup と inf がある半順序集合。', formal:'a ∨ b = sup{a, b}、a ∧ b = inf{a, b}。(ℕ, |) では lcm／gcd（60 ∨ 55 = 660、60 ∧ 55 = 5）。(2^A, ⊆) では和集合／共通部分。'},
+   {term:'閉包 r, s, t, rt, rst', plain:'足りないペアを最小限だけ足す操作。', formal:'r(R) = R ∪ id_A、s(R) = R ∪ R⁻¹、t(R) = R⁺、rt(R) = R*、rst(R) は最小の同値閉包。'},
+   {term:'トポロジカルソート', plain:'制約を守る一列化。答えは複数ありうる。', formal:'x ⊏ y なら x が y より前に来る列挙。極小元を繰り返し取り除く。'}
   ]}
 ];
 </script>
@@ -1169,7 +1067,7 @@ var CHAPTERS=[
 <script>
 /* ============================================================
    問題ジェネレータ（答えは必ず計算で導く）
-   解説は ①何を聞かれているか ②定義 ③手順 ④結論 ⑤ひっかけ の構成
+   解説は「答え＋理由（短く）＋注意1行」の構成
    ============================================================ */
 function EX(ask,def,steps,concl,trap){return {ask:ask,def:def,steps:steps,concl:concl,trap:trap};}
 function Q(ch,tag,q,built,ex,type){return {ch:ch,tag:tag,q:q,type:type||'single',options:built.options,answer:built.answer,ex:ex,src:'gen'};}
@@ -1982,8 +1880,8 @@ function renderChapters(){
     var p=S.perCh[c.n];
     html+='<div class="chrow"><div class="num">'+c.n+'</div><div class="info">'
       +'<div class="t">第'+c.n+'回　'+c.title+'</div><div class="s">'+c.sub+'</div>'
-      +'<details class="keypoints"><summary>要点カードを読む（例え → 定義）</summary>'
-      +'<div class="analogy"><span class="h">まず、たとえると</span><br>'+c.analogy+'</div>'
+      +'<details class="keypoints"><summary>要点カードを読む</summary>'
+      +'<div class="analogy"><span class="h">要点</span><br>'+c.analogy+'</div>'
       + c.points.map(function(pt){return '<div class="kpoint"><span class="term">'+pt.term+'</span><div class="plain">'+pt.plain+'</div><div class="formal">'+pt.formal+'</div></div>';}).join('')
       +'</details></div>'
       +'<div class="prog">'+(p.a? p.c+' / '+p.a+' 問正解':'未挑戦')+'</div>'
@@ -2136,14 +2034,12 @@ function recordResult(ok, selIds){
 }
 function explainHTML(q){
   var e=q.ex;
-  var steps=e.steps.map(function(s){return '<li>'+s+'</li>';}).join('');
+  var reason=e.def;
+  if(e.steps&&e.steps.length){ reason+=' '+e.steps.join(' '); }
   return '<div class="explain">'
-    +'<div class="step"><div class="h">① 何を聞かれている？</div><p>'+e.ask+'</p></div>'
-    +'<div class="step"><div class="h">② 定義を確認</div><p>'+e.def+'</p></div>'
-    +'<div class="step"><div class="h">③ 一歩ずつ考える</div><ul>'+steps+'</ul></div>'
-    +'<div class="step"><div class="h">④ 結論</div><p><b>'+e.concl+'</b></p></div>'
-    +'<div class="step trap"><div class="h">⑤ よくある間違い・ひっかけ</div><p>'+e.trap+'</p></div>'
-    +'<p class="small">記号の読み方が分からなくなったら、トップページの「用語ミニ辞典・記号の読み方」を見直してください。</p>'
+    +'<div class="step"><div class="h">答え</div><p><b>'+e.concl+'</b></p></div>'
+    +'<div class="step"><div class="h">理由</div><p>'+reason+'</p></div>'
+    +(e.trap?'<div class="step trap"><div class="h">注意</div><p>'+e.trap+'</p></div>':'')
     +'</div>';
 }
 function finishSession(){
