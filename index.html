@@ -1,0 +1,2255 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>離散数学 解説＋ドリル — 関係・同値関係・順序</title>
+<style>
+:root{ color-scheme: light dark; }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0}
+[hidden]{display:none !important}
+.tabbar{position:sticky;top:0;z-index:200;display:flex;justify-content:center;padding:8px 12px;
+  background:rgba(247,243,234,.92);border-bottom:1px solid #ddd2ba;backdrop-filter:blur(8px)}
+@media (prefers-color-scheme: dark){ .tabbar{background:rgba(23,26,23,.92);border-bottom-color:#3d4036} }
+.tabs{display:flex;gap:4px;background:rgba(120,110,80,.14);border-radius:999px;padding:4px}
+.tabs button{appearance:none;border:0;background:transparent;cursor:pointer;min-height:44px;padding:8px 20px;
+  border-radius:999px;font-size:15.5px;font-weight:800;font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif;
+  color:#5c564a;display:flex;align-items:center;gap:8px}
+.tabs button svg{width:18px;height:18px;flex:0 0 auto}
+.tabs button[aria-selected="true"]{background:#0e6b5c;color:#fff;box-shadow:0 1px 4px rgba(0,0,0,.25)}
+@media (prefers-color-scheme: dark){ .tabs button{color:#b6b0a0} .tabs button[aria-selected="true"]{background:#2bb39f;color:#0b1512} }
+.tabs button:focus-visible{outline:3px solid #1d5fa8;outline-offset:2px}
+#partK .topnav{top:61px}
+#partK [id]{scroll-margin-top:124px}
+#partK .x-drill-btn{margin-top:14px;appearance:none;border:0;cursor:pointer;background:#0e6b5c;color:#fff;
+  font-weight:800;font-size:15px;font-family:inherit;padding:11px 20px;border-radius:999px;min-height:44px;
+  display:inline-flex;align-items:center;gap:8px}
+#partK .x-drill-btn svg{width:16px;height:16px}
+#partK .x-drill-btn:hover{filter:brightness(1.12)}
+@media (prefers-color-scheme: dark){ #partK .x-drill-btn{background:#2bb39f;color:#0b1512} }
+#partD .chrow .btn.ghost{margin-left:2px}
+
+#partK{--bg:#f7f3ea; --bg2:#efe8d8; --card:#fffdf7; --ink:#23201a; --ink2:#5c564a; --line:#ddd2ba;
+  --teal:#0e6b5c; --teal-soft:#dcefe9; --amber:#b45309; --amber-soft:#fbeed3; --red:#b3372f; --red-soft:#fbe7e3;
+  --blue:#1d5fa8; --blue-soft:#e2ecf8; --shadow:0 2px 14px rgba(60,45,10,.08);}
+@media (prefers-color-scheme: dark){#partK{--bg:#171a17; --bg2:#1e211d; --card:#22261f; --ink:#ece7da; --ink2:#b6b0a0; --line:#3d4036;
+  --teal:#4fc3ab; --teal-soft:#1d332c; --amber:#e8a04c; --amber-soft:#3a2c14; --red:#e8837a; --red-soft:#3a211d;
+  --blue:#7db3e8; --blue-soft:#1d2c3d; --shadow:0 2px 14px rgba(0,0,0,.35);}}
+#partK,#partK *{box-sizing:border-box}
+#partK{scroll-behavior:smooth}
+#partK{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif;font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+#partK h1,#partK h2,#partK h3{font-family:"Shippori Mincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","YuMincho",serif;line-height:1.4}
+#partK a{color:var(--teal)}
+#partK button,#partK summary,#partK [role="button"]{min-height:44px}
+#partK .wrap{max-width:860px;margin:0 auto;padding:0 18px 80px}
+#partK .topnav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+#partK .topnav-in{max-width:860px;margin:0 auto;padding:8px 18px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+#partK .topnav-in::-webkit-scrollbar{display:none}
+#partK .topnav a{flex:0 0 auto;text-decoration:none;color:var(--ink2);font-size:13.5px;font-weight:700;padding:9px 11px;border-radius:8px;white-space:nowrap}
+#partK .topnav a:hover,#partK .topnav a:focus{background:var(--teal-soft);color:var(--ink)}
+#partK .hero{padding:44px 0 10px}
+#partK .hero .kicker{font-size:13px;font-weight:900;letter-spacing:.14em;color:var(--amber)}
+#partK .hero h1{font-size:clamp(30px,6vw,44px);margin:8px 0 12px;font-weight:800}
+#partK .hero p.lead{font-size:18px;color:var(--ink2);max-width:640px}
+#partK .readme{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+#partK .readme span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:13.5px;font-weight:700}
+#partK .roadmap{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow);margin:22px 0}
+#partK .roadmap h2{margin:0 0 6px;font-size:20px}
+#partK .roadmap p{margin:0 0 14px;color:var(--ink2);font-size:15px}
+#partK .flow{display:flex;flex-direction:column;gap:0}
+#partK .flowrow{display:flex;align-items:stretch;gap:10px}
+#partK .fnode{flex:1;border-radius:10px;padding:12px 14px;border:1.5px solid}
+#partK .fnode b{display:block;font-size:16px}
+#partK .fnode small{font-size:13px;color:var(--ink2);line-height:1.5;display:block}
+#partK .fnode.c1{background:var(--teal-soft);border-color:var(--teal)}
+#partK .fnode.c2{background:var(--blue-soft);border-color:var(--blue)}
+#partK .fnode.c3{background:var(--amber-soft);border-color:var(--amber)}
+#partK .farrow{text-align:center;color:var(--ink2);font-size:18px;line-height:1.2;padding:2px 0}
+#partK .toc{display:grid;grid-template-columns:1fr;gap:8px;margin-top:16px}
+@media(min-width:640px){#partK .toc{grid-template-columns:1fr 1fr}}
+#partK .toc a{display:flex;gap:12px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink)}
+#partK .toc a:hover{border-color:var(--teal)}
+#partK .toc .no{font-family:"Shippori Mincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","YuMincho",serif;font-weight:800;font-size:20px;color:var(--teal);min-width:34px;text-align:center}
+#partK .toc b{font-size:15.5px;display:block;line-height:1.4}
+#partK .toc small{color:var(--ink2);font-size:13px;line-height:1.45;display:block}
+#partK section.chapter{margin-top:56px;scroll-margin-top:64px}
+#partK .ch-head{border-top:3px solid var(--teal);padding-top:18px;margin-bottom:6px}
+#partK .ch-head .no{font-size:13px;font-weight:900;letter-spacing:.12em;color:var(--teal)}
+#partK .ch-head h2{font-size:clamp(24px,5vw,32px);margin:4px 0 6px}
+#partK .ch-head p{color:var(--ink2);margin:0;font-size:16px}
+#partK .ch-toc{background:var(--bg2);border-radius:10px;padding:12px 18px;margin:16px 0;font-size:15px}
+#partK .ch-toc b{font-size:13px;letter-spacing:.08em;color:var(--ink2)}
+#partK .ch-toc ul{margin:6px 0 2px;padding-left:20px}
+#partK .ch-toc li{margin:2px 0}
+#partK h3.sec{font-size:21px;margin:36px 0 8px;padding-left:12px;border-left:5px solid var(--teal)}
+#partK h4.sub{font-size:17.5px;margin:22px 0 4px}
+#partK p{margin:8px 0}
+#partK .step-tag{display:inline-block;font-size:12px;font-weight:900;letter-spacing:.06em;padding:2px 10px;border-radius:999px;margin-bottom:2px}
+#partK .tag-intuition{background:var(--amber-soft);color:var(--amber)}
+#partK .tag-def{background:var(--teal-soft);color:var(--teal)}
+#partK .tag-ex{background:var(--blue-soft);color:var(--blue)}
+#partK .tag-trap{background:var(--red-soft);color:var(--red)}
+#partK .defbox{background:var(--card);border:1.5px solid var(--teal);border-radius:10px;padding:14px 18px;margin:10px 0;box-shadow:var(--shadow)}
+#partK .defbox .math{font-size:18px}
+#partK .math{font-family:"Shippori Mincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","YuMincho",serif;font-weight:600}
+#partK .sym{font-family:"Shippori Mincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","YuMincho",serif;font-weight:700;font-size:1.08em}
+#partK .note{background:var(--amber-soft);border-radius:10px;padding:12px 16px;margin:12px 0;font-size:15.5px}
+#partK .trap{background:var(--red-soft);border-radius:10px;padding:12px 16px;margin:12px 0;font-size:15.5px}
+#partK .trap b:first-child,#partK .note b:first-child{display:block;margin-bottom:2px}
+#partK .calc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:12px 0}
+#partK .calc ol,#partK .calc ul{margin:6px 0;padding-left:22px}
+#partK .calc li{margin:5px 0}
+#partK .fig{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0;text-align:center;box-shadow:var(--shadow)}
+#partK .fig svg{max-width:100%;height:auto}
+#partK .fig figcaption{font-size:13.5px;color:var(--ink2);margin-top:8px;line-height:1.6}
+#partK table.mat{border-collapse:collapse;margin:10px auto;font-size:15.5px}
+#partK table.mat th,#partK table.mat td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+#partK table.mat th{background:var(--bg2)}
+#partK table.mat td.on{background:var(--teal-soft);font-weight:700;color:var(--teal)}
+#partK details.ex{background:var(--card);border:1.5px solid var(--blue);border-radius:12px;margin:16px 0;overflow:hidden}
+#partK details.ex summary{cursor:pointer;padding:14px 18px;font-weight:900;font-size:16.5px;list-style:none;display:flex;align-items:center;gap:10px;background:var(--blue-soft)}
+#partK details.ex summary::-webkit-details-marker{display:none}
+#partK details.ex summary .open-hint{margin-left:auto;font-size:12.5px;font-weight:700;color:var(--blue);white-space:nowrap}
+#partK details.ex .body{padding:6px 18px 16px}
+#partK details.ex .q{background:var(--bg);border-radius:8px;padding:10px 14px;margin:10px 0;font-size:16px}
+#partK .ans{border-top:2px dashed var(--line);margin-top:12px;padding-top:10px}
+#partK .ans b.lab{color:var(--teal)}
+#partK .prevnext{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap}
+#partK .prevnext a{flex:1;min-width:200px;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;color:var(--ink);font-size:14.5px}
+#partK .prevnext a b{display:block;font-size:16px}
+#partK .prevnext a.next{text-align:right}
+#partK .gloss{display:grid;grid-template-columns:1fr;gap:8px}
+@media(min-width:640px){#partK .gloss{grid-template-columns:1fr 1fr}}
+#partK .gloss .g{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+#partK .gloss .g b{font-size:16px}
+#partK .gloss .g .sym{color:var(--teal);margin-right:6px}
+#partK .gloss .g p{margin:2px 0 0;font-size:14.5px;color:var(--ink2);line-height:1.65}
+#partK .searchbox{width:100%;padding:13px 16px;font-size:16px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);margin:10px 0 16px;font-family:inherit}
+#partK footer{margin-top:70px;border-top:1px solid var(--line);padding-top:18px;color:var(--ink2);font-size:14px}
+#partK .kbd-note{font-size:14px;color:var(--ink2)}
+#partK ul.tight li,#partK ol.tight li{margin:4px 0}
+#partD{--bg:#f3f5f4; --card:#ffffff; --ink:#182430; --mut:#5c6d76;
+        --line:#d8dfe0; --acc:#0e7a6d; --acc-ink:#ffffff; --acc-soft:#e2f1ee;
+        --warn-bg:#fdf3e3; --warn-line:#e3b959; --warn-ink:#7a5410;
+        --ok:#177245; --ok-bg:#e4f3ea; --ng:#b3352b; --ng-bg:#fbeae8;
+        --chip:#eef2f2; --gold:#b97f14;
+        --shadow:0 1px 3px rgba(20,40,50,.08);}
+@media (prefers-color-scheme: dark){#partD{--bg:#0f1518; --card:#1a2227; --ink:#e7edef; --mut:#9fb0b8;
+          --line:#33414a; --acc:#2bb39f; --acc-ink:#0b1512; --acc-soft:#173330;
+          --warn-bg:#2c2313; --warn-line:#8a6a25; --warn-ink:#e8c97e;
+          --ok:#4cc983; --ok-bg:#14301f; --ng:#f08a80; --ng-bg:#3a1d1a;
+          --chip:#232e35; --gold:#e0aa3e; --shadow:0 1px 3px rgba(0,0,0,.4);}}
+#partD,#partD *{box-sizing:border-box}
+#partD{-webkit-text-size-adjust:100%}
+#partD{margin:0;background:var(--bg);color:var(--ink);
+        font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic UI",sans-serif;
+        line-height:1.75;font-size:16px}
+#partD .wrap{max-width:860px;margin:0 auto;padding:14px 14px 60px}
+#partD .m{font-family:Georgia,"Times New Roman","Hiragino Mincho ProN",serif;font-style:normal;white-space:nowrap}
+#partD .mi{font-family:Georgia,"Times New Roman",serif;font-style:italic}
+#partD h1{font-size:1.35rem;margin:6px 0 2px;letter-spacing:.02em}
+#partD h2{font-size:1.12rem;margin:0 0 8px}
+#partD h3{font-size:1rem;margin:14px 0 6px}
+#partD p{margin:6px 0}
+#partD .lead{color:var(--mut);font-size:.93rem;margin:2px 0 14px}
+#partD .card{background:var(--card);border:1px solid var(--line);border-radius:10px;
+        padding:16px;margin:0 0 14px;box-shadow:var(--shadow)}
+#partD button{font:inherit;cursor:pointer;border-radius:8px;min-height:44px}
+#partD .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;
+        padding:10px 18px;border:1px solid var(--acc);background:var(--acc);color:var(--acc-ink);
+        font-weight:700;text-decoration:none}
+#partD .btn.sub{background:var(--card);color:var(--acc);border-color:var(--acc)}
+#partD .btn.ghost{background:transparent;color:var(--mut);border-color:var(--line)}
+#partD .btn:disabled{opacity:.45;cursor:default}
+#partD .btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+#partD .stats{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+#partD .stat{background:var(--card);border:1px solid var(--line);border-radius:8px;
+        padding:6px 12px;font-size:.86rem;box-shadow:var(--shadow)}
+#partD .stat b{font-size:1.05rem}
+#partD .stat .lab{color:var(--mut);font-size:.76rem;display:block;line-height:1.3}
+#partD .streak b{color:var(--gold)}
+#partD .modes{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:640px){#partD .modes{grid-template-columns:1fr 1fr}}
+#partD .mode-card{text-align:left;background:var(--card);border:1px solid var(--line);
+        border-radius:10px;padding:16px;box-shadow:var(--shadow);width:100%}
+#partD .mode-card:hover{border-color:var(--acc)}
+#partD .mode-card .t{font-weight:800;font-size:1.05rem;display:block;margin-bottom:4px}
+#partD .mode-card .d{color:var(--mut);font-size:.88rem;display:block;line-height:1.6}
+#partD .mode-card .badge{display:inline-block;background:var(--acc-soft);color:var(--acc);
+        font-size:.74rem;font-weight:700;border-radius:999px;padding:2px 10px;margin-bottom:8px}
+#partD .chlist{display:flex;flex-direction:column;gap:10px}
+#partD .chrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--card);
+        border:1px solid var(--line);border-radius:10px;padding:12px 14px;box-shadow:var(--shadow)}
+@media(max-width:560px){#partD .chrow .info{flex-basis:calc(100% - 60px)}
+#partD .chrow .prog{margin-left:56px}}
+#partD .chrow .num{background:var(--acc);color:var(--acc-ink);font-weight:800;border-radius:8px;
+        width:44px;height:44px;display:flex;align-items:center;justify-content:center;flex:none;font-size:1.05rem}
+#partD .chrow .info{flex:1;min-width:0}
+#partD .chrow .info .t{font-weight:700}
+#partD .chrow .info .s{color:var(--mut);font-size:.82rem}
+#partD .chrow .prog{font-size:.8rem;color:var(--mut);white-space:nowrap}
+#partD details.keypoints{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}
+#partD details.keypoints summary{cursor:pointer;color:var(--acc);font-weight:700;min-height:36px;
+        display:flex;align-items:center;font-size:.92rem}
+#partD .analogy{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:8px;
+        padding:10px 12px;margin:8px 0;font-size:.92rem}
+#partD .analogy .h{font-weight:800;color:var(--warn-ink);font-size:.8rem;letter-spacing:.05em}
+#partD .kpoint{margin:10px 0;padding-left:2px}
+#partD .kpoint .term{font-weight:800}
+#partD .kpoint .plain{color:var(--mut);font-size:.9rem}
+#partD .kpoint .formal{background:var(--chip);border-radius:6px;padding:8px 10px;margin-top:4px;font-size:.93rem}
+#partD .gloss{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:640px){#partD .gloss{grid-template-columns:1fr 1fr;column-gap:26px}}
+#partD .gloss .row{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+#partD .gloss .sym{font-family:Georgia,"Times New Roman",serif;font-size:1.15rem;min-width:64px;
+        text-align:center;background:var(--chip);border-radius:6px;padding:2px 6px;height:fit-content}
+#partD .gloss .def{font-size:.9rem}
+#partD .gloss .def .read{color:var(--mut);font-size:.8rem}
+#partD .qhead{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+#partD .tag{background:var(--acc-soft);color:var(--acc);font-weight:700;font-size:.78rem;
+        border-radius:999px;padding:3px 12px}
+#partD .tag.lec{background:var(--warn-bg);color:var(--warn-ink);border:1px solid var(--warn-line)}
+#partD .timer{margin-left:auto;font-weight:800;font-variant-numeric:tabular-nums}
+#partD .timer.low{color:var(--ng)}
+#partD .qtext{font-size:1.06rem;line-height:1.85}
+#partD .qtext .rel{display:block;background:var(--chip);border-radius:8px;padding:10px 14px;margin:10px 0;
+        font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;overflow-x:auto}
+#partD .opts{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+#partD .opt{text-align:left;background:var(--card);border:2px solid var(--line);border-radius:10px;
+        padding:13px 16px;font-size:1rem;width:100%;line-height:1.6}
+#partD .opt:hover{border-color:var(--acc)}
+#partD .opt.sel{border-color:var(--acc);background:var(--acc-soft)}
+#partD .opt.correct{border-color:var(--ok);background:var(--ok-bg)}
+#partD .opt.wrong{border-color:var(--ng);background:var(--ng-bg)}
+#partD .opt.missed{border-color:var(--ok);background:var(--ok-bg);border-style:dashed}
+#partD .opt:disabled{cursor:default}
+#partD .optgrid{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+#partD .optgrid .opt{width:auto;padding:10px 14px;font-family:Georgia,"Times New Roman",serif}
+#partD .optgrid .opt.txt{font-family:inherit}
+#partD .verdict{border-radius:10px;padding:12px 16px;margin-top:16px;font-weight:800;font-size:1.05rem}
+#partD .verdict.ok{background:var(--ok-bg);color:var(--ok);border:1px solid var(--ok)}
+#partD .verdict.ng{background:var(--ng-bg);color:var(--ng);border:1px solid var(--ng)}
+#partD .explain{margin-top:14px;border:1px solid var(--line);border-radius:10px;padding:6px 16px 12px;background:var(--card)}
+#partD .explain .step{margin:12px 0}
+#partD .explain .step .h{font-weight:800;font-size:.92rem;color:var(--acc);margin-bottom:2px}
+#partD .explain .step.trap .h{color:var(--warn-ink)}
+#partD .explain .step.trap{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:8px;padding:10px 12px}
+#partD .explain p{margin:4px 0;font-size:.95rem}
+#partD .explain ul{margin:4px 0;padding-left:20px;font-size:.95rem}
+#partD .glosslink{color:var(--acc);text-decoration:underline dotted;cursor:pointer}
+#partD .rev-item{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:0 0 10px;background:var(--card)}
+#partD .rev-item .rq{font-weight:700;font-size:.95rem}
+#partD .rev-item .ra{font-size:.9rem;color:var(--mut)}
+#partD .rev-item .ra b{color:var(--ok)}
+#partD .empty{color:var(--mut);text-align:center;padding:18px 0}
+#partD .hidden{display:none!important}
+#partD .progress-line{height:8px;background:var(--chip);border-radius:99px;overflow:hidden;margin:8px 0 2px}
+#partD .progress-line > div{height:100%;background:var(--acc);border-radius:99px;transition:width .3s}
+#partD .small{font-size:.85rem;color:var(--mut)}
+#partD .kbd-note{font-size:.82rem;color:var(--mut)}
+#partD footer{color:var(--mut);font-size:.8rem;text-align:center;margin-top:26px}
+@media (prefers-reduced-motion: reduce){#partD,#partD *{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="tabbar" role="tablist" aria-label="解説とドリルの切り替え">
+  <div class="tabs">
+    <button type="button" id="tab-study" role="tab" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>解説を読む</button>
+    <button type="button" id="tab-drill" role="tab" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>ドリルで解く</button>
+  </div>
+</div>
+<main id="partK">
+
+<nav class="topnav" aria-label="章ジャンプ">
+  <div class="topnav-in">
+    <a href="#map">全体マップ</a><a href="#ch0">第0章 入門</a><a href="#ch1">第1回 関係①</a><a href="#ch2">第2回 関係②</a><a href="#ch3">第3回 同値①</a><a href="#ch4">第4回 同値②</a><a href="#ch5">第5回 順序①</a><a href="#ch6">第6回 順序②</a><a href="#dict">用語辞典</a>
+  </div>
+</nav>
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">離散数学B（4E）第1〜6回 ・ 解説＋ドリル</div>
+  <h1>「関係」から始める、<br>離散数学の読み方</h1>
+  <p class="lead">このページは、<strong>読んで理解する解説</strong>と<strong>解いて定着させるドリル</strong>を1つにまとめた教材です。解説ではすべての概念を「身近な例え → 正式な定義 → 小さな例を一歩ずつ計算 → よくある誤解 → 演習へのつながり」の順に説明します。数学が苦手でも、記号が出てくるたびに読み方を添えるので、そのまま読み進められます。読み終えたら画面上部の「ドリルで解く」から、各回の問題にそのまま挑戦できます。</p>
+  <div class="readme">
+    <span>📖 解説で読んで理解</span><span>✏️ ドリルで即時採点</span><span>🔤 記号は初出で読み方つき</span><span>🧩 図解（矢印図・ハッセ図）多数</span><span>✍️ 演習16.1〜21.4の解き方つき</span>
+  </div>
+</header>
+
+<div class="roadmap" id="map">
+  <h2>全体マップ — 6回分の流れ</h2>
+  <p>6回の講義は、実は<strong>1本のストーリー</strong>です。「つながりを集める → つながりに条件を付けるとグループ分けになる → 別の条件を付けると順序になる」という流れを掴めば、あとは細部です。</p>
+  <div class="flow" role="img" aria-label="関係から同値関係と順序へ分岐する流れ図">
+    <div class="flowrow"><div class="fnode c1"><b>2項関係（第1〜2回）</b><small>ペアの集まり＝「つながりのリスト」。逆・合成・閉包など、つながりの扱い方を学ぶ土台。</small></div></div>
+    <div class="farrow">▼ 条件を付けると、2つの世界に分かれる ▼</div>
+    <div class="flowrow">
+      <div class="fnode c2"><b>同値関係（第3〜4回）</b><small>反射＋対称＋推移 →「同じグループ分け」。同値類・分割・商集合・剰余類。</small></div>
+      <div class="fnode c3"><b>順序（第4〜6回）</b><small>反射＋反対称＋推移 →「ランキング」。極大元・上界・sup・束・閉包・ソート。</small></div>
+    </div>
+  </div>
+  <nav class="toc" aria-label="目次">
+    <a href="#ch0"><span class="no">0</span><span><b>超入門：集合・直積・関数の言葉</b><small>∈、⊆、べき集合、A×B、∀と∃ — すべての土台</small></span></a>
+    <a href="#ch1"><span class="no">1</span><span><b>2項関係 1/2：関係とは何か</b><small>逆関係 R⁻¹、Dom／Range、関数になる条件（演習16）</small></span></a>
+    <a href="#ch2"><span class="no">2</span><span><b>2項関係 2/2：合成と閉包</b><small>合成＝乗り継ぎ、冪 Rⁿ、推移閉包 R⁺／反射推移閉包 R*</small></span></a>
+    <a href="#ch3"><span class="no">3</span><span><b>同値関係 1/2：グループ分け</b><small>同値類 [a]、分割、商集合、mod m 合同（演習18）</small></span></a>
+    <a href="#ch4"><span class="no">4</span><span><b>同値関係 2/2・半順序の入口</b><small>剰余類、細分、半順序と全順序（演習19）</small></span></a>
+    <a href="#ch5"><span class="no">5</span><span><b>順序 1/2：擬順序と辞書式順序</b><small>双対、極大元と最大元の違い（演習20）</small></span></a>
+    <a href="#ch6"><span class="no">6</span><span><b>順序 2/2：束・閉包・ソート</b><small>sup／inf、∨＝lcm・∧＝gcd、閉包、トポロジカルソート（演習21）</small></span></a>
+    <a href="#dict"><span class="no">あ</span><span><b>用語・記号 総まとめ辞典</b><small>読み方と意味を一覧で確認（検索つき）</small></span></a>
+  </nav>
+</div>
+
+<!-- ================= 第0章 ================= -->
+<section class="chapter" id="ch0">
+  <div class="ch-head"><div class="no">第0章 ・ 超入門</div>
+  <h2>まず「言葉」から：集合・直積・関数</h2>
+  <p>第1回以降はすべてこの章の言葉で書かれています。ここだけ先に読めば、講義の記号に怖さはなくなります。</p></div>
+  <div class="ch-toc"><b>この章の内容</b><ul>
+    <li><a href="#c0-1">集合と ∈（所属）</a></li><li><a href="#c0-2">部分集合 ⊆ と べき集合 2^A</a></li><li><a href="#c0-3">直積 A×B ＝ ペアの全リスト</a></li><li><a href="#c0-4">関数とは</a></li><li><a href="#c0-5">∀ と ∃ の読み方</a></li>
+  </ul></div>
+
+  <h3 class="sec" id="c0-1">集合とは — 「ものの集まり」に名前を付ける</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>集合は<strong>「袋」</strong>だと思ってください。中に何が入っているかだけが大事で、入っている順番や、同じものを2回書くことは意味を持ちません。{a, b} と {b, a} と {a, a, b} はすべて同じ袋です。</p>
+  <p><span class="step-tag tag-def">② 定義</span></p>
+  <div class="defbox">
+    <p class="math">{a, b, c} … 外延的記法</p>
+    <p>中身をすべて書き並べて表す書き方を<strong>外延的記法</strong>といいます（「外に延べる＝全部並べる」）。逆に「偶数全体」のように性質で指定する書き方もあります。</p>
+    <p class="math">a ∈ A …「a は A の元（要素）である」</p>
+    <p><span class="sym">∈</span> は「∈（ぞくする）」と読み、「〜に入っている」という意味。a ∉ A は「入っていない」。袋の中の1つ1つのものを<strong>元（げん）／要素</strong>と呼びます。何も入っていない袋が<strong>空集合 ∅（くうしゅうごう）</strong>です。</p>
+  </div>
+  <p><span class="step-tag tag-ex">③ 具体例</span>　A = {1, 2, 3} なら、2 ∈ A（2は入っている）、5 ∉ A（5は入っていない）。A の元の個数を |A| と書き、この場合は |A| = 3 です。</p>
+  <div class="trap"><b>④ よくある誤解</b>「{1, 2} ∈ {1, 2, 3}」は<strong>間違い</strong>です。{1,2,3} の中に入っているのは 1, 2, 3 という「数」であって、{1,2} という「袋」ではありません。袋が袋の中に入る話は次の ⊆ で出てきます。</div>
+
+  <h3 class="sec" id="c0-2">部分集合 ⊆ と べき集合 2^A</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>部分集合は<strong>「小さい袋が、大きい袋の中身だけで作られている」</strong>状態。コンビニの棚（全体）の中から買う物だけを抜き出した買い物かご、が部分集合のイメージです。</p>
+  <div class="defbox">
+    <p class="math">B ⊆ A …「B は A の部分集合である」</p>
+    <p><span class="sym">⊆</span> は「部分集合（ぶぶんしゅうごう）」の記号。意味は「B の元はすべて A の元でもある」。B = A の場合も含みます（含めたくないときは ⊂ や ⊊ を使う流儀もあります）。</p>
+    <p class="math">2^A …「A のべき集合」＝ A の部分集合を全部集めた集合</p>
+    <p><span class="sym">2^A</span> は「2のA乗」と読みます。A の部分集合は全部で 2<sup>|A|</sup> 個あるので、この名前が付いています。</p>
+  </div>
+  <div class="calc"><span class="step-tag tag-ex">③ 一歩ずつ</span>　A = {a, b} のべき集合を作ります。各元について「入れる／入れない」の2択があるので 2² = 4 個：
+  <ol>
+    <li>両方入れない → ∅</li>
+    <li>a だけ → {a}、b だけ → {b}</li>
+    <li>両方入れる → {a, b}</li>
+  </ol>
+  よって 2<sup>{a,b}</sup> = { ∅, {a}, {b}, {a,b} }。なお<strong>∅ と A 自身も必ず部分集合に数えます</strong>（ここを忘れるのが定番のミス）。</div>
+
+  <h3 class="sec" id="c0-3">直積 A×B — 「ペアの全リスト」</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>シャツ {赤, 青} とズボン {黒, 白} のコーディネートは (赤,黒), (赤,白), (青,黒), (青,白) の4通り。この<strong>「組み合わせを全部ペアで書き出したもの」</strong>が直積です。</p>
+  <div class="defbox">
+    <p class="math">A × B = { (a, b) | a ∈ A, b ∈ B }</p>
+    <p><span class="sym">×</span> は直積（ちょくせき）の記号。<span class="sym">(a, b)</span> は<strong>順序対（じゅんじょつい）</strong>といい、集合と違って<strong>順番が大事</strong>です：(a, b) ≠ (b, a)（ただし a ≠ b のとき）。|A×B| = |A| × |B|。</p>
+  </div>
+  <p><span class="step-tag tag-ex">③ 具体例</span>　{a, b} × {1, 2, 3} = {(a,1), (a,2), (a,3), (b,1), (b,2), (b,3)} の6個。第1回で学ぶ「関係」は、まさにこの直積の中からペアをいくつか選んだものになります。</p>
+
+  <h3 class="sec" id="c0-4">関数とは — 「入力1つに、出力がちょうど1つ」</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>関数は<strong>自動販売機</strong>です。ボタン（入力）を1つ押すと、必ず決まった商品（出力）がちょうど1つ出てきます。「押しても何も出ない」「1つのボタンで2つ出てくる」自販機は壊れていて、関数とは呼びません。</p>
+  <div class="defbox"><p class="math">f : A → B</p>
+  <p>「f は A から B への関数」と読みます。条件は2つ：<strong>(i) A のどの元にも行き先がある</strong>、<strong>(ii) 行き先は1つだけ</strong>。行き先が重なる（2つの入力が同じ出力）のはOKです。y = f(x) の x を<strong>独立変数</strong>、y を<strong>従属変数</strong>ともいいます。</p></div>
+  <div class="trap"><b>④ よくある誤解</b>「出力が1つ」ではなく「<strong>入力1つに対して</strong>出力が1つ」です。また第1回では「関係が関数になる条件」として同じ話が再登場します。</div>
+
+  <h3 class="sec" id="c0-5">∀ と ∃ — 論理の記号の読み方</h3>
+  <div class="defbox">
+    <p class="math">∀x P(x) …「すべての x について P(x)」</p>
+    <p><span class="sym">∀</span> は All の A をひっくり返した形で「任意の／すべての」と読みます。</p>
+    <p class="math">∃x P(x) …「P(x) を満たす x が存在する」</p>
+    <p><span class="sym">∃</span> は Exist の E の鏡文字で「存在する／ある〜があって」と読みます。</p>
+  </div>
+  <p><span class="step-tag tag-ex">③ 具体例</span>　「∀a ∈ A, aRa」は「A のどの元 a についても aRa が成り立つ」。定義文でこの2記号が読めれば、講義の定義はほぼすべて「日本語の文」として読めます。</p>
+  <p><span class="step-tag" style="background:var(--teal-soft);color:var(--teal)">⑤ つながり</span>　次の第1回では、集合 A 上の「関係」を A×A の部分集合として定義します。つまりここまでの言葉（集合・部分集合・直積）がそっくりそのまま定義になります。</p>
+  <div class="prevnext"><a href="#map">← 目次<b>全体マップへ</b></a><a class="next" href="#ch1">次へ →<b>第1回 2項関係 1/2</b></a></div>
+</section>
+
+<!-- ================= 第1回 ================= -->
+<section class="chapter" id="ch1">
+  <div class="ch-head"><div class="no">第1回 ・ 2項関係 1/2</div>
+  <h2>関係とは「つながりのリスト」である</h2>
+  <p>この回のゴール：関係を「ペアの集まり」として読み書きでき、逆関係・Dom／Range が求められ、「いつ関数になるか」を判定できること。</p></div>
+  <div class="ch-toc"><b>この回の内容</b><ul>
+    <li><a href="#c1-1">関係の定義と aRb</a></li><li><a href="#c1-2">逆関係 R⁻¹ と R(a)</a></li><li><a href="#c1-3">空関係・全関係・恒等関係</a></li><li><a href="#c1-4">Dom と Range</a></li><li><a href="#c1-5">関係が関数になる条件</a></li><li><a href="#c1-ex">例題：演習16.1・16.2 の解き方</a></li>
+  </ul></div>
+
+  <h3 class="sec" id="c1-1">関係の定義 — ペアの集まり</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>SNSの「フォロー」を思い浮かべてください。「太郎が花子をフォローしている」「花子が次郎をフォローしている」…という<strong>つながりの記録を全部集めたリスト</strong>、それが関係です。誰と誰がつながっているか、だけが情報です。</p>
+  <div class="defbox">
+    <p class="math">R ⊆ A × B …「R は A から B への（二項）関係」</p>
+    <p>関係（かんけい）とは直積 A×B の<strong>部分集合</strong>、つまりペアの集まりのこと。A = B のとき「A 上の関係」といいます。3つの集合にまたがるものは<strong>3項関係</strong>、一般に<strong>n項関係</strong>です。</p>
+    <p class="math">(a, b) ∈ R ⇔ aRb</p>
+    <p>ペア (a,b) が R に含まれるとき、<span class="sym">aRb</span> とも書きます（読み方：「a アール b」／「a は b と関係 R にある」）。2つの書き方は同じ意味で、場面で使い分けます。</p>
+  </div>
+  <figure class="fig">
+    <svg width="520" height="190" viewBox="0 0 520 190" role="img" aria-label="関係Rの矢印図">
+      <defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="var(--teal)"/></marker></defs>
+      <circle cx="90" cy="45" r="17" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="1.5"/><text x="90" y="51" text-anchor="middle" font-size="16" fill="var(--ink)">a</text>
+      <circle cx="90" cy="105" r="17" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="1.5"/><text x="90" y="111" text-anchor="middle" font-size="16" fill="var(--ink)">b</text>
+      <circle cx="90" cy="165" r="17" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="1.5"/><text x="90" y="171" text-anchor="middle" font-size="16" fill="var(--ink)">c</text>
+      <circle cx="430" cy="45" r="17" fill="var(--amber-soft)" stroke="var(--amber)" stroke-width="1.5"/><text x="430" y="51" text-anchor="middle" font-size="16" fill="var(--ink)">a</text>
+      <circle cx="430" cy="105" r="17" fill="var(--amber-soft)" stroke="var(--amber)" stroke-width="1.5"/><text x="430" y="111" text-anchor="middle" font-size="16" fill="var(--ink)">b</text>
+      <circle cx="430" cy="165" r="17" fill="var(--amber-soft)" stroke="var(--amber)" stroke-width="1.5"/><text x="430" y="171" text-anchor="middle" font-size="16" fill="var(--ink)">c</text>
+      <path d="M110,48 C220,55 300,60 408,95" stroke="var(--teal)" stroke-width="2" fill="none" marker-end="url(#ar1)"/>
+      <path d="M110,42 C230,30 320,32 408,40" stroke="var(--teal)" stroke-width="2" fill="none" marker-end="url(#ar1)"/>
+      <path d="M110,108 C230,120 320,140 408,158" stroke="var(--teal)" stroke-width="2" fill="none" marker-end="url(#ar1)"/>
+      <text x="260" y="20" text-anchor="middle" font-size="14" fill="var(--ink2)">R = {(a,a), (a,b), (b,c)} を矢印で描いた図</text>
+    </svg>
+    <figcaption>左の集合から右の集合へ、ペアがあるところにだけ矢印を引く。これが<strong>矢印図（有向グラフ）</strong>で、関係を目で見る基本の方法です。この例では aRa、aRb、bRc が成り立ち、c からは矢印が出ていません。</figcaption>
+  </figure>
+
+  <h3 class="sec" id="c1-2">逆関係 R⁻¹ — 矢印を全部逆向きにする</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>「フォローしている」の逆は「フォローされている」。すべてのつながりの<strong>向きをひっくり返したリスト</strong>が逆関係です。</p>
+  <div class="defbox">
+    <p class="math">R⁻¹ = { (b, a) | (a, b) ∈ R }</p>
+    <p><span class="sym">R⁻¹</span> は「R の逆関係（ぎゃくかんけい）」と読みます。各ペアの前後を入れ替えるだけです。当然 (R⁻¹)⁻¹ = R（2回ひっくり返せば元通り）。</p>
+    <p class="math">R(a) = { b | aRb }</p>
+    <p><span class="sym">R(a)</span> は「a から矢印が届く相手の集まり」。a の<strong>像（ぞう）</strong>ともいいます。</p>
+  </div>
+  <div class="calc"><span class="step-tag tag-ex">③ 一歩ずつ</span>　講義の例：A = {a, b, c} 上の R = {(a,a), (a,b), (b,c)}。
+    <ol>
+      <li>各ペアを入れ替える：(a,a)→(a,a)、(a,b)→(b,a)、(b,c)→(c,b)。</li>
+      <li>よって <strong>R⁻¹ = {(a,a), (b,a), (c,b)}</strong>。</li>
+      <li>R(a) = {a, b}（a から出る矢印の先）、R(b) = {c}、R(c) = ∅（c からは何も出ない）。</li>
+    </ol>
+  </div>
+  <div class="calc"><span class="step-tag tag-ex">③ もう一つの講義例</span>　べき集合 2<sup>{a,b,c}</sup> 上の関係 <span class="sym">⊆</span>（部分集合である、という関係）も立派な関係です。たとえば {a} ⊆ {a,b} だから ({a}, {a,b}) がこの関係に含まれます。この関係の逆関係は <span class="sym">⊇</span>（含む）になります——「小さい側から大きい側へ」の矢印を逆にすると「大きい側から小さい側へ」になるからです。</div>
+
+  <h3 class="sec" id="c1-3">3つの特別な関係</h3>
+  <div class="defbox">
+    <p class="math">空関係 ∅ ／ 全関係 A×A ／ 恒等関係 id<sub>A</sub> = { (a, a) | a ∈ A }</p>
+    <p>ペアが1つもない関係が<strong>空関係</strong>、ありうるペアが全部ある関係が<strong>全関係</strong>、自分自身へのペアだけを集めたものが<strong>恒等関係（こうとうかんけい）id</strong> です。id は第2回の「R⁰ = id」や閉包の話で何度も登場する重要人物です。</p>
+  </div>
+
+  <h3 class="sec" id="c1-4">Dom と Range — 出発点と到着点の集まり</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>矢印図で、<strong>矢印が出ている駅の全体</strong>が Dom、<strong>矢印が着いている駅の全体</strong>が Range です。</p>
+  <div class="defbox">
+    <p class="math">Dom(R) = { a | ∃b, aRb }、Range(R) = { b | ∃a, aRb }</p>
+    <p><span class="sym">Dom(R)</span> は「定義域（ていぎいき）」、<span class="sym">Range(R)</span> は「値域（ちいき）」と読みます。∃（存在する）が効いていて、「相方が1つでもいれば入る」という意味です。</p>
+  </div>
+  <p><span class="step-tag tag-ex">③ 具体例</span>　R = {(a,a), (a,b), (b,c)}（A={a,b,c}）なら、Dom(R) = {a, b}（c からは矢印が出ていない）、Range(R) = {a, b, c}。なお Dom(R⁻¹) = Range(R) のように、逆関係ではこの2つが入れ替わります。</p>
+
+  <h3 class="sec" id="c1-5">関係が関数になる条件</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>第0章の自販機の話を矢印図で言い直すと：<strong>「すべての出発点から矢印が出ていて、しかも各出発点からの矢印はちょうど1本」</strong>。これを満たす関係が関数です。</p>
+  <div class="defbox"><p class="math">R が関数 ⇔ ∀a ∈ A に対して、aRb となる b がちょうど1つ存在する</p>
+  <p>チェックは2段階：(i) Dom(R) = A か（矢印のない元はないか）、(ii) 1つの a から2本以上矢印が出ていないか。どちらかが崩れれば関数ではありません。</p></div>
+  <div class="trap"><b>④ よくある誤解</b>「行き先が重なる」のは違反ではありません。f(a)=f(b)=c のような「2人から同じ相手へ」はOK。ダメなのは「1人から2人へ」と「誰にも行かない人がいる」場合です。</div>
+
+  <details class="ex" id="c1-ex">
+    <summary>例題で確認：演習16.1・16.2 の解き方<span class="open-hint">開いて読む ▾</span></summary>
+    <div class="body">
+      <div class="q"><strong>演習16.1</strong>　A = {a, b, c} とする。べき集合 2<sup>A</sup> の中で、(1) a を含む集合すべての集まり、(2) a を含まない集合すべての集まり、を求めよ。</div>
+      <p><b>考え方</b>：まず 2<sup>A</sup> の元は8個：∅, {a}, {b}, {c}, {a,b}, {a,c}, {b,c}, {a,b,c}。あとは「a が入っているか」で仕分けるだけです。各元 {b},{c} の運命は a とは無関係に自由なので、各グループは 2² = 4 個ずつになります。</p>
+      <div class="ans"><p><b class="lab">解答</b></p>
+      <p>(1) <span class="math">{{a}, {a,b}, {a,c}, {a,b,c}}</span><br>(2) <span class="math">{∅, {b}, {c}, {b,c}}</span></p>
+      <p>ポイント：2<sup>A</sup> の元は「集合の集合」なので、外側の { } の中に {a} のような集合が並びます。{a} と a を混同しないこと。</p></div>
+      <div class="q"><strong>演習16.2</strong>　実数上の関係 y = x²、y = |x|、y = 2x+3、y = log x について、それぞれ<strong>逆関係</strong>は関数になるか？</div>
+      <p><b>考え方</b>：逆関係が関数かどうかは、「逆向きにしたとき、入力1つに出力が2つ以上ぶら下がらないか」を見る問題。元の関係で言い換えると「同じ y に対して x が2つ以上あるか」と同じことです。</p>
+      <div class="ans"><p><b class="lab">解答</b></p>
+      <ul class="tight">
+        <li><b>y = x²</b>：y = 4 に対して x = 2 と x = −2 の2つがある → 逆関係で 4 の行き先が2つ → <strong>関数でない</strong>。</li>
+        <li><b>y = |x|</b>：y = 1 に対して x = 1 と −1 → 同じ理由で<strong>関数でない</strong>。</li>
+        <li><b>y = 2x+3</b>：x = (y−3)/2 と一意に解ける → 逆関係も<strong>関数である</strong>。</li>
+        <li><b>y = log x</b>：逆関係は x = e<sup>y</sup>（指数関数）→ <strong>関数である</strong>。</li>
+      </ul>
+      <p>合言葉：<strong>「逆が関数でない ＝ 1つの入力（y）に相手（x）が2つ」</strong>。グラフでいえば、横向きの直線が2点で交わるかどうか（水平線テスト）でも判定できます。</p></div>
+    </div>
+  </details>
+  <p><span class="step-tag" style="background:var(--teal-soft);color:var(--teal)">⑤ つながり</span>　次回は関係を2つつなぐ「合成」を学びます。逆関係 R⁻¹ は合成の公式 (S∘R)⁻¹ = R⁻¹∘S⁻¹ で再登場します。</p>
+  <div class="prevnext"><a href="#ch0">← 前へ<b>第0章 超入門</b></a><a class="next" href="#ch2">次へ →<b>第2回 2項関係 2/2</b></a></div>
+</section>
+
+<!-- ================= 第2回 ================= -->
+<section class="chapter" id="ch2">
+  <div class="ch-head"><div class="no">第2回 ・ 2項関係 2/2</div>
+  <h2>合成は「乗り継ぎ」、閉包は「届く範囲すべて」</h2>
+  <p>ゴール：合成 S∘R を「真ん中の元探し」で計算でき、冪 Rⁿ、推移閉包 R⁺、反射推移閉包 R* を具体的に求められること。</p></div>
+  <div class="ch-toc"><b>この回の内容</b><ul>
+    <li><a href="#c2-1">合成 S∘R</a></li><li><a href="#c2-2">結合法と逆関係の公式</a></li><li><a href="#c2-3">冪 Rⁿ と R⁰ = id</a></li><li><a href="#c2-4">R⁺ と R*（閉包）</a></li><li><a href="#c2-5">講義例を全部計算する</a></li>
+  </ul></div>
+
+  <h3 class="sec" id="c2-1">合成 S∘R — 電車の乗り継ぎ</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>「東京 →（JRで）→ 横浜 →（私鉄で）→ 鎌倉」。2つの路線をつないで1本の旅程にするのが合成です。ポイントは<strong>乗り換え駅（真ん中の元）</strong>が存在すること。</p>
+  <div class="defbox">
+    <p class="math">S ∘ R = { (a, c) | ∃b, aRb かつ bSc }</p>
+    <p><span class="sym">S∘R</span> は「S 合成 R」と読み、<strong>先に R、次に S</strong> の順にたどります（関数の合成 f(g(x)) と同じ向きの約束）。「∃b」が心臓部で、「真ん中の b が（1つでも）存在すれば (a,c) を入れる」という定義です。</p>
+  </div>
+  <figure class="fig">
+    <svg width="520" height="150" viewBox="0 0 520 150" role="img" aria-label="合成の乗り継ぎ図">
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="var(--teal)"/></marker></defs>
+      <circle cx="70" cy="75" r="20" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="1.5"/><text x="70" y="82" text-anchor="middle" font-size="17" fill="var(--ink)">a</text>
+      <circle cx="260" cy="75" r="20" fill="var(--blue-soft)" stroke="var(--blue)" stroke-width="1.5"/><text x="260" y="82" text-anchor="middle" font-size="17" fill="var(--ink)">b</text>
+      <circle cx="450" cy="75" r="20" fill="var(--amber-soft)" stroke="var(--amber)" stroke-width="1.5"/><text x="450" y="82" text-anchor="middle" font-size="17" fill="var(--ink)">c</text>
+      <line x1="95" y1="68" x2="235" y2="68" stroke="var(--teal)" stroke-width="2.5" marker-end="url(#ar2)"/>
+      <text x="165" y="55" text-anchor="middle" font-size="15" fill="var(--teal)" font-weight="bold">R で行く</text>
+      <line x1="285" y1="68" x2="425" y2="68" stroke="var(--teal)" stroke-width="2.5" marker-end="url(#ar2)"/>
+      <text x="355" y="55" text-anchor="middle" font-size="15" fill="var(--teal)" font-weight="bold">S で行く</text>
+      <path d="M70,115 C180,145 340,145 450,115" stroke="var(--amber)" stroke-width="2" stroke-dasharray="6 4" fill="none" marker-end="url(#ar2)"/>
+      <text x="260" y="143" text-anchor="middle" font-size="14" fill="var(--amber)" font-weight="bold">合成の結果：(a, c) ∈ S∘R</text>
+    </svg>
+    <figcaption>a →R→ b →S→ c と乗り継げるとき、(a, c) が合成 S∘R のペアになります。計算手順は「すべての a について R の行き先を列挙し、その各々から S で行ける先を列挙する」だけです。</figcaption>
+  </figure>
+  <div class="trap"><b>④ 最大のひっかけ：合成の向き</b>S∘R なのに「先に R」。なぜこの順かというと、関数の書き方 f(g(x))（先に g を適用）を関係に引き継いだためです。「∘ の<strong>右側から</strong>たどる」と覚えてください。順序を逆にすると答えが変わります。</div>
+
+  <h3 class="sec" id="c2-2">結合法と、逆関係の公式</h3>
+  <div class="defbox">
+    <p class="math">T ∘ (S ∘ R) = (T ∘ S) ∘ R … 結合法則</p>
+    <p class="math">(S ∘ R)⁻¹ = R⁻¹ ∘ S⁻¹ … 逆関係では順序もひっくり返る</p>
+    <p>2つ目の公式は「靴下を履いて靴を履いたら、脱ぐときは逆順」というあの原則です。旅程全体を逆向きにたどるには、各区間を逆向きにし、かつ区間の順序も逆にしなければなりません。</p>
+  </div>
+  <p>また関係どうしの<strong>和集合 R∪S</strong>（どちらかの矢印があれば引く）や<strong>共通部分 R∩S</strong>（両方の矢印があるときだけ引く）も、ペアの集まりとして普通の集合演算で定義されます。</p>
+
+  <h3 class="sec" id="c2-3">冪 Rⁿ — n回乗り継ぎ</h3>
+  <div class="defbox">
+    <p class="math">R¹ = R、R² = R∘R、R³ = R∘R∘R、…、R⁰ = id</p>
+    <p><span class="sym">Rⁿ</span> は「R の n 乗／n回合成」。R² のペア (a,c) は「R を<strong>ちょうど2回</strong>乗り継いで a から c へ行ける」という意味です。R⁰ は「0回移動＝その場にいる」なので恒等関係 id になります。</p>
+  </div>
+
+  <h3 class="sec" id="c2-4">推移閉包 R⁺ ／ 反射推移閉包 R*</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>乗り継ぎ回数を「何回でもよい」にしたとき、a から届く駅のすべて——それが閉包の発想です。「友達の友達の友達…」とたどれる人全員、と思ってもらっても構いません。</p>
+  <div class="defbox">
+    <p class="math">R⁺ = R ∪ R² ∪ R³ ∪ … （1回以上の乗り継ぎで届く範囲）</p>
+    <p class="math">R* = R⁺ ∪ id = R⁰ ∪ R¹ ∪ R² ∪ … （自分自身も含める）</p>
+    <p><span class="sym">R⁺</span> は<strong>推移閉包（すいいへいほう）</strong>、<span class="sym">R*</span> は<strong>反射推移閉包（はんしゃすいいへいほう）</strong>と読みます。R* は「0回移動」も許すぶん、必ず (a,a) を含みます。</p>
+    <p class="math">定理3.2：(a, b) ∈ Rⁿ ⇔ a から b へ長さ n のパス（道）が存在する</p>
+    <p>つまり Rⁿ の計算は「長さ n の道を全部数える」ことと等しい、という橋渡し定理です。</p>
+  </div>
+
+  <h3 class="sec" id="c2-5">講義例を、全部計算してみる</h3>
+  <div class="calc"><span class="step-tag tag-ex">③ 一歩ずつ</span>　A = {a, b, c}、<strong>R = {(a,b), (a,c), (b,c)}</strong>（矢印：a→b、a→c、b→c）として、R²、R³、R⁺、R* を求めます。
+  <ol>
+    <li><strong>R²</strong>：「真ん中」を探します。a→b→c が唯一の2段乗り継ぎ（a→c の先には何もない、b→c の先にも何もない）。よって <strong>R² = {(a,c)}</strong>。</li>
+    <li><strong>R³</strong> = R²∘R：(a,c) の先 c からは矢印が出ないので、3段の道は存在せず <strong>R³ = ∅</strong>。以降 R⁴, R⁵, … もすべて ∅ です。</li>
+    <li><strong>R⁺</strong> = R ∪ R² ∪ R³ ∪ … = {(a,b), (a,c), (b,c)} ∪ {(a,c)} = <strong>{(a,b), (a,c), (b,c)}</strong>（今回は R と一致）。</li>
+    <li><strong>R*</strong> = R⁺ ∪ id = <strong>{(a,b), (a,c), (b,c), (a,a), (b,b), (c,c)}</strong>。</li>
+  </ol>
+  行列風にまとめると、どのペアが何回で届くか一目瞭然です（数字＝必要な乗り継ぎ回数、0 は自分自身、× は届かない）：
+  <table class="mat" aria-label="到達回数表">
+    <tr><th>出発＼到着</th><th>a</th><th>b</th><th>c</th></tr>
+    <tr><th>a</th><td class="on">0回（R*のみ）</td><td class="on">1回</td><td class="on">1回・2回</td></tr>
+    <tr><th>b</th><td>×</td><td class="on">0回（R*のみ）</td><td class="on">1回</td></tr>
+    <tr><th>c</th><td>×</td><td>×</td><td class="on">0回（R*のみ）</td></tr>
+  </table>
+  </div>
+  <div class="trap"><b>④ よくある誤解</b>R⁺ と R* の違いは「自分自身 (a,a) を入れるかどうか」だけです。また、R² は「R のペアを2回使う」のであって「同じペアを2回」ではありません。真ん中の元は毎回探し直します。</div>
+  <p><span class="step-tag" style="background:var(--teal-soft);color:var(--teal)">⑤ つながり</span>　R* は第6回で「反射推移閉包 rt(R) = R*」として再登場します。ここで計算に慣れておくと第6回が一気に楽になります。</p>
+  <div class="prevnext"><a href="#ch1">← 前へ<b>第1回 2項関係 1/2</b></a><a class="next" href="#ch3">次へ →<b>第3回 同値関係 1/2</b></a></div>
+</section>
+
+<!-- ================= 第3回 ================= -->
+<section class="chapter" id="ch3">
+  <div class="ch-head"><div class="no">第3回 ・ 同値関係 1/2</div>
+  <h2>同値関係 ＝「同じグループ分け」のルール</h2>
+  <p>ゴール：反射・対称・推移の3条件を自分の言葉で説明でき、同値類 [a] と商集合 A/R を具体的に書き出せること。</p></div>
+  <div class="ch-toc"><b>この回の内容</b><ul>
+    <li><a href="#c3-1">3つの性質：反射・対称・推移</a></li><li><a href="#c3-2">同値類 [a]</a></li><li><a href="#c3-3">定理3.4と分割・商集合</a></li><li><a href="#c3-4">mod m 合同</a></li><li><a href="#c3-ex">例題：演習18.1〜18.3 の考え方</a></li>
+  </ul></div>
+
+  <h3 class="sec" id="c3-1">反射・対称・推移 — グループ分けの3条件</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>「同じクラスである」という関係を考えてください。(i) 自分は自分と同じクラス（当たり前）、(ii) 私があなたと同じクラスなら、あなたも私と同じクラス、(iii) 私とあなた、あなたと彼が同じクラスなら、私と彼も同じクラス。この3つが成り立つ関係は、クラスという<strong>「きれいなグループ分け」</strong>を生みます。</p>
+  <div class="defbox">
+    <p class="math">反射的：∀a, aRa</p>
+    <p class="math">対称的：∀a,b, aRb ⇒ bRa</p>
+    <p class="math">推移的：∀a,b,c, aRb かつ bRc ⇒ aRc</p>
+    <p class="math">同値関係 ＝ 反射的 ＋ 対称的 ＋ 推移的 な関係</p>
+    <p>1つでも欠けると「グループ分け」としては破綻します。対称でない関係（例：フォロー）はグループにならず、推移でない関係（例：「友達である」は友達の友達が友達とは限らない）もグループになりません。</p>
+  </div>
+  <figure class="fig">
+    <svg width="520" height="170" viewBox="0 0 520 170" role="img" aria-label="同値類のグループ図">
+      <ellipse cx="130" cy="85" rx="105" ry="62" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="1.5"/>
+      <ellipse cx="390" cy="85" rx="105" ry="62" fill="var(--amber-soft)" stroke="var(--amber)" stroke-width="1.5"/>
+      <circle cx="90" cy="70" r="16" fill="var(--card)" stroke="var(--teal)"/><text x="90" y="77" text-anchor="middle" font-size="15" fill="var(--ink)">1</text>
+      <circle cx="140" cy="105" r="16" fill="var(--card)" stroke="var(--teal)"/><text x="140" y="112" text-anchor="middle" font-size="15" fill="var(--ink)">4</text>
+      <circle cx="170" cy="60" r="16" fill="var(--card)" stroke="var(--teal)"/><text x="170" y="67" text-anchor="middle" font-size="15" fill="var(--ink)">7</text>
+      <circle cx="350" cy="70" r="16" fill="var(--card)" stroke="var(--amber)"/><text x="350" y="77" text-anchor="middle" font-size="15" fill="var(--ink)">2</text>
+      <circle cx="400" cy="105" r="16" fill="var(--card)" stroke="var(--amber)"/><text x="400" y="112" text-anchor="middle" font-size="15" fill="var(--ink)">5</text>
+      <circle cx="435" cy="60" r="16" fill="var(--card)" stroke="var(--amber)"/><text x="435" y="67" text-anchor="middle" font-size="15" fill="var(--ink)">8</text>
+      <text x="130" y="162" text-anchor="middle" font-size="13.5" fill="var(--ink2)">[1] = {1, 4, 7, …}（3で割ると余り1）</text>
+      <text x="390" y="162" text-anchor="middle" font-size="13.5" fill="var(--ink2)">[2] = {2, 5, 8, …}（余り2）</text>
+    </svg>
+    <figcaption>同値関係は全体を「重ならないグループ」にきれいに分けます。グループ同士は交わらず、全部集めると元の集合に戻ります。</figcaption>
+  </figure>
+
+  <h3 class="sec" id="c3-2">同値類 [a] — グループの名簿</h3>
+  <div class="defbox">
+    <p class="math">[a] = { b | aRb } ＝ R(a)</p>
+    <p><span class="sym">[a]</span> は「a の同値類（どうちるい）」と読み、a と関係のある元すべての集まり、つまり<strong>a が所属するグループの名簿</strong>そのものです。第1回の R(a) と定義は同じで、「関係が同値関係のときは特別に [a] と書く」と思えばOKです。a をその類の<strong>代表元</strong>といいますが、代表は誰でもよく、[a] = [b]（a と b が同じグループなら名簿は同一）となります。</p>
+  </div>
+
+  <h3 class="sec" id="c3-3">定理3.4・分割・商集合</h3>
+  <div class="defbox">
+    <p class="math">定理3.4：任意の a, b について、[a] = [b] か [a] ∩ [b] = ∅ のどちらか。そして全ての同値類の和集合は A 全体。</p>
+    <p>つまり同値類は「<strong>完全に一致するか、まったく重ならないか</strong>」のどちらかで、しかも全体を漏れなく覆います。このような分け方を<strong>分割（ぶんかつ）</strong>といい、「同値関係」と「分割」は同じものの裏表です。</p>
+    <p class="math">A/R = { [a] | a ∈ A } … 商集合</p>
+    <p><span class="sym">A/R</span> は「A 割る R」と読み、<strong>グループそのものを元として集めた集合</strong>です。「クラス名簿の一覧表」が商集合です。</p>
+  </div>
+
+  <h3 class="sec" id="c3-4">mod m 合同 — 「余りが同じ」という同値関係</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>時計は mod 12 の世界です。13時と1時は「12で割った余りが同じ」ので同じ位置を指します。「余りでグループ分けする」のが合同の発想です。</p>
+  <div class="defbox">
+    <p class="math">a ≡ b (mod m) ⇔ m | (a − b) ⇔ a と b を m で割った余りが等しい</p>
+    <p><span class="sym">≡</span> は合同（ごうどう）の記号で「a コングルエント b モッド m」と読みます。≡<sub>m</sub> と書くこともあります。これは同値関係です（反射：余りは自分と同じ／対称：明らか／推移：余りが同じもの同士は同じ）。</p>
+  </div>
+  <div class="calc"><span class="step-tag tag-ex">③ 一歩ずつ</span>　m = 3 で整数を仕分けします。余りは 0, 1, 2 の3通りしかないので、グループも3つ：
+  <ul class="tight">
+    <li>[0] = {…, −3, 0, 3, 6, 9, …}（3の倍数）</li>
+    <li>[1] = {…, −2, 1, 4, 7, 10, …}</li>
+    <li>[2] = {…, −1, 2, 5, 8, 11, …}</li>
+  </ul>
+  確認：7 ∈ [1] なのは 7 = 3×2 + 1 と余り1だから。[7] と書いても [1] と同じ名簿です（7≡1 mod 3）。</div>
+
+  <details class="ex" id="c3-ex">
+    <summary>例題で確認：演習18.1〜18.3 の考え方<span class="open-hint">開いて読む ▾</span></summary>
+    <div class="body">
+      <div class="q"><strong>演習18 の共通テーマ</strong>：与えられた関係が同値関係か判定し、同値類と商集合を求める。</div>
+      <p><b>考え方（手順）</b></p>
+      <ol class="tight">
+        <li><strong>3条件チェック</strong>：反射（自分自身とのペアは常にあるか）→ 対称（矢印は常に戻れるか）→ 推移（2段乗り継ぎでショートカットがあるか）。1つ反例を見つければ「同値関係でない」で終了です。反例探しは小さい元から試すのがコツ。</li>
+        <li><strong>同値類を書き出す</strong>：まだ名簿に入っていない一番小さい元を代表に取り、その元と関係のあるものを全部集めて1グループ。尽きるまで繰り返します（定理3.4のおかげで、重なりを心配しなくてよい）。</li>
+        <li><strong>商集合にまとめる</strong>：できたグループを { } で包んで並べれば A/R の完成。</li>
+      </ol>
+      <div class="ans"><p><b class="lab">解答の型（≡₃ の場合）</b></p>
+      <p><span class="math">Z/≡₃ = { [0], [1], [2] }</span>、各類は上の③で書き出した通り。商集合の元は「数」ではなく「グループ（集合）」である点に注意——だから外側にもう一段 { } が付きます。</p></div>
+    </div>
+  </details>
+  <div class="trap"><b>④ よくある誤解</b>[a] は「a を含む集合」ではありますが、[a] の中身は a だけではありません。また商集合 A/R の元の個数は、元の集合 A の元の個数ではなく「グループの数」です（≡₃ なら無限の整数がたった3グループ）。</div>
+  <div class="prevnext"><a href="#ch2">← 前へ<b>第2回 2項関係 2/2</b></a><a class="next" href="#ch4">次へ →<b>第4回 同値関係 2/2</b></a></div>
+</section>
+
+<!-- ================= 第4回 ================= -->
+<section class="chapter" id="ch4">
+  <div class="ch-head"><div class="no">第4回 ・ 同値関係 2/2 ＋ 半順序</div>
+  <h2>細分でグループを割り、半順序で「比べられない」を許す</h2>
+  <p>ゴール：剰余類 Z/≡<sub>m</sub> の構造と「負の数を作る」同値関係が分かり、細分と半順序／全順序の違いを説明できること。</p></div>
+  <div class="ch-toc"><b>この回の内容</b><ul>
+    <li><a href="#c4-1">剰余類 Z/≡_m</a></li><li><a href="#c4-2">N×N で負の数を「作る」</a></li><li><a href="#c4-3">細分</a></li><li><a href="#c4-4">半順序と全順序</a></li><li><a href="#c4-ex">例題：演習19.2</a></li>
+  </ul></div>
+
+  <h3 class="sec" id="c4-1">剰余類 Z/≡<sub>m</sub> — 余りのグループの正式名</h3>
+  <div class="defbox">
+    <p class="math">Z/≡<sub>m</sub> = { [0], [1], …, [m−1] }（m 個の類）</p>
+    <p>≡<sub>m</sub> による同値類を<strong>剰余類（じょうよるい）</strong>と呼びます。「整数全体を m で割った余りで仕分ける」と、無限の整数が<strong>ちょうど m 個のグループ</strong>に収まります。第3回の ≡₃ はその m=3 の場合でした。</p>
+  </div>
+
+  <h3 class="sec" id="c4-2">N×N の同値関係 — 負の数を「作る」話</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>自然数（0,1,2,…）の世界には「−2」がありません。でも「3 − 5」のような<strong>引き算の“つもり”をペアで表す</strong>ことはできます。(a, b) を「a − b のつもり」と読む約束にすると、(1, 3) も (4, 6) も (0, 2) も、すべて「−2 のつもり」です。</p>
+  <div class="defbox">
+    <p class="math">(a, b) ∼ (c, d) ⇔ a + d = b + c</p>
+    <p>この ∼ は N×N 上の同値関係です。条件 a+d = b+c は「a−b = c−d（引き算が同じ）」を、負の数を使わずに言い換えたものです。同値類 [(1,3)] が、数学的には<strong>整数 −2 そのもの</strong>として扱われます。商集合 (N×N)/∼ が整数の集合 Z の「設計図」になっている、という壮大な話の入口です。</p>
+  </div>
+  <div class="calc"><span class="step-tag tag-ex">③ 確認</span>　(1,3) ∼ (4,6) か？ a+d = 1+6 = 7、b+c = 3+4 = 7 で等しい → 同じ類（どちらも −2）。(2,5) は？ 2+6=8 ≠ 3+4=7 → 別々の類（−3 の側）。</div>
+
+  <h3 class="sec" id="c4-3">細分 — グループをより細かく割る</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>「学年で分ける」より「クラスで分ける」ほうが細かい。同じ全体を分ける2つの方法について、<strong>片方のグループがもう片方のグループの中にすっぽり収まっている</strong>とき、「より細かい」＝細分といいます。</p>
+  <div class="defbox">
+    <p class="math">分割 P が分割 Q の細分 ⇔ P の各ブロックが Q のあるブロックに含まれる</p>
+    <p>同値関係の言葉では「関係が小さい（ペアが少ない）ほど類は細かく」なります。例：<strong>≡₆ は ≡₂ の細分</strong>。6で割った余りが同じ2数は、2で割った余りも当然同じだからです。([0]₆ ⊆ [0]₂、[1]₆ ⊆ [1]₂、[2]₆ ⊆ [0]₂、…のように6個の類が2個の類に分配されます。)</p>
+    <p class="math">≡<sub>mn</sub> = ≡<sub>m</sub> ∩ ≡<sub>n</sub></p>
+    <p>「mn で割って余りが同じ」は「m でも n でも余りが同じ」と同等、という形で、共通部分 ∩ が「両方の条件を課す＝より細かい関係」に対応します。</p>
+  </div>
+
+  <h3 class="sec" id="c4-4">半順序 — 比べられないペアがあってよい</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>社内の「上司である」関係や、単位の「前提科目である」関係では、<strong>横並びで上下を比べられないペア</strong>が普通にあります。それでも「順序っぽい」構造はあります。それを切り取ったのが半順序です。</p>
+  <div class="defbox">
+    <p class="math">半順序 ＝ 反射的 ＋ 反対称的 ＋ 推移的</p>
+    <p class="math">反対称的：aRb かつ bRa ⇒ a = b</p>
+    <p><span class="sym">反対称</span>は対称の対極：「両向きに矢印があるのは、自分自身への矢印だけ」という条件です。半順序は通常 ≤ の字で書き、(A, ≤) を<strong>半順序集合</strong>といいます。</p>
+    <p class="math">全順序 ＝ 半順序 ＋ 任意の a, b が比較可能</p>
+    <p>a と b について a ≤ b か b ≤ a の<strong>少なくとも一方が必ず</strong>成り立つ半順序が<strong>全順序</strong>（数直線の ≤ が代表）。半順序で a ≤ b も b ≤ a も成り立たないとき、a と b は<strong>比較不可能</strong>といいます。</p>
+  </div>
+  <p><span class="step-tag tag-ex">③ 具体例</span>　集合の包含 ⊆ は半順序です：{a} と {b} はどちらも他方を含まないので比較不可能。だから ⊆ は（大きな集合については）全順序ではありません。一方、普通の数の ≤ は全順序です。</p>
+
+  <details class="ex" id="c4-ex">
+    <summary>例題で確認：演習19.2 の考え方<span class="open-hint">開いて読む ▾</span></summary>
+    <div class="body">
+      <div class="q"><strong>演習19.2</strong>　べき集合 2<sup>A</sup> 上の包含関係 ⊆ は半順序か？ 全順序になるのはどんな A か？</div>
+      <p><b>考え方</b>：(i) 反射：どの集合 X も X ⊆ X。(ii) 反対称：X ⊆ Y かつ Y ⊆ X なら X = Y（集合の相等そのもの）。(iii) 推移：X ⊆ Y、Y ⊆ Z なら X ⊆ Z。よって ⊆ は常に半順序です。全順序かどうかは「比較不可能なペアを作れるか」で決まります。</p>
+      <div class="ans"><p><b class="lab">解答</b></p>
+      <p>|A| ≥ 2 なら、A の元 a ≠ b に対して {a} と {b} が比較不可能なので全順序ではない。逆に <strong>|A| ≤ 1 のとき全順序になる</strong>：|A| = 0 なら 2<sup>A</sup> = {∅} で1元のみ、|A| = 1 なら 2<sup>A</sup> = {∅, A} で ∅ ⊆ A と鎖状に並びます。</p></div>
+    </div>
+  </details>
+  <div class="trap"><b>④ よくある誤解</b>「半」は「半分」という意味ではなく「部分的に（partially）順序が付いている」という意味（英語の partial order の訳）です。また反対称と「対称でない」は別物：反対称は a≠b のペアに両向き矢印が<strong>決して</strong>ないこと、を要求します。</div>
+  <div class="prevnext"><a href="#ch3">← 前へ<b>第3回 同値関係 1/2</b></a><a class="next" href="#ch5">次へ →<b>第5回 順序 1/2</b></a></div>
+</section>
+
+<!-- ================= 第5回 ================= -->
+<section class="chapter" id="ch5">
+  <div class="ch-head"><div class="no">第5回 ・ 順序 1/2</div>
+  <h2>擬順序、辞書式順序、そして「一番」の2つの意味</h2>
+  <p>ゴール：&lt; と ≤ の行き来ができ、辞書式順序で文字列を並べ替えられ、極大元と最大元を図で区別できること。</p></div>
+  <div class="ch-toc"><b>この回の内容</b><ul>
+    <li><a href="#c5-1">擬順序（&lt; の世界）</a></li><li><a href="#c5-2">&lt; と ≤ の変換、双対</a></li><li><a href="#c5-3">辞書式順序</a></li><li><a href="#c5-4">極大元 vs 最大元</a></li><li><a href="#c5-ex">例題：演習20.1・20.2</a></li>
+  </ul></div>
+
+  <h3 class="sec" id="c5-1">擬順序 — 「自分とは比べない」版の順序</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>数の &lt;（小なり）は「自分より小さい」だけを比べ、自分自身とは比べません（a &lt; a は偽）。この「自分を除く」流儀を一般化したものが擬順序です。</p>
+  <div class="defbox">
+    <p class="math">擬順序 ＝ 非反射的（∀a, ¬(a &lt; a)）＋ 推移的</p>
+    <p><span class="sym">擬順序（ぎじゅんじょ）</span>の代表例は数の &lt; と、集合の真包含 ⊂ です。なお非反射＋推移からは反対称にあたる性質（a&lt;b かつ b&lt;a は起こらない）が自動的に従います。</p>
+  </div>
+  <div class="trap"><b>④ 反例の味方：じゃんけん</b>「グーはチョキに勝ち、チョキはパーに勝ち、パーはグーに勝つ」——「勝つ」関係は推移的でありません（グーはチョキに勝ち、チョキはパーに勝つのに、グーはパーに勝たない）。だから「勝つ」は擬順序でも半順序でもありません。<strong>推移性のチェックには、まず循環する例がないか探す</strong>のが近道です。</div>
+
+  <h3 class="sec" id="c5-2">&lt; と ≤ の変換 ／ 双対</h3>
+  <div class="defbox">
+    <p class="math">a &lt; b ⇔ a ≤ b かつ a ≠ b　／　a ≤ b ⇔ a &lt; b または a = b</p>
+    <p>半順序 ≤ から「＝ の分を取り除く」と擬順序 &lt; が得られ、逆に擬順序に「＝ を足す」と半順序が得られます。2つの世界は<strong>「等号を含むかどうか」の1点だけ</strong>で行き来できる、というのがこの回の最初の山です。</p>
+    <p class="math">双対順序：a ≤<sup>op</sup> b ⇔ b ≤ a</p>
+    <p>順序を上下ひっくり返したものが<strong>双対（そうつい）</strong>。≤ の双対は ≥ です。以後の「最大／最小」「sup／inf」は双対のペアになっていて、片方を理解すればもう片方は上下逆に読むだけです。</p>
+  </div>
+
+  <h3 class="sec" id="c5-3">辞書式順序 — 辞書の引き方そのもの</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>国語辞典の並び順を思い出してください。まず1文字目で比べ、それが同じときだけ2文字目を見る。文字列の全順序がこの仕組みで作れます。</p>
+  <div class="defbox">
+    <p class="math">辞書式順序：最初に異なる位置の文字で勝敗を決める。片方がもう片方の接頭辞（先頭部分）なら、短い方を小さいとする。</p>
+  </div>
+  <div class="calc"><span class="step-tag tag-ex">③ 一歩ずつ</span>　<strong>abc ≺ abcd ≺ abd ≺ ad</strong> を確かめます（≺ は辞書式順序の記号）：
+  <ol class="tight">
+    <li><b>abc vs abcd</b>：3文字目まで完全一致し、abc が尽きる。abc は abcd の接頭辞なので短い方 abc が小さい → abc ≺ abcd。</li>
+    <li><b>abcd vs abd</b>：1文字目 a＝a、2文字目 b＝b、3文字目で c と d が異なる。c ≺ d なので abcd ≺ abd（4文字目は見ない）。</li>
+    <li><b>abd vs ad</b>：2文字目で b と d が異なる。b ≺ d なので abd ≺ ad。</li>
+  </ol>
+  ルールは「<strong>最初に違いが出た場所で決着。それより後ろは見ない</strong>」です。</div>
+
+  <h3 class="sec" id="c5-4">極大元／極小元 vs 最大元／最小元</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>山登りで言えば——<strong>極大元は「自分の上に誰もいない人」</strong>（独立した山の頂上は複数ありうる）。<strong>最大元は「全員より上にいる唯一の人」</strong>（世界最高峰は1つだけ）。この違いが第5回最大のテーマです。</p>
+  <div class="defbox">
+    <p class="math">極大元：m が極大 ⇔ m より真に大きい元が存在しない</p>
+    <p class="math">最大元：M が最大 ⇔ すべての元 a について a ≤ M</p>
+    <p>最大元があれば、それは唯一の極大元でもあります。しかし極大元が複数あるとき最大元は存在しません（「全員より上」が誰にも当てはまらない）。最小元・極小元は上下逆の双対の概念です。</p>
+  </div>
+  <figure class="fig">
+    <svg width="520" height="235" viewBox="0 0 520 235" role="img" aria-label="約数順序のハッセ図">
+      <line x1="170" y1="150" x2="120" y2="80" stroke="var(--ink2)" stroke-width="1.8"/>
+      <line x1="170" y1="150" x2="290" y2="80" stroke="var(--ink2)" stroke-width="1.8"/>
+      <line x1="330" y1="150" x2="290" y2="80" stroke="var(--ink2)" stroke-width="1.8"/>
+      <line x1="120" y1="65" x2="120" y2="30" stroke="var(--ink2)" stroke-width="1.8"/>
+      <line x1="290" y1="65" x2="290" y2="30" stroke="var(--ink2)" stroke-width="1.8"/>
+      <circle cx="170" cy="168" r="17" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="1.8"/><text x="170" y="175" text-anchor="middle" font-size="15" fill="var(--ink)">3</text>
+      <circle cx="330" cy="168" r="17" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="1.8"/><text x="330" y="175" text-anchor="middle" font-size="15" fill="var(--ink)">5</text>
+      <circle cx="440" cy="168" r="17" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="1.8"/><text x="440" y="175" text-anchor="middle" font-size="15" fill="var(--ink)">7</text>
+      <circle cx="120" cy="80" r="17" fill="var(--card)" stroke="var(--ink2)" stroke-width="1.5"/><text x="120" y="87" text-anchor="middle" font-size="15" fill="var(--ink)">6</text>
+      <circle cx="290" cy="80" r="17" fill="var(--card)" stroke="var(--ink2)" stroke-width="1.5"/><text x="290" y="87" text-anchor="middle" font-size="15" fill="var(--ink)">15</text>
+      <circle cx="120" cy="22" r="17" fill="var(--amber-soft)" stroke="var(--amber)" stroke-width="1.8"/><text x="120" y="29" text-anchor="middle" font-size="15" fill="var(--ink)">12</text>
+      <text x="262" y="16" font-size="13" fill="var(--amber)" font-weight="bold">← 極大元は 12 と 15 の2つ</text>
+      <text x="262" y="228" font-size="13" fill="var(--teal)" font-weight="bold">極小元は 3, 5, 7 →</text>
+      <text x="20" y="228" font-size="13" fill="var(--ink2)">線は「割り切る」関係（3|6, 6|12, 3|15, 5|15）</text>
+    </svg>
+    <figcaption><strong>ハッセ図</strong>：半順序を「すぐ上の元とだけ線を結び、反射のループと推移で分かる線を省略」して描いた図。上下の位置そのものが順序を表します。この図では上に行き止まりが2つ（12と15）あるので最大元はなく、下の行き止まりが3つあるので最小元もありません。</figcaption>
+  </figure>
+
+  <details class="ex" id="c5-ex">
+    <summary>例題で確認：演習20.1・20.2 の解き方<span class="open-hint">開いて読む ▾</span></summary>
+    <div class="body">
+      <div class="q"><strong>演習20.1</strong>　文字列を辞書式順序で並べ替える問題。</div>
+      <p><b>考え方</b>：比較は必ず「1文字目から順に、最初に違う文字で決める」「接頭辞なら短い方が先」。代表例の並びは <span class="math">abc ≺ abcd ≺ abd ≺ ad</span> で、比べ方は③で一歩ずつ追った通りです。迷ったら2語ずつ取り出して同じ手順を繰り返してください。</p>
+      <div class="q"><strong>演習20.2</strong>　A = {3, 5, 6, 7, 12, 15} 上の約数順序（a ≤ b ⇔ a は b を割り切る）について、極小元・最小元・極大元・最大元を求めよ。</div>
+      <p><b>考え方</b>：ハッセ図を描くのが正攻法です。割り切る関係は 3|6、3|12（6経由でも可）、3|15、5|15（7はどれとも無関係に孤立）。「線が上に出ていない元」が極大元、「線が下に出ていない元」が極小元。最大元は「全元と比較可能で一番上」の元があるかで判定します。</p>
+      <div class="ans"><p><b class="lab">解答</b></p>
+      <p>極小元：<strong>3, 5, 7</strong>／最小元：<strong>なし</strong>（極小元が複数）<br>極大元：<strong>12, 15</strong>／最大元：<strong>なし</strong>（極大元が複数）</p>
+      <p>暗記ではなく「極元は複数ありうる／最大・最小はあれば1つだけ」という原則から導けるのがポイントです。</p></div>
+    </div>
+  </details>
+  <div class="prevnext"><a href="#ch4">← 前へ<b>第4回 同値関係 2/2</b></a><a class="next" href="#ch6">次へ →<b>第6回 順序 2/2</b></a></div>
+</section>
+
+<!-- ================= 第6回 ================= -->
+<section class="chapter" id="ch6">
+  <div class="ch-head"><div class="no">第6回 ・ 順序 2/2</div>
+  <h2>上界・sup、束、そして閉包とソート</h2>
+  <p>ゴール：上界・下界から sup／inf を求められ、束の演算 ∨／∧ を約数順序で計算でき、4つの閉包 r／s／t／rst の役割を説明できること。</p></div>
+  <div class="ch-toc"><b>この回の内容</b><ul>
+    <li><a href="#c6-1">上界・下界と sup／inf</a></li><li><a href="#c6-2">束と ∨／∧</a></li><li><a href="#c6-3">閉包 r／s／t／rst</a></li><li><a href="#c6-4">トポロジカルソート</a></li><li><a href="#c6-ex">例題：演習21.1〜21.3 の手順</a></li>
+  </ul></div>
+
+  <h3 class="sec" id="c6-1">上界・下界、sup（上限）・inf（下限）</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>部分集合 B の<strong>上界は「B の全員以上の高さにある天井候補」</strong>、その中で<strong>一番低い天井</strong>が sup（上限）です。天井が部屋の中（B の中）にあるとは限らない——これが sup の一番大事な性質です。</p>
+  <div class="defbox">
+    <p class="math">u が B の上界 ⇔ ∀b ∈ B, b ≤ u</p>
+    <p class="math">sup B ＝ B の上界全体の中で最小のもの（上限）</p>
+    <p class="math">inf B ＝ B の下界全体の中で最大のもの（下限）</p>
+    <p><span class="sym">sup</span> は「スープ（シュプレマム）」、<span class="sym">inf</span> は「インフ（インフィマム）」と読みます。sup B が B に属せばそれは B の最大元と一致しますが、属さないこともあります。</p>
+  </div>
+  <div class="calc"><span class="step-tag tag-ex">③ 具体例：開区間 (0,1)</span>　実数の通常の順序で B = (0, 1)（0と1を含まない）を考えます。
+  <ul class="tight">
+    <li>上界：1 以上の数すべて（1, 1.5, 2, …）。</li>
+    <li>その中で最小は <strong>1</strong> → sup B = 1。</li>
+    <li>しかし <strong>1 ∉ B</strong>。だから B に最大元はないのに sup は存在する——これが「最大元」と「sup」の決定的な違いです。同様に inf B = 0 で、これも B に含まれません。</li>
+  </ul></div>
+
+  <h3 class="sec" id="c6-2">束（そく）と、結び ∨ ／ 交わり ∧</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>どんな2元にも「共通の天井の一番低いもの」と「共通の床の一番高いもの」が必ず用意されている世界——それが束です。</p>
+  <div class="defbox">
+    <p class="math">束：任意の2元 a, b について sup{a,b} と inf{a,b} が存在する半順序集合</p>
+    <p class="math">a ∨ b = sup{a, b} … 結び（ジョイン）、a ∧ b = inf{a, b} … 交わり（ミート）</p>
+    <p><span class="sym">∨</span> は「ヴェー／または型」の記号で結び、<span class="sym">∧</span> は交わりと読みます。</p>
+    <p class="math">(ℕ, |)（約数順序）では：a ∨ b = 最小公倍数 lcm、a ∧ b = 最大公約数 gcd</p>
+    <p>「a と b の両方を割り切る数の中で一番小さいもの」が最小公倍数＝sup、「両方を割り切る中で一番大きいもの」が最大公約数＝inf だからです。</p>
+  </div>
+  <div class="calc"><span class="step-tag tag-ex">③ 一歩ずつ：60 ∨ 55 と 60 ∧ 55</span>
+  <ol class="tight">
+    <li>素因数分解：60 = 2² × 3 × 5、55 = 5 × 11。</li>
+    <li><strong>∧（gcd）</strong>は「共通部分を小さい指数で」：共通する素数は 5 のみ → 60 ∧ 55 = <strong>5</strong>。</li>
+    <li><strong>∨（lcm）</strong>は「全部を大きい指数で」：2² × 3 × 5 × 11 = 4 × 3 × 55 = <strong>660</strong>。</li>
+  </ol>
+  検算：660 ÷ 60 = 11、660 ÷ 55 = 12 で、確かに両方の倍数の中で最小です。</div>
+
+  <h3 class="sec" id="c6-3">閉包 r／s／t／rst — 足りない性質を最小限だけ補う</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>「閉包」とは、<strong>希望の性質を持つようになるまで、ペアを最小限だけ付け足す</strong>手術です。多く足しすぎてもダメ（元の関係を含む最小のもの、が条件）。</p>
+  <div class="defbox">
+    <p class="math">反射閉包 r(R) = R ∪ id</p>
+    <p class="math">対称閉包 s(R) = R ∪ R⁻¹</p>
+    <p class="math">推移閉包 t(R) = R⁺</p>
+    <p class="math">反射推移閉包 rt(R) = R*</p>
+    <p class="math">rst(R) ＝ R を含む最小の同値関係</p>
+    <p>各公式は「足りない矢印の正体」をそのまま書いたものです：反射には (a,a) が、対称には逆向きの矢印が、推移には乗り継ぎの結果が足りません。第2回の R⁺・R* がここで閉包として再登場していることに注目してください。rst 閉包は3つの手術の合わせ技で、結果は「R の矢印（とその逆）でたどれる範囲がグループになる」同値関係です。</p>
+  </div>
+  <div class="trap"><b>④ よくある誤解</b>閉包は「性質を満たすまで足す」のであって、「性質を満たすものなら何でもよい」わけではありません。<strong>最小性</strong>（それ以上削れない）が定義の半分です。また rt(R) = r(t(R)) = t(r(R)) のように順序を入れ替えられる組もありますが、s と t は単純には入れ替えられず、rst は正しい順序で合成する必要があります。</div>
+
+  <h3 class="sec" id="c6-4">ソートとトポロジカルソート</h3>
+  <p><span class="step-tag tag-intuition">① 例え</span><br>「前提科目を先に履修する」「下着→シャツ→ジャケットの順に着る」のように、<strong>半順序の制約を壊さず一列に並べ替える</strong>のがトポロジカルソートです。全順序でない半順序でも、「一列化」なら可能なことが多いのです。</p>
+  <div class="defbox"><p class="math">トポロジカルソート：a &lt; b なら a が b より前に来るような全元の列挙</p>
+  <p>手順：<strong>極小元（今のところ前提が残っていない元）を1つ選んで先頭に置き、取り除く</strong>。これを繰り返すだけです。選ぶ極小元が複数あれば、そのぶん答えも複数通りあります（どれも正解）。</p></div>
+  <div class="calc"><span class="step-tag tag-ex">③ 具体例</span>　第5回の約数順序 A = {3, 5, 6, 7, 12, 15} を並べます。極小元は {3, 5, 7}。たとえば 3 を取り除くと極小元は {5, 6, 7}、次に 5 を取ると {6, 7, 15}、…という具合に進めて、たとえば <strong>3, 5, 6, 7, 12, 15</strong> や <strong>7, 3, 5, 6, 15, 12</strong> などが得られます。どちらも「割り切る側が先」という制約を守っています。</div>
+
+  <details class="ex" id="c6-ex">
+    <summary>例題で確認：演習21.1〜21.3 の解き方（手順まとめ）<span class="open-hint">開いて読む ▾</span></summary>
+    <div class="body">
+      <div class="q"><strong>演習21.1（上界・sup／inf 型）</strong></div>
+      <p><b>手順</b>：(1) 対象の部分集合 B の全員以上にある元をすべて挙げる＝上界の集合。(2) 上界の中で最小のものを探す＝sup。(3) 下側も双対に繰り返す＝inf。(4) sup が B に属すかチェックし、属せば「それが最大元」とも言える。ハッセ図があれば、上界は「B の全元から上にたどって共通して届く点」として目で探せます。</p>
+      <div class="q"><strong>演習21.2（束の演算 型）</strong></div>
+      <p><b>手順</b>：約数順序なら a∨b＝lcm、a∧b＝gcd に翻訳してから素因数分解で計算（③の 60 と 55 の型）。包含順序 2<sup>A</sup> なら a∨b＝和集合、a∧b＝共通部分です。「順序 → 演算への翻訳表」を先に作るのがコツ。</p>
+      <div class="q"><strong>演習21.3（閉包 型）</strong></div>
+      <p><b>手順</b>：求める閉包に応じて公式をそのまま適用します。r なら id のペアを全追加、s なら各ペアの逆を追加、t なら乗り継ぎで生まれるペアを（なくなるまで）追加。有限集合なら矢印図に書き足していく方法が確実で、「もう追加できない」状態が答えです。rst が問われたら、まず対称化→推移化の順に進め、最後に反射ペアを確認します。</p>
+    </div>
+  </details>
+  <p><span class="step-tag" style="background:var(--teal-soft);color:var(--teal)">⑤ 6回の総まとめ</span>　第1回「ペアの集まり」から出発し、合成と閉包（第2回）、同値関係とグループ分け（第3〜4回）、半順序と極元・sup（第4〜6回）まで、すべては「関係にどんな条件を付けるか」の違いでした。この一文が腑に落ちれば、講義6回分の地図は完成です。</p>
+  <div class="prevnext"><a href="#ch5">← 前へ<b>第5回 順序 1/2</b></a><a class="next" href="#dict">次へ →<b>用語・記号辞典</b></a></div>
+</section>
+
+<!-- ================= 辞典 ================= -->
+<section class="chapter" id="dict">
+  <div class="ch-head"><div class="no">付録 ・ 総まとめ</div>
+  <h2>用語・記号辞典</h2>
+  <p>講義6回分に出てきた記号と用語の総一覧です。読み返しのときに「あの記号なんだっけ？」をここで解決してください。検索窓で絞り込みもできます。</p></div>
+  <input class="searchbox" id="dictSearch" type="search" placeholder="🔍 記号・用語を検索（例：閉包、⊆、sup）" aria-label="辞典を検索">
+  <div class="gloss" id="glossList">
+    <div class="g"><b><span class="sym">∈</span>所属</b><p>a ∈ A：「a は A の元である」。読み方「ぞくする」。</p></div>
+    <div class="g"><b><span class="sym">⊆</span>部分集合</b><p>B ⊆ A：B の元はすべて A の元。等しい場合も含む。</p></div>
+    <div class="g"><b><span class="sym">2^A</span>べき集合</b><p>A の部分集合全部の集合。元の数は 2^|A| 個。</p></div>
+    <div class="g"><b><span class="sym">∅</span>空集合</b><p>元が1つもない集合。空関係（ペアなしの関係）にも同じ記号。</p></div>
+    <div class="g"><b><span class="sym">A×B</span>直積</b><p>順序対 (a,b) 全体の集合。|A×B| = |A|·|B|。</p></div>
+    <div class="g"><b><span class="sym">∀ / ∃</span>全称・存在</b><p>∀「すべての」、∃「存在する」。定義文を読む鍵。</p></div>
+    <div class="g"><b><span class="sym">aRb</span>関係の表記</b><p>(a,b) ∈ R と同じ意味。「a は b と関係 R にある」。</p></div>
+    <div class="g"><b><span class="sym">R⁻¹</span>逆関係</b><p>全ペアの前後を入れ替えた関係。矢印を逆向きにする。</p></div>
+    <div class="g"><b><span class="sym">R(a)</span>像</b><p>{ b | aRb }、a から矢印が届く相手の集まり。同値関係では [a] と一致。</p></div>
+    <div class="g"><b><span class="sym">id</span>恒等関係</b><p>{ (a,a) | a∈A }。自分自身へのペアだけの関係。R⁰ でもある。</p></div>
+    <div class="g"><b><span class="sym">Dom / Range</span>定義域・値域</b><p>Dom＝矢印が出ている元の全体、Range＝矢印が着く元の全体。</p></div>
+    <div class="g"><b><span class="sym">S∘R</span>合成</b><p>先に R、次に S。「真ん中の元」が存在するペアの集まり。(S∘R)⁻¹ = R⁻¹∘S⁻¹。</p></div>
+    <div class="g"><b><span class="sym">Rⁿ</span>冪</b><p>R の n 回合成。長さ n のパスで結ばれるペア全体（定理3.2）。</p></div>
+    <div class="g"><b><span class="sym">R⁺</span>推移閉包 t(R)</b><p>R ∪ R² ∪ …、1回以上の乗り継ぎで届く範囲。</p></div>
+    <div class="g"><b><span class="sym">R*</span>反射推移閉包 rt(R)</b><p>R⁺ ∪ id、0回移動（自分自身）も含む到達範囲。</p></div>
+    <div class="g"><b>反射的・対称的・推移的</b><p>∀a aRa／aRb⇒bRa／aRb∧bRc⇒aRc。関係の基本3性質。</p></div>
+    <div class="g"><b>同値関係</b><p>反射＋対称＋推移。「同じグループ分け」を与える関係。</p></div>
+    <div class="g"><b><span class="sym">[a]</span>同値類</b><p>a と関係する元の全体＝a のグループ名簿。[a]=[b] か交わらない（定理3.4）。</p></div>
+    <div class="g"><b>分割</b><p>全体を重ならず漏れなく分けたブロックの集まり。同値関係と対応。</p></div>
+    <div class="g"><b><span class="sym">A/R</span>商集合</b><p>同値類全体の集合。「グループの一覧表」。</p></div>
+    <div class="g"><b><span class="sym">≡ (mod m)</span>合同</b><p>m で割った余りが等しい、という同値関係。同値類は剰余類。</p></div>
+    <div class="g"><b>剰余類</b><p>Z/≡_m の類 [0]…[m−1] のこと。ちょうど m 個ある。</p></div>
+    <div class="g"><b>細分</b><p>分割の各ブロックがより粗い分割のブロックに含まれるとき、より細かい方を細分という。例：≡₆ は ≡₂ の細分。</p></div>
+    <div class="g"><b>半順序</b><p>反射＋反対称＋推移。比較不可能なペアがあってよい。</p></div>
+    <div class="g"><b>反対称的</b><p>aRb かつ bRa ⇒ a=b。両向き矢印は自分自身だけ。</p></div>
+    <div class="g"><b>全順序</b><p>どの2元も比較可能な半順序。比較不可能＝どちらも成り立たない状態。</p></div>
+    <div class="g"><b>擬順序</b><p>非反射＋推移の順序（&lt; 型）。≤ とは「＝」の分だけで行き来できる。</p></div>
+    <div class="g"><b>双対</b><p>順序を上下反転したもの。≤ の双対は ≥。最大⇔最小、sup⇔inf も双対。</p></div>
+    <div class="g"><b>辞書式順序</b><p>最初に異なる文字で決める文字列の全順序。接頭辞なら短い方が小さい。</p></div>
+    <div class="g"><b>極大元・極小元</b><p>「自分より上（下）がいない」元。複数ありうる。</p></div>
+    <div class="g"><b>最大元・最小元</b><p>「全員より上（下）」の元。あれば1つだけ。極元のうち全員と比較可能なもの。</p></div>
+    <div class="g"><b>ハッセ図</b><p>半順序を、直上の関係だけ線で結んで描く図。上下位置が順序を表す。</p></div>
+    <div class="g"><b>上界・下界</b><p>上界＝部分集合の全元以上の元、下界＝全元以下の元。</p></div>
+    <div class="g"><b><span class="sym">sup</span>上限</b><p>上界の中で最小のもの。部分集合に含まれるとは限らない（例：(0,1) の sup=1）。</p></div>
+    <div class="g"><b><span class="sym">inf</span>下限</b><p>下界の中で最大のもの。sup と双対。</p></div>
+    <div class="g"><b>束（そく）</b><p>任意の2元に sup と inf が存在する半順序集合。</p></div>
+    <div class="g"><b><span class="sym">∨ / ∧</span>結び・交わり</b><p>a∨b = sup{a,b}、a∧b = inf{a,b}。約数順序では lcm／gcd。</p></div>
+    <div class="g"><b><span class="sym">r / s / t</span>閉包</b><p>r(R)=R∪id、s(R)=R∪R⁻¹、t(R)=R⁺。「最小限だけ付け足す」操作。rst(R) は最小の同値閉包。</p></div>
+    <div class="g"><b>トポロジカルソート</b><p>半順序の制約を守って全元を一列に並べること。極小元を繰り返し取り除く。</p></div>
+  </div>
+  <p class="kbd-note" id="noHit" style="display:none">該当する用語がありません。別の言葉で試してみてください。</p>
+  <div class="prevnext"><a href="#ch6">← 前へ<b>第6回 順序 2/2</b></a><a class="next" href="#map">↑ 目次<b>全体マップへ戻る</b></a></div>
+</section>
+
+<footer>
+  <p><strong>離散数学 解説＋ドリル</strong> — 離散数学B（4E）第1〜6回（2項関係・同値関係・順序）の講義資料と演習（問16.1〜21.4）に沿った学習テキストです。問題演習は画面上部の「ドリルで解く」タブからどうぞ。</p>
+  <p>読み方のコツ：1回分を「例えだけ先に全部読む → 定義に戻る」の2周読みにすると、記号への抵抗感がかなり減ります。</p>
+</footer>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('dictSearch');
+  var items = Array.prototype.slice.call(document.querySelectorAll('#glossList .g'));
+  var noHit = document.getElementById('noHit');
+  if(!input) return;
+  input.addEventListener('input', function(){
+    var q = input.value.trim().toLowerCase();
+    var shown = 0;
+    items.forEach(function(el){
+      var hit = !q || el.textContent.toLowerCase().indexOf(q) !== -1;
+      el.style.display = hit ? '' : 'none';
+      if(hit) shown++;
+    });
+    noHit.style.display = shown ? 'none' : '';
+  });
+})();
+</script>
+
+</main>
+<main id="partD" hidden>
+
+    <div class="wrap">
+
+      <!-- ================= HOME ================= -->
+      <section id="view-home">
+        <h1>離散数学ドリル ― 関係・同値関係・順序</h1>
+        <p class="lead">離散数学B（4E）第1〜6回の範囲（演習16.1〜21.4）を、解くたびに数値や元が変わる「生成問題」で何度でも練習できます。まず身近な例えでイメージをつかみ、それから正式な定義に進む構成です。</p>
+
+        <div class="stats" id="stats-bar"></div>
+
+        <div class="card">
+          <h2>モードを選ぶ</h2>
+          <div class="modes">
+            <button class="mode-card" id="mode-random">
+              <span class="badge">おすすめ</span>
+              <span class="t">全範囲ランダム</span>
+              <span class="d">第1〜6回すべてからランダム出題。まんべんなく解きまくりたいときに。</span>
+            </button>
+            <button class="mode-card" id="mode-lec">
+              <span class="badge">講義そのまま</span>
+              <span class="t">講義演習モード</span>
+              <span class="d">実際の演習問題16.1〜21.4に沿った固定問題。講義の答え合わせに。</span>
+            </button>
+            <button class="mode-card" id="mode-exam">
+              <span class="badge">11月13日 中間試験対策</span>
+              <span class="t">模擬テスト（制限時間つき）</span>
+              <span class="d">全範囲から10問・制限時間10分。解説は最後にまとめて表示。本番の練習に。</span>
+            </button>
+            <button class="mode-card" id="mode-review">
+              <span class="badge">弱点つぶし</span>
+              <span class="t">間違えた問題の復習</span>
+              <span class="d">このセッションで間違えた問題の一覧と、正解・解説を確認できます。</span>
+            </button>
+          </div>
+          <p class="kbd-note" style="margin-top:10px">回別ドリルは下の「各回の要点とドリル」からどうぞ。</p>
+        </div>
+
+        <div class="card" id="primer-card">
+          <h2>はじめの5分：超入門（前提知識の確認）</h2>
+          <div class="analogy"><span class="h">たとえば</span><br>
+            集合は「ものの集まりを入れた袋」、関係は「袋の中のもの同士のつながりを書いたリスト」です。この2つが分かれば第1回から進めます。</div>
+          <div class="kpoint"><span class="term">集合と外延的記法</span>
+            <div class="plain">中身を全部書き並べて表す書き方です。</div>
+            <div class="formal"><span class="m">A = {a, b, c}</span> は「元（なかみ）が a, b, c の集合」。順番は関係なく、重複は書きません。<span class="m">a ∈ A</span> は「a は A の元である（a が袋に入っている）」という意味です。</div></div>
+          <div class="kpoint"><span class="term">部分集合 ⊆</span>
+            <div class="plain">「小さい袋の中身が、全部大きい袋にも入っている」状態です。</div>
+            <div class="formal"><span class="m">A ⊆ B</span> ⟺ A の元はすべて B の元でもある。例：<span class="m">{a, c} ⊆ {a, b, c}</span>。A の部分集合を全部集めた集合を冪集合といい <span class="m">2<sup>A</sup></span> と書きます（A の元が n 個なら部分集合は 2<sup>n</sup> 個）。</div></div>
+          <div class="kpoint"><span class="term">直積 A × B</span>
+            <div class="plain">A の元と B の元で作れる「ペア」の全パターンです。席の組み合わせ表をイメージしてください。</div>
+            <div class="formal"><span class="m">A × B = {(a, b) | a ∈ A, b ∈ B}</span>。ペア (a, b) は順序が大事（(a,b) と (b,a) は別物）。元の個数は <span class="m">|A × B| = |A| · |B|</span>。</div></div>
+          <div class="kpoint"><span class="term">写像（関数）</span>
+            <div class="plain">「入力1つに対して出力がちょうど1つ決まる対応」です。自販機のボタン1つに商品1つ、が関数のイメージ。</div>
+            <div class="formal"><span class="m">f : A → B</span> は、A のどの元にも B の元がちょうど1つ対応する決まり。第1回では「関係が関数になる条件」として再登場します。</div></div>
+          <div class="kpoint"><span class="term">論理記号 ∀ と ∃</span>
+            <div class="plain">∀ は「すべて」、∃ は「（少なくとも1つ）存在する」の略記です。</div>
+            <div class="formal"><span class="m">∀a ∈ A [ … ]</span> は「A のすべての a について …」、<span class="m">∃b [ … ]</span> は「… を満たす b が存在する」。定義はこの記号で書かれることが多いので、読み方だけ覚えておきましょう。</div></div>
+        </div>
+
+        <div class="card">
+          <h2>各回の要点とドリル</h2>
+          <p class="small">「要点カード」は ①身近な例え → ②かみ砕いた説明 → ③正式な定義・記号 の順に書いてあります。読んでから「この回を解く」を押すのがおすすめです。</p>
+          <div class="chlist" id="chapter-list"></div>
+        </div>
+
+        <div class="card">
+          <h2>用語ミニ辞典・記号の読み方</h2>
+          <p class="small">記号は「読み方＋一言の意味」で覚えるのが近道です。問題や解説で分からない記号が出てきたら、ここに戻って確認してください。</p>
+          <div class="gloss" id="glossary"></div>
+        </div>
+
+        <div class="card" id="review-card-home">
+          <h2>復習リスト（このセッションで間違えた問題）</h2>
+          <div id="review-list-home"><p class="empty">まだ間違えた問題はありません。ドリルを解くと、間違えた問題がここにたまります。</p></div>
+        </div>
+
+        <footer>範囲：離散数学B（4E）第1〜6回／演習16.1〜21.4（2項関係・同値関係・順序）</footer>
+      </section>
+
+      <!-- ================= DRILL ================= -->
+      <section id="view-drill" class="hidden">
+        <div class="qhead">
+          <span class="tag" id="q-tag"></span>
+          <span class="tag lec hidden" id="q-lec">講義演習</span>
+          <span class="timer hidden" id="q-timer"></span>
+          <span class="small" id="q-count"></span>
+        </div>
+        <div class="progress-line"><div id="q-progress" style="width:0%"></div></div>
+        <div class="card">
+          <div class="qtext" id="q-text"></div>
+          <div id="q-opts"></div>
+          <div id="q-verdict"></div>
+          <div id="q-explain"></div>
+          <div class="btnrow">
+            <button class="btn hidden" id="btn-answer">答える</button>
+            <button class="btn hidden" id="btn-next">次の問題 →</button>
+            <button class="btn hidden" id="btn-finish">結果を見る</button>
+            <button class="btn ghost" id="btn-quit">やめてトップへ</button>
+          </div>
+        </div>
+        <div class="stats" id="stats-bar-drill"></div>
+      </section>
+
+      <!-- ================= RESULT ================= -->
+      <section id="view-result" class="hidden">
+        <div class="card">
+          <h2 id="result-title">結果</h2>
+          <p id="result-body"></p>
+          <div class="btnrow">
+            <button class="btn" id="btn-again">もう一度</button>
+            <button class="btn sub" id="btn-home2">トップへ戻る</button>
+          </div>
+        </div>
+        <div class="card">
+          <h2>今回の復習リスト</h2>
+          <div id="review-list-result"></div>
+        </div>
+      </section>
+
+    </div>
+
+<script>
+/* ============================================================
+   ユーティリティ：集合・関係の計算（答えはすべて計算で検証）
+   ============================================================ */
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function rnd(n){return Math.floor(Math.random()*n);}
+function key(p){return p[0]+','+p[1];}
+function parseKey(k){return k.split(',');}
+function relSet(pairs){var s={};pairs.forEach(function(p){s[key(p)]=true;});return s;}
+function has(R,p){return !!R[key(p)];}
+function pairsOf(R){return Object.keys(R).map(parseKey);}
+function fmtPair(p){return '('+p[0]+', '+p[1]+')';}
+function fmtRel(R){var ps=pairsOf(R);if(!ps.length)return '∅';ps.sort();return '{'+ps.map(fmtPair).join(', ')+'}';}
+function fmtSet(el){if(!el.length)return '∅';return '{'+el.slice().sort().join(', ')+'}';}
+function fmtSubSet(el){if(!el.length)return '∅';return '{'+el.slice().sort().join(', ')+'}';}
+function inv(R){var o={};pairsOf(R).forEach(function(p){o[key([p[1],p[0]])]=true;});return o;}
+/* compose(X, Y) = X∘Y : まず Y を、次に X をたどる（講義の定義どおり） */
+function compose(X,Y){var o={};pairsOf(Y).forEach(function(p){pairsOf(X).forEach(function(q){if(p[1]===q[0])o[key([p[0],q[1]])]=true;});});return o;}
+function unionR(){var o={};for(var i=0;i<arguments.length;i++){var R=arguments[i];Object.keys(R).forEach(function(k){o[k]=true;});}return o;}
+function idRel(el){var o={};el.forEach(function(a){o[key([a,a])]=true;});return o;}
+function reflClosure(R,el){return unionR(R,idRel(el));}
+function symClosure(R){return unionR(R,inv(R));}
+function transClosure(R,el){var cur=Object.assign({},R);var changed=true;while(changed){changed=false;var nx=compose(cur,cur);Object.keys(nx).forEach(function(k){if(!cur[k]){cur[k]=true;changed=true;}});}return cur;}
+function rstClosure(R,el){return transClosure(symClosure(reflClosure(R,el)),el);}
+function isRefl(R,el){return el.every(function(a){return has(R,[a,a]);});}
+function isSym(R){return pairsOf(R).every(function(p){return has(R,[p[1],p[0]]);});}
+function isTrans(R){var c=compose(R,R);return Object.keys(c).every(function(k){return !!R[k];});}
+function isAntisym(R){return pairsOf(R).every(function(p){return p[0]===p[1]||!has(R,[p[1],p[0]]);});}
+function isIrrefl(R,el){return el.every(function(a){return !has(R,[a,a]);});}
+function isAsym(R){return pairsOf(R).every(function(p){return !has(R,[p[1],p[0]]);});}
+function image(R,a){var o=[];pairsOf(R).forEach(function(p){if(p[0]===a)o.push(p[1]);});return o.sort();}
+function preimage(R,b){var o=[];pairsOf(R).forEach(function(p){if(p[1]===b)o.push(p[0]);});return o.sort();}
+function dom(R){var s={};pairsOf(R).forEach(function(p){s[p[0]]=true;});return Object.keys(s).sort();}
+function range(R){var s={};pairsOf(R).forEach(function(p){s[p[1]]=true;});return Object.keys(s).sort();}
+function gcd(a,b){while(b){var t=a%b;a=b;b=t;}return a;}
+function lcm(a,b){return a*b/gcd(a,b);}
+function subsetsOf(el){var out=[[]];el.forEach(function(x){var n=out.length;for(var i=0;i<n;i++)out.push(out[i].concat([x]));});return out;}
+function sameSet(a,b){if(a.length!==b.length)return false;var s={};a.forEach(function(x){s[x]=true;});return b.every(function(x){return s[x];});}
+
+/* ランダムな関係を作る（元 el の上、密度 p、各行に最低1つは入れない素朴版） */
+function randomRel(el,p){var R={};el.forEach(function(a){el.forEach(function(b){if(Math.random()<p)R[key([a,b])]=true;});});return R;}
+function randomRelAB(A,B,p){var R={};A.forEach(function(a){B.forEach(function(b){if(Math.random()<p)R[key([a,b])]=true;});});return R;}
+
+/* 選択肢ビルダー：single = 正解1つ＋誤答3つ（重複なし保証） */
+function singleOpts(correct, distractors){
+  var seen={}; seen[correct]=true; var ds=[];
+  distractors.forEach(function(d){ if(!seen[d]){seen[d]=true;ds.push(d);} });
+  var all=shuffle([correct].concat(ds.slice(0,3)));
+  return {options:all.map(function(t,i){return {id:'o'+i,label:t};}),
+          answer:[ 'o'+all.indexOf(correct) ]};
+}
+/* multi = 候補プールから正解集合をすべて選ぶ */
+function multiOpts(pool, correctArr){
+  var ids={}; var opts=shuffle(pool).map(function(t,i){var id='o'+i; if(correctArr.indexOf(t)>=0)ids[id]=true; return {id:id,label:t};});
+  return {options:opts, answer:Object.keys(ids)};
+}
+</script>
+
+<script>
+/* ============================================================
+   用語ミニ辞典
+   ============================================================ */
+var GLOSSARY=[
+ {sym:'∈', read:'ぞくする／ふくまれる', def:'「a ∈ A」は「a は集合 A の元（なかみ）である」。例：b ∈ {a, b, c}。'},
+ {sym:'⊆', read:'ぶぶんしゅうごう', def:'「A ⊆ B」は「A の元がすべて B にも入っている」。袋の中身が全部もう一方の袋にも入っている状態。'},
+ {sym:'∅', read:'くうしゅうごう', def:'元が1つもない集合。「答えは空っぽ」ということもあるので、選択肢にあっても驚かないこと。'},
+ {sym:'A × B', read:'ちょくせき', def:'A の元と B の元のペア全体。|A × B| = |A| · |B|。ペアは順序つきで (a,b) ≠ (b,a)。'},
+ {sym:'2^A', read:'べきしゅうごう', def:'A の部分集合を全部集めた集合。元の数が n なら部分集合は 2ⁿ 個。'},
+ {sym:'R(a)', read:'アール かっこ えー', def:'「a と関係 R でつながっている相手の集合」＝ { b | aRb }。R⁻¹(a) は逆向きの相手の集合。'},
+ {sym:'R⁻¹', read:'逆関係（ぎゃくかんけい）', def:'R の矢印を全部逆向きにした関係。(a,b) ∈ R ⟺ (b,a) ∈ R⁻¹。読みは「アール・インバース」。'},
+ {sym:'S ∘ R', read:'合成（ごうせい）', def:'「まず R、次に S」と2つの関係をつないだ関係。書く順番とたどる順番が逆なので最重要のひっかけポイント。'},
+ {sym:'Rⁿ', read:'アールの n 乗', def:'R を n 回つないだ関係。xRⁿy ⟺ 長さ n のパス（道のり）で x から y に行ける。R⁰ = id_A、R¹ = R。'},
+ {sym:'R* , R⁺', read:'閉包（へいほう）', def:'R* = R⁰∪R¹∪R²∪…（反射推移閉包：何歩でも行ける）、R⁺ = R¹∪R²∪…（推移閉包：1歩以上で行ける）。'},
+ {sym:'Dom / Range', read:'定義域／値域', def:'Dom R は矢印の出発点の集合、Range R は到着点の集合。'},
+ {sym:'id_A', read:'恒等関係', def:'「自分自身とだけつながる」関係 id_A = {(a,a) | a ∈ A}。対角線だけの関係。'},
+ {sym:'[a]', read:'同値類（どうちるい）', def:'「a と同じグループのメンバー全員」の集合。[a]_R = { x | xRa }。代表1人を決めれば類が決まる。'},
+ {sym:'A/R', read:'商集合（しょうしゅうごう）', def:'同値類を全部集めた集合＝「グループ分けの結果そのもの」。元の集合をグループという単位で見たもの。'},
+ {sym:'≡ (mod m)', read:'ごうどう', def:'「x ≡ y (mod m)」は「x − y が m で割り切れる」。余りが同じ、ということと同じ。講義では ≡_m と書く。'},
+ {sym:'∨ / ∧', read:'けつび／まじわり', def:'束（そく）での記号。a ∨ b = sup{a,b}（2つの上限）、a ∧ b = inf{a,b}（2つの下限）。(ℕ, |) では ∨ が最小公倍数、∧ が最大公約数。'},
+ {sym:'sup / inf', read:'上限／下限', def:'sup は「上界の中でいちばん小さいもの」、inf は「下界の中でいちばん大きいもの」。集合の元とは限らない（例：sup(0,1) = 1）。'},
+ {sym:'∀ / ∃', read:'すべての／存在する', def:'∀ は「すべての」、∃ は「〜が（少なくとも1つ）存在する」。定義を読むときの基本記号。'},
+ {sym:'∪ / ∩', read:'和集合／共通部分', def:'A ∪ B は「どちらかに入っている元全部」、A ∩ B は「両方に入っている元だけ」。'},
+ {sym:'|A|', read:'元の個数（濃度）', def:'集合 A の元の数。有限集合ではただの「個数」。'}
+];
+
+/* ============================================================
+   各回の要点カード（例え → かみ砕き → 正式な定義）
+   ============================================================ */
+var CHAPTERS=[
+{ n:1, title:'2項関係 1/2', sub:'直積・逆関係・R(a)・関数になる条件',
+  analogy:'関係とは「誰と誰がつながっているか」を書き出したリストです。SNSのフォロー一覧のようなもの：(a, b) がリストにあれば「a が b をフォローしている」。集合 A×B は「ありうるペアの全パターン表」で、その中から実際に起きているペアを選び出したものが関係です。',
+  points:[
+   {term:'2項関係 R : A ⇀ B', plain:'A の元から B の元への「つながり」の集まり。aRb と書いたら「a と b がつながっている」という意味です。', formal:'R ⊆ A × B。aRb ⟺ (a, b) ∈ R（中置記法）。R が空集合なら空関係、R = A × B なら全関係、A = B で対角線だけなら恒等関係 id_A。'},
+   {term:'R(a)（a の行く先の集合）', plain:'リストの中で「a から出ている矢印の相手」を全部集めたものです。', formal:'R(a) = { b ∈ B | aRb }。Dom R = { a | R(a) ≠ ∅ }（矢印が出ている元の集合）、Range R = R の到着点全体。'},
+   {term:'逆関係 R⁻¹', plain:'矢印を全部ひっくり返した関係。フォロー関係の逆は「フォロワー関係」です。', formal:'R⁻¹ = { (b, a) | (a, b) ∈ R }。R⁻¹(b) は「b に向かってくる元」の集合で、R⁻¹(b) = { a | aRb }。'},
+   {term:'関係が関数になる条件', plain:'「どの出発点からも、行き先がちょうど1つだけ」に決まっているとき、関係は関数（写像）と同じものになります。行き先が0個でも2個以上でもダメです。', formal:'R : A ⇀ B が関数 ⟺ ∀a ∈ A [ |R(a)| = 1 ]。'}
+  ]},
+{ n:2, title:'2項関係 2/2', sub:'合成・冪・閉包 R* と R⁺',
+  analogy:'合成は「乗り換え」です。a から電車で b 駅へ、乗り換えて c 駅へ行けたら、(a, c) が合成の関係に入ります。書く順番に注意：S∘R は「先に R の電車、次に S の電車」。日本語の読む順（左から）と逆向きにたどります。',
+  points:[
+   {term:'合成 S ∘ R', plain:'「R で1歩、続けて S で1歩」行けるペアの集まり。中継地点 b が存在することが条件です。', formal:'S ∘ R = { (a, c) ∈ A × C | ∃b ∈ B [ aRb ∧ bSc ] }。結合法則 (T∘S)∘R = T∘(S∘R) が成り立つ（定理3.1）。'},
+   {term:'合成と逆関係', plain:'乗り換えの逆は「帰り道」：帰りは逆の順番に、しかも各区間も逆向きにたどります。靴下と靴を脱ぐ順番と同じです。', formal:'(S ∘ R)⁻¹ = R⁻¹ ∘ S⁻¹（順番が入れ替わる！）。'},
+   {term:'冪 Rⁿ とパス', plain:'R を n 回繰り返すこと。「n 歩でたどり着けるか」と同じ意味です。', formal:'R⁰ = id_A、Rⁿ = R ∘ Rⁿ⁻¹。定理3.2：xRⁿy ⟺ R の矢印をちょうど n 本たどるパスが x から y へ存在する。'},
+   {term:'推移閉包 R⁺ と反射推移閉包 R*', plain:'「何歩かかってもいいから、たどり着けるペア」を全部集めたもの。R* は「0歩＝その場にいる」も含みます。', formal:'R⁺ = R¹ ∪ R² ∪ R³ ∪ …、R* = R⁰ ∪ R¹ ∪ R² ∪ …。R⁺ は R を含む最小の推移的関係、R* は R を含む最小の反射的かつ推移的な関係。'}
+  ]},
+{ n:3, title:'同値関係 1/2', sub:'反射・対称・推移、同値類と商集合',
+  analogy:'同値関係とは「同じグループに分ける基準」のことです。「同じクラス」「血液型が同じ」「m で割った余りが同じ」――どれも、みんなを重なりなくグループ分けできます。逆に「仲が良い」は推移的でない（友達の友達は友達とは限らない）ので、きれいなグループ分けにはなりません。',
+  points:[
+   {term:'同値関係の3条件', plain:'①自分は自分と同じグループ（反射）、②a と b が同じなら b と a も同じ（対称）、③a と b、b と c が同じなら a と c も同じ（推移）。この3つがそろえばグループ分けができます。', formal:'R が同値関係 ⟺ (i) ∀a [aRa]（反射律）(ii) aRb ⇒ bRa（対称律）(iii) aRb ∧ bRc ⇒ aRc（推移律）。ひっかけ：対称＋推移だけでは反射は言えません（18.2）。'},
+   {term:'関数から作る同値関係', plain:'「テストの点数が同じ」を基準にすればグループ分けできる、という話の一般形です。', formal:'f : X → Y に対し x₁ ∼ x₂ ⟺ f(x₁) = f(x₂) と定めると ∼ は同値関係になる。'},
+   {term:'合同 ≡_m（mod m）', plain:'「m で割った余りが同じ」というグループ分け。時計の文字盤（mod 12）が身近な例です。', formal:'x ≡_m y ⟺ m | (x − y)（x − y が m で割り切れる）。≡_m は Z 上の同値関係。'},
+   {term:'同値類 [a] と商集合 A/R', plain:'[a] は「a と同じグループのメンバー全員」、A/R は「グループの名札の集まり」。クラス分け名簿そのものです。', formal:'[a]_R = { x ∈ A | xRa }。定理3.4：[a] = [b] か [a] ∩ [b] = ∅ のどちらかで、すべての同値類の和は A 全体。A/R = { [a] | a ∈ A }。同値関係と A の分割（partition）は1対1に対応する。'}
+  ]},
+{ n:4, title:'同値関係 2/2・半順序', sub:'剰余類・整数の構成・細分・半順序',
+  analogy:'剰余類は「余りで分けたグループに 0, 1, 2, …と名札をつけたもの」。半順序は「一部だけ比べられるランキング」です。仕事の先行関係（Aが終わらないとBが始められない）のように、比べられるペアと比べられないペアが混在します。',
+  points:[
+   {term:'剰余類 Z/≡_m', plain:'整数を「m で割った余り」で分けると、グループはちょうど m 個できます。', formal:'Z/≡_m = { [0], [1], …, [m−1] }、ただし [n] = { mk + n | k ∈ Z }（… n のグループは m おきに無限に続く）。'},
+   {term:'N × N による整数の構成', plain:'引き算ができない自然数だけの世界で、「(a, b) は a − b のつもり」という組を同一視して整数を作る、という壮大な話です。', formal:'(a, b) ∼ (c, d) ⟺ a + d = b + c。[(0,2)] が −2、[(1,0)] が 1 に対応する。'},
+   {term:'同値関係の細分', plain:'グループ分けを「より細かく割る」こと。学年で分けるより、クラスで分ける方が細かい、という関係です。', formal:'R₁ が R₂ の細分 ⟺ R₁ ⊆ R₂ ⟺ 任意の a で [a]_{R₁} ⊆ [a]_{R₂}。例：≡_{mn} = ≡_m ∩ ≡_n、≡₆ は ≡₂ の細分（6で割って余りが同じなら、2で割っても余りは同じ）。'},
+   {term:'半順序', plain:'「比べられる相手とは順序が決まっていて、自分より大きくも小さくもない別人」という関係。⊆（部分集合）や |（割り切る）が代表例。全部のペアが比べられるなら全順序です。', formal:'半順序 ⟺ 反射律＋反対称律（aRb ∧ bRa ⇒ a = b）＋推移律。aRb も bRa も成り立たないとき a, b は比較不可能、どちらかが成り立てば比較可能。'}
+  ]},
+{ n:5, title:'順序 1/2', sub:'擬順序・双対・辞書式・極大元と最大元',
+  analogy:'擬順序は「厳密なランキング」：自分と同点は認めず（非反射）、両方向に勝つこともありません。極大元と最大元の違いは重要：極大元は「自分の上に誰もいない人」（複数いてもよい）、最大元は「全員の上にいる唯一の人」。山の「峰」はたくさんあっても、「最高峰」は1つだけ、というイメージです。',
+  points:[
+   {term:'擬順序', plain:'「<」のような厳しい順序。同点なし、です。じゃんけんは グー→チョキ→パー→グー と循環して推移律が壊れるので擬順序ではありません。', formal:'擬順序 ⟺ 非反射律（∀a [¬aR′a]）＋非対称律（aR′b ⇒ ¬bR′a）＋推移律。擬順序 R′ から xRy ⟺ xR′y ∨ x = y と置くと半順序 R が得られ、逆もできる。'},
+   {term:'双対 ⊒', plain:'順序をひっくり返したもの。「以上」と「以下」を入れ替えた世界です。', formal:'x ⊒ y ⟺ y ⊑ x。⊑ が半順序（擬順序）なら ⊒ も半順序（擬順序）。'},
+   {term:'辞書式順序', plain:'国語辞典の並び順そのもの。まず1文字目で比べ、同じなら2文字目へ。短い方が前、という決まりも含みます。', formal:'例（a ⊏ b ⊏ c ⊏ d の字母順）：abc ≺ abcd ≺ abd ≺ ad。字母自体の順序を変えると並び順も変わる（20.1）。'},
+   {term:'極大元・極小元と最大元・最小元', plain:'極大元＝「上に誰もいない元」（複数ありうる、互いに比較不可能）。最大元＝「全員以上である元」で、あれば唯一つだけ。極大元が1つだけでも、それが最大元とは限りません…と言いたいところですが、実は有限集合では「極大元が唯一なら最大元」になります。用語の定義の違いを正確に覚えましょう。', formal:'a が極大元 ⟺ ∀x [ a ⊑ x ⇒ x = a ]。a が最大元 ⟺ ∀x [ x ⊑ a ]。最大元は存在すれば唯一。極大元は複数ありえ、相異なる極大元同士は比較不可能。極小元・最小元も同様。'}
+  ]},
+{ n:6, title:'順序 2/2', sub:'上限 sup・下限 inf・束・閉包・トポロジカルソート',
+  analogy:'閉包とは「足りないつながりを補って、望む性質を持つように完成させる」こと。上界は「天井」、上限 sup は「いちばん低い天井」。天井が部屋の中（集合の中）にあるとは限らないのがポイントです。',
+  points:[
+   {term:'上界・上限 sup／下界・下限 inf', plain:'A の上界＝「A の全員以上である元（天井）」。その中でいちばん小さいものが上限 sup A。下界・下限はその逆（床といちばん高い床）。sup が A の元なら、それは最大元と一致します。', formal:'x₀ が A の上界 ⟺ ∀a ∈ A [ a ≦ x₀ ]。sup A = A の上界全体の最小元。例：(ℝ, ≦) で (0,1) の sup は 1（ただし 1 ∉ (0,1)）。'},
+   {term:'束（lattice）と ∨, ∧', plain:'どの2元にも「結び（2つの上限）」と「交わり（2つの下限）」が存在する半順序集合。', formal:'a ∨ b = sup{a, b}、a ∧ b = inf{a, b}。(ℕ, |) では a ∨ b = 最小公倍数、a ∧ b = 最大公約数（例：60 ∨ 55 = 660、60 ∧ 55 = 5）。(2^A, ⊆) では ∨ が和集合、∧ が共通部分。'},
+   {term:'関係の閉包 r, s, t, rt, rst', plain:'r＝自分自身への矢印を全部足す、s＝逆向きの矢印を全部足す、t＝「乗り換えで行ける」矢印を全部足す。rst は3つ全部やって同値関係に仕上げます。', formal:'r(R) = R ∪ id_A、s(R) = R ∪ R⁻¹、t(R) = R⁺、rt(R) = R*、rst(R) = R を含む最小の同値関係。'},
+   {term:'トポロジカルソート', plain:'「前提条件を全部満たす順番」に一列に並べること。料理の手順や履修順序の決定版です。', formal:'半順序 (X, ⊑) のトポロジカルソートは、x ⊏ y なら x が y より前に来るような X の元の列挙。半順序の元を全順序に拡張したものとも言える。'}
+  ]}
+];
+</script>
+
+<script>
+/* ============================================================
+   問題ジェネレータ（答えは必ず計算で導く）
+   解説は ①何を聞かれているか ②定義 ③手順 ④結論 ⑤ひっかけ の構成
+   ============================================================ */
+function EX(ask,def,steps,concl,trap){return {ask:ask,def:def,steps:steps,concl:concl,trap:trap};}
+function Q(ch,tag,q,built,ex,type){return {ch:ch,tag:tag,q:q,type:type||'single',options:built.options,answer:built.answer,ex:ex,src:'gen'};}
+function relDistractors(correctR, baseR, elA, elB){
+  var out=[]; var cs=fmtRel(correctR);
+  var ps=pairsOf(correctR);
+  if(ps.length){ var r1=Object.assign({},correctR); delete r1[key(ps[0])]; out.push(fmtRel(r1)); }
+  if(ps.length){ var r2=Object.assign({},correctR); var cand=null;
+    elA.forEach(function(a){elB.forEach(function(b){if(!has(correctR,[a,b])&&!cand)cand=[a,b];});});
+    if(cand){r2[key(cand)]=true; out.push(fmtRel(r2));} }
+  if(baseR && fmtRel(baseR)!==cs) out.push(fmtRel(baseR));
+  var r3=inv(correctR); if(fmtRel(r3)!==cs) out.push(fmtRel(r3));
+  return out;
+}
+
+/* ---------- 第1回 ---------- */
+function gen1_image(){
+  var A=['a','b','c'], B=['x','y','z','w'], R, a0, img, tries=0;
+  do{ R=randomRelAB(A,B,0.4); a0=pick(A); img=image(R,a0); tries++; }while((img.length<1||img.length>3)&&tries<30);
+  var others=A.filter(function(a){return a!==a0;});
+  var ds=[ fmtSet(image(R,others[0])), fmtSet(range(R)) ];
+  var notImg=B.filter(function(b){return img.indexOf(b)<0;});
+  if(notImg.length) ds.push(fmtSet(img.concat([notImg[0]])));
+  if(img.length>1) ds.push(fmtSet(img.slice(1)));
+  var built=singleOpts(fmtSet(img), ds);
+  var lines=pairsOf(R).filter(function(p){return p[0]===a0;}).map(function(p){return fmtPair(p);});
+  var ex=EX('「'+a0+' と関係 R でつながっている相手（行き先）を全部集めた集合」R('+a0+') を聞いています。',
+    'R(a) = { b | aRb }、つまり関係のリストの中で「a から始まる組」の2番目の元の集合です（講義の記法）。',
+    ['関係 R の組を1つずつ見て、1番目が '+a0+' のものを拾います：'+(lines.length?lines.join('、'):'（ありません）')+'。',
+     'その2番目の元だけを集めると '+fmtSet(img)+' になります。重複は1回だけ書きます。'],
+    'R('+a0+') = '+fmtSet(img),
+    'Dom R（矢印が出ている元全体）や Range R（到着点全体）と混同しないこと。R(a) は「a 専用」の行き先リストです。');
+  return Q(1,'R(a) を求める','A = {a, b, c}、B = {x, y, z, w}、関係 R : A ⇀ B を次で定めます。<span class="rel">R = '+fmtRel(R)+'</span>このとき R('+a0+') はどれですか。', built, ex);
+}
+function gen1_inverse(){
+  var A=['a','b','c'], B=['x','y','z','w'], R=randomRelAB(A,B,0.35);
+  if(!pairsOf(R).length) R=relSet([['a','x']]);
+  var Ri=inv(R);
+  var built=singleOpts(fmtRel(Ri), relDistractors(Ri, R, B, A));
+  var ex=EX('逆関係 R⁻¹（アール・インバース）を聞いています。R の組の順番を全部ひっくり返した関係です。',
+    'R⁻¹ = { (b, a) | (a, b) ∈ R }。フォロー関係でいえば「フォロワー関係」にあたります。',
+    ['R の各組 (a, b) を (b, a) に書き換えます。','R = '+fmtRel(R)+' の組をすべて反転すると '+fmtRel(Ri)+' が得られます。'],
+    'R⁻¹ = '+fmtRel(Ri),
+    '一部の組だけ反転したり、元の R をそのまま答えたりするのが典型的なミスです。「全部」の組を反転してください。');
+  return Q(1,'逆関係 R⁻¹','A = {a, b, c}、B = {x, y, z, w}、関係 R : A ⇀ B を次で定めます。<span class="rel">R = '+fmtRel(R)+'</span>逆関係 R⁻¹ : B ⇀ A はどれですか。', built, ex);
+}
+function gen1_domrange(){
+  var A=['a','b','c','d'], B=['x','y','z','w'], R=randomRelAB(A,B,0.35);
+  if(!pairsOf(R).length)R=relSet([['a','x'],['b','y']]);
+  var which=Math.random()<0.5?'Dom':'Range';
+  var ans = which==='Dom'? dom(R) : range(R);
+  var univ = which==='Dom'? A : B;
+  var other = which==='Dom'? range(R) : dom(R);
+  var ds=[ fmtSet(other) ];
+  var notIn=univ.filter(function(e){return ans.indexOf(e)<0;});
+  if(notIn.length) ds.push(fmtSet(ans.concat([notIn[0]])));
+  if(ans.length>1) ds.push(fmtSet(ans.slice(0,ans.length-1)));
+  ds.push(fmtSet(univ));
+  var built=singleOpts(fmtSet(ans), ds);
+  var ex=EX((which==='Dom'?'定義域 Dom R（矢印の「出発点」になっている元の集合）':'値域 Range R（矢印の「到着点」になっている元の集合）')+'を聞いています。',
+    which==='Dom'?'Dom R = { a ∈ A | R(a) ≠ ∅ }（行き先が1つ以上ある出発点）。':'Range R = { b ∈ B | ある a について aRb }（誰かの行き先になっている元）。',
+    ['R の組は '+fmtRel(R)+' です。', which==='Dom'?'各組の1番目の元を集めると '+fmtSet(ans)+' です。':'各組の2番目の元を集めると '+fmtSet(ans)+' です。'],
+    which+' R = '+fmtSet(ans),
+    which==='Dom'?'Range（到着点の集合）と取り違えやすいので、「出発点か到着点か」を声に出して確認しましょう。':'Dom（出発点の集合）と取り違えやすいので、「出発点か到着点か」を声に出して確認しましょう。');
+  return Q(1, which+' を求める','A = {a, b, c, d}、B = {x, y, z, w}、関係 R : A ⇀ B を次で定めます。<span class="rel">R = '+fmtRel(R)+'</span>'+which+' R はどれですか。', built, ex);
+}
+function gen1_function(){
+  var A=['a','b','c'], B=['x','y','z','w'], R, status;
+  if(Math.random()<0.45){ R={}; A.forEach(function(a){ R[key([a,pick(B)])]=true; }); }
+  else{ R=randomRelAB(A,B,0.45); }
+  var missing=A.filter(function(a){return image(R,a).length===0;});
+  var multi=A.filter(function(a){return image(R,a).length>=2;});
+  status = (!missing.length&&!multi.length)?0 : (missing.length&&multi.length)?3 : missing.length?1:2;
+  var labels=['関数である','関数でない（行き先がない元がある）','関数でない（行き先が2つ以上ある元がある）','関数でない（行き先がない元と、行き先が2つ以上ある元が両方ある）'];
+  var built={options:labels.map(function(t,i){return {id:'o'+i,label:t};}), answer:['o'+status]};
+  var detail=A.map(function(a){return 'R('+a+') = '+fmtSet(image(R,a))+'（'+image(R,a).length+'個）';}).join('、');
+  var ex=EX('この関係 R が「関数（写像）として使えるか」を判定しています。自販機でいえば、どのボタンを押しても商品がちょうど1つ出るか、というチェックです。',
+    'R : A ⇀ B が関数 ⟺ すべての a ∈ A について |R(a)| = 1（行き先がちょうど1つ）。行き先0個でも2個以上でも関数はになりません。',
+    ['各元について行き先の個数を数えます：'+detail+'。',
+     status===0?'全員ちょうど1個ずつなので、条件を満たします。':('問題のある元：'+(missing.length?'行き先なし '+fmtSet(missing)+'。':'')+(multi.length?'行き先が複数 '+fmtSet(multi)+'。':''))],
+    status===0?'R は関数である':labels[status],
+    '「行き先が複数ある元がなければ関数」と思いがちですが、行き先が0個の元があっても関数にはなりません。「ちょうど1つ」が条件です。');
+  return Q(1,'関数になる条件','A = {a, b, c}、B = {x, y, z, w}、関係 R : A ⇀ B を次で定めます。<span class="rel">R = '+fmtRel(R)+'</span>R は A から B への関数（写像）と言えますか。', built, ex);
+}
+function gen1_subset(){
+  var base=['a','b','c'], subs=subsetsOf(base);
+  var labels=subs.map(fmtSubSet);
+  var S=pick(subs.filter(function(s){return s.length===1||s.length===2;}));
+  var invMode=Math.random()<0.5;
+  var correct=subs.filter(function(T){ return invMode? sameSet(T.filter(function(x){return S.indexOf(x)>=0;}),T)&&T.every(function(x){return S.indexOf(x)>=0;}) : S.every(function(x){return T.indexOf(x)>=0;}); });
+  var correctLabels=correct.map(fmtSubSet);
+  var built=multiOpts(labels, correctLabels);
+  var ex=EX(invMode?'R⁻¹('+fmtSubSet(S)+')、つまり「'+fmtSubSet(S)+' の部分集合であるような集合」を全部聞いています。R は包含関係 ⊆ です。':'R('+fmtSubSet(S)+')、つまり「'+fmtSubSet(S)+' を部分集合として含む集合」を全部聞いています。R は包含関係 ⊆ です。',
+    invMode?'X R '+fmtSubSet(S)+' ⟺ X ⊆ '+fmtSubSet(S)+'。R⁻¹(S) は「S に R でつながる相手」＝ S の部分集合全体です。':'X が '+fmtSubSet(S)+' の行き先 ⟺ '+fmtSubSet(S)+' ⊆ X。S の元を全部含む集合が答えです。',
+    ['2^{a,b,c} の元は全部で 2³ = 8 個：'+labels.join('、')+'。',
+     invMode?'このうち '+fmtSubSet(S)+' の元だけからできているもの（部分集合）は '+correctLabels.join('、')+' です。':'このうち '+fmtSubSet(S)+' の元をすべて含んでいるものは '+correctLabels.join('、')+' です。'],
+    (invMode?'R⁻¹(':'R(')+fmtSubSet(S)+') = '+fmtSet(correctLabels),
+    '講義の演習16.1と同タイプの問題です。R と R⁻¹ で「含む側／含まれる側」が逆になる点に注意してください。');
+  return Q(1,'演習16.1型：包含関係','集合 {a, b, c} の冪集合 2^{a,b,c} 上の関係 R を、X R Y ⟺ X ⊆ Y で定めます。'+(invMode?'R⁻¹('+fmtSubSet(S)+') にあたる集合をすべて選んでください。':'R('+fmtSubSet(S)+') にあたる集合をすべて選んでください。'), built, ex, 'multi');
+}
+function gen1_count(){
+  var na=2+rnd(3), nb=2+rnd(3);
+  var A=['a','b','c','d'].slice(0,na), B=['x','y','z','w'].slice(0,nb);
+  var mode=Math.random()<0.5?'prod':'rel';
+  var ansV = mode==='prod'? na*nb : Math.pow(2,na*nb);
+  var ds = mode==='prod'? [String(na+nb), String(Math.pow(2,na*nb)), String(na*nb+2)] : [String(na*nb), String(Math.pow(2,na+nb)), String(Math.pow(2,na*nb)*2)];
+  var built=singleOpts(String(ansV), ds);
+  var ex=EX(mode==='prod'?'直積 A × B の元の個数（ペアの総数）を聞いています。':'A から B への関係の総数、つまり「ペアの表から選びうる部分集合の数」を聞いています。',
+    mode==='prod'?'|A × B| = |A| · |B|。A の元1つにつき、B の元とのペアが |B| 通りできます。':'関係は A × B の部分集合のこと。元の数が N 個の集合の部分集合は 2^N 通りあります。',
+    ['|A| = '+na+'、|B| = '+nb+' なので |A × B| = '+na+' × '+nb+' = '+(na*nb)+'。',
+     mode==='prod'?'これがペアの総数です。':'よって関係の総数は 2^'+(na*nb)+' = '+ansV+' 通りです。'],
+    '答えは '+ansV,
+    mode==='prod'?'|A| + |B| と答えるのが典型的なミス。ペアは「掛け算」で数えます。':'2^N の N は |A|+|B| ではなく |A × B| = |A|·|B| です。まずペアの総数を出してから2の冪にしてください。');
+  return Q(1,'数える','A = '+fmtSet(A)+'、B = '+fmtSet(B)+' とします。'+(mode==='prod'?'直積 A × B の元の個数 |A × B| はいくつですか。':'A から B への2項関係は全部で何通りありますか。'), built, ex);
+}
+
+/* ---------- 第2回 ---------- */
+function gen2_compose(op){
+  var el=['a','b','c','d'], R, S, T, tries=0;
+  do{ R=randomRel(el,0.28); S=randomRel(el,0.28);
+      T = op==='S∘R'? compose(S,R) : op==='R∘S'? compose(R,S) : compose(R,R);
+      tries++;
+  }while((pairsOf(T).length<1||pairsOf(T).length>7)&&tries<60);
+  var correctLabels=pairsOf(T).map(fmtPair);
+  var pool={}; correctLabels.forEach(function(l){pool[l]=true;});
+  var other = op==='S∘R'? compose(R,S) : compose(S,R);
+  pairsOf(other).forEach(function(p){pool[fmtPair(p)]=true;});
+  pairsOf(R).forEach(function(p){pool[fmtPair(p)]=true;});
+  var poolArr=Object.keys(pool);
+  var ri=0;
+  while(poolArr.length<8&&ri<40){ var p=[pick(el),pick(el)]; var l=fmtPair(p); if(!pool[l]){pool[l]=true;poolArr.push(l);} ri++; }
+  poolArr=poolArr.slice(0,10);
+  if(correctLabels.some(function(l){return poolArr.indexOf(l)<0;})) poolArr=correctLabels.concat(poolArr.filter(function(l){return correctLabels.indexOf(l)<0;})).slice(0,10);
+  var built=multiOpts(poolArr, correctLabels);
+  var sample=pairsOf(T)[0]; var mid=null;
+  if(sample){ pairsOf(op==='R∘S'?S:R).forEach(function(p){ if(p[0]===sample[0]){ var second=(op==='R∘S')?R:((op==='S∘R')?S:R); if(has(second,[p[1],sample[1]])) mid=p[1]; } }); }
+  var firstName = op==='S∘R'?'R':(op==='R∘S'?'S':'R');
+  var secondName = op==='S∘R'?'S':(op==='R∘S'?'R':'R');
+  var ex=EX('合成 '+op+' を聞いています。「'+firstName+' で1歩、続けて '+secondName+' で1歩」たどれるペアの集まりです。',
+    '合成の定義：'+(op==='R²'?'R² = R ∘ R、つまり R を2回繰り返す。':'X ∘ Y = { (a, c) | ∃b [ aYb ∧ bXc ] }。書かれた順番とは逆に、右側の関係から先にたどります。'),
+    ['中継地点 b を全パターン試します。例えば '+(sample&&mid? fmtPair(sample)+' は '+sample[0]+' ―'+firstName+'→ '+mid+' ―'+secondName+'→ '+sample[1]+' とたどれるので '+op+' に入ります。':'各ペアについて中継地点があるか確認します。'),
+     'この作業をすべての組について行うと '+fmtRel(T)+' が得られます。'],
+    op+' = '+fmtRel(T),
+    '最大のひっかけは向きです。講義では S∘R は「先に R」。左から読む癖で逆にたどすと R∘S の答えになってしまいます。');
+  var qtext='A = {a, b, c, d} 上の関係 R, S を次で定めます。<span class="rel">R = '+fmtRel(R)+'<br>S = '+fmtRel(S)+'</span>'+op+' に入る組をすべて選んでください。';
+  if(op==='R²') qtext='A = {a, b, c, d} 上の関係 R を次で定めます。<span class="rel">R = '+fmtRel(R)+'</span>R² = R ∘ R に入る組をすべて選んでください。';
+  return Q(2,'合成 '+op, qtext, built, ex, 'multi');
+}
+function gen2_path(){
+  var el=['a','b','c','d'], R, x, y, dist, tries=0;
+  function bfs(R,x){ var d={}; d[x]=0; var q=[x]; while(q.length){ var cur=q.shift(); pairsOf(R).forEach(function(p){ if(p[0]===cur&&!(p[1] in d)){ d[p[1]]=d[cur]+1; q.push(p[1]); } }); } return d; }
+  do{ R=randomRel(el,0.3); x=pick(el); y=pick(el); if(x!==y){ dist=bfs(R,x)[y]; } tries++; }
+  while((x===y||!(dist===1||dist===2||dist===3||dist===undefined))&&tries<80);
+  var labels=['1歩（直接つながっている）','2歩','3歩','何歩でもたどり着けない'];
+  var ansIdx = dist===undefined?3:dist-1;
+  var built={options:labels.map(function(t,i){return {id:'o'+i,label:t};}), answer:['o'+ansIdx]};
+  var ex=EX(x+' から '+y+' へ、関係 R の矢印をたどって何歩で行けるか（最短のパス＝道のりの長さ）を聞いています。',
+    '定理3.2：xRⁿy ⟺ ちょうど n 本の矢印をたどるパスが x から y へ存在する。最小の n が「最短の長さ」です。',
+    ['R = '+fmtRel(R)+'。','1歩で行ける先：'+fmtSet(image(R,x))+'。', dist===undefined?'歩数を増やしても '+y+' には到達しません（到達できる元の集合が途中で広がらなくなります）。':'順にたどっていくと、最短で '+dist+' 歩で '+y+' に到着します。'],
+    dist===undefined? x+' から '+y+' へはたどり着けない' : '最短 '+dist+' 歩（'+x+' R'+dist+' '+y+' が成り立つ）',
+    'R⁺（推移閉包）は「何歩かで届く」こと、R* は「0歩も含めて届く」ことを表します。(x, x) は R* には必ず入りますが、R⁺ に入るとは限りません。');
+  return Q(2,'パスと Rⁿ','A = {a, b, c, d} 上の関係 R を次で定めます。<span class="rel">R = '+fmtRel(R)+'</span>'+x+' から '+y+' へ、R の矢印をたどる最短のパスの長さはどれですか。', built, ex);
+}
+function gen2_inverseLaw(){
+  var labels=['R⁻¹ ∘ S⁻¹','S⁻¹ ∘ R⁻¹','(R ∘ S)⁻¹ と書くしかない','S ∘ R'];
+  var built={options:labels.map(function(t,i){return {id:'o'+i,label:t};}), answer:['o0']};
+  var ex=EX('合成の逆関係 (S ∘ R)⁻¹ を、R⁻¹ と S⁻¹ だけで表す公式を聞いています。',
+    '(S ∘ R)⁻¹ = R⁻¹ ∘ S⁻¹。合成の逆では「順番が入れ替わり」、それぞれも逆関係になります。',
+    ['S ∘ R は「先に R、次に S」の旅です。その帰り道は「先に S の逆、次に R の逆」の順になります。','靴下と靴：履くときは靴下→靴、脱ぐときは靴→靴下、と順番が逆転するのと同じです。'],
+    '(S ∘ R)⁻¹ = R⁻¹ ∘ S⁻¹',
+    'S⁻¹ ∘ R⁻¹ と書いてしまうのが典型的なミス。「逆にすると順番も逆」が合言葉です。');
+  return Q(2,'(S∘R)⁻¹ の公式','関係 R : A ⇀ B、S : B ⇀ C について、(S ∘ R)⁻¹ と等しいのはどれですか。', built, ex);
+}
+function gen2_closureMem(){
+  var el=['a','b','c','d'], R=randomRel(el,0.3);
+  var Rp=transClosure(R,el), Rs=rstClosure(R,el);
+  var inP=pairsOf(Rp).length, inS=pairsOf(Rs).length;
+  var labels=['R⁺ ⊆ R* が成り立つ','R* = R⁺ ∪ id_A が成り立つ','R* は R を含む最小の反射的・推移的関係である','上の3つはすべて正しい'];
+  var built={options:labels.map(function(t,i){return {id:'o'+i,label:t};}), answer:['o3']};
+  var ex=EX('推移閉包 R⁺ と反射推移閉包 R* の関係についての理解を聞いています。',
+    'R⁺ = R¹ ∪ R² ∪ …（1歩以上）、R* = R⁰ ∪ R¹ ∪ …（0歩＝その場も含む）。R⁰ = id_A なので R* = R⁺ ∪ id_A と書けます。',
+    ['R* は R⁺ の項に R⁰ = id_A を1つ加えたものなので、R⁺ ⊆ R* であり、R* = R⁺ ∪ id_A です。','また定義から R* は「R を含み、反射的で推移的な関係」の中で最小のものです。'],
+    '3つすべて正しい',
+    'R⁺ と R* の違いは「0歩（自分自身への組）を入れるかどうか」だけです。具体例では、いまの R では R⁺ は '+inP+' 組、R* は '+inS+' 組あります。');
+  return Q(2,'R⁺ と R*','A 上の関係 R について、正しい記述はどれですか。', built, ex);
+}
+
+/* ---------- 第3回 ---------- */
+function gen3_properties(){
+  var el=['a','b','c'], R, props, tries=0;
+  do{ R=randomRel(el,0.42); props=[isRefl(R,el),isSym(R),isTrans(R)]; tries++; }
+  while(((props[0]&&props[1]&&props[2])||(!props[0]&&!props[1]&&!props[2]))&&tries<40);
+  var names=['反射律','対称律','推移律'];
+  var correct=names.filter(function(_,i){return props[i];});
+  var built=multiOpts(names, correct);
+  var failExp=[];
+  if(!props[0]){ var m=el.filter(function(a){return !has(R,[a,a]);})[0]; failExp.push('反射律：('+m+', '+m+') がないので不成立'); }
+  if(!props[1]){ var sp=pairsOf(R).filter(function(p){return !has(R,[p[1],p[0]]);})[0]; failExp.push('対称律：'+fmtPair(sp)+' はあるのに '+fmtPair([sp[1],sp[0]])+' がないので不成立'); }
+  if(!props[2]){ var c=pairsOf(compose(R,R)).filter(function(p){return !has(R,p);})[0]; failExp.push('推移律：2歩でたどれる '+fmtPair(c)+' が R にないので不成立'); }
+  var okExp=[];
+  if(props[0])okExp.push('反射律：対角線の組が全部そろっています');
+  if(props[1])okExp.push('対称律：どの組にも逆向きの組があります');
+  if(props[2])okExp.push('推移律：2歩でたどれる組はすべて R に含まれています');
+  var isEq=props.every(Boolean);
+  var ex=EX('関係 R がどの性質（反射律・対称律・推移律）を持つかを、1つずつ定義に当てはめて判定する問題です。3つ全部そろえば同値関係です。',
+    '反射律：∀a [aRa]。対称律：aRb ⇒ bRa。推移律：aRb ∧ bRc ⇒ aRc。',
+    ['R = '+fmtRel(R)+' を確認します。'].concat(okExp).concat(failExp),
+    '成り立つのは '+(correct.length?correct.join('、'):'なし')+'。'+(isEq?'3つそろったので R は同値関係です。':'3つそろっていないので R は同値関係ではありません。'),
+    'ひっかけ：対称律と推移律が成り立っても反射律は自動的には言えません（講義18.2の「誤った証明」が題材）。元が1つも矢印を持たない場合に破れます。');
+  return Q(3,'3つの性質の判定','A = {a, b, c} 上の関係 R を次で定めます。<span class="rel">R = '+fmtRel(R)+'</span>R について成り立つ性質をすべて選んでください。', built, ex, 'multi');
+}
+function gen3_class(){
+  var m=pick([3,4]); var K=11; var a=rnd(m);
+  var univ=[]; for(var i=0;i<=K;i++)univ.push(String(i));
+  var correct=univ.filter(function(v){return (parseInt(v)-a)%m===0;});
+  var built=multiOpts(univ, correct);
+  var ex=EX('同値類 ['+a+']、つまり「'+a+' と同じグループのメンバー全員」を聞いています。ここでのグループ分けの基準は「'+m+' で割った余りが同じ」です。',
+    'x ≡_'+m+' y ⟺ m | (x − y)（x − y が '+m+' で割り切れる）。['+a+'] = { x | x ≡_'+m+' '+a+' } です。',
+    ['0 から '+K+' までの各数について、'+a+' との差が '+m+' の倍数かどうかを調べます。','余りが '+a+' と同じになるのは '+correct.join('、')+' です（'+m+' ごとに1つ現れます）。'],
+    '['+a+'] ∩ {0,…,'+K+'} = '+fmtSet(correct),
+    '同値類そのものは無限に続きます（…、'+(a-m)+'、'+a+'、'+(a+m)+'、…）。ここでは出題範囲 {0,…,'+K+'} の中だけを選んでください。');
+  return Q(3,'同値類 [a]','集合 {0, 1, …, '+K+'} 上の関係 ∼ を、x ∼ y ⟺ x ≡ y (mod '+m+') で定めます。同値類 ['+a+'] に入る元をすべて選んでください。', built, ex, 'multi');
+}
+function gen3_congruent(){
+  var m=pick([3,4,5,6]);
+  var x=2+rnd(18); var good=[x, x+m*(1+rnd(3))];
+  function badPair(){ var u=2+rnd(18), v=u+1+rnd(9); if((v-u)%m===0) v+=1; return [u,v]; }
+  var opts=[good].concat([badPair(),badPair(),badPair()]);
+  var labels=opts.map(function(p){return '('+p[0]+', '+p[1]+')';});
+  var built=singleOpts(labels[0], labels.slice(1));
+  var ex=EX('「x ≡ y (mod '+m+')」が成り立つペアを1つ見つける問題です。読み方は「x と y は '+m+' を法として合同」。',
+    'x ≡ y (mod m) ⟺ m | (x − y)。つまり「差が m の倍数」か「余りが等しい」か、どちらかで判定できます。',
+    opts.map(function(p,i){return '('+p[0]+', '+p[1]+')：差は '+(p[1]-p[0])+' で、'+m+' の倍数'+(((p[1]-p[0])%m===0)?'です ○':'ではありません ×')+'。';}),
+    '成り立つのは ('+good[0]+', '+good[1]+')',
+    '和ではなく「差」を見ること。また負の差でも割り切れれば合同です（例：2 ≡ 8 (mod 6) で差は −6）。');
+  return Q(3,'合同 ≡ (mod m)','m = '+m+' とします。x ≡ y (mod '+m+') が成り立つペアはどれですか。', built, ex);
+}
+function gen3_count(){
+  var m=2+rnd(8);
+  var built=singleOpts(String(m), [String(m-1), String(m+1), '無限に多い', String(2*m)]);
+  var ex=EX('商集合 Z/≡_'+m+' の元の個数、つまり「余りの種類」がいくつあるかを聞いています。',
+    'Z/≡_m = { [0], [1], …, [m−1] }。余りは 0 から m−1 までの m 通りしかありません。',
+    ['どんな整数も、'+m+' で割れば余りは 0,…,'+(m-1)+' のどれかになります。','余りが同じ整数同士が1つの同値類を作るので、類はちょうど '+m+' 個です。'],
+    'Z/≡_'+m+' の元の個数は '+m,
+    '同値類の中身（メンバー）は無限にありますが、「類の個数」は m 個です。聞かれているのがどちらかを確認しましょう。');
+  return Q(3,'商集合の元の数','剰余類の集合 Z/≡_'+m+'（整数を '+m+' で割った余りで分けた商集合）の元の個数はいくつですか。', built, ex);
+}
+
+var GEN1=[gen1_image,gen1_inverse,gen1_domrange,gen1_function,gen1_subset,gen1_count];
+var GEN2=[function(){return gen2_compose(pick(['S∘R','R∘S','R²']));},gen2_path,gen2_inverseLaw,gen2_closureMem];
+var GEN3=[gen3_properties,gen3_class,gen3_congruent,gen3_count];
+
+/* ---------- 第4回 ---------- */
+function gen4_member(){
+  var m=pick([4,5,6]); var n=rnd(m);
+  var good=[n, n+m, n-m, n+2*m];
+  var bad=[n+1, n-1, n+m+1, n-m-1];
+  var pool=shuffle(good.concat(bad).map(String));
+  var correct=good.map(String);
+  var built=multiOpts(pool, correct);
+  var ex=EX('剰余類 ['+n+']（'+m+' で割った余りが '+n+' になる整数のグループ）に属する数を全部聞いています。負の数も候補に入っています。',
+    'x ∈ [n] ⟺ x ≡ n (mod m) ⟺ x − n が m で割り切れる。負の数でも「割り切れるか」で判定できます。',
+    ['候補を1つずつ、'+n+' との差が '+m+' の倍数か確認します。','当はまるのは '+correct.join('、')+' です。たとえば '+(n-m)+' は '+(n-m)+' − '+n+' = '+(-m)+' で、'+m+' で割り切れます。'],
+    '['+n+'] の元は '+correct.join('、'),
+    '負の数の余りに注意：「−1 を 5 で割った余り」は −1 ではなく 4 と考える（−1 ≡ 4 (mod 5)）のが合同の約束です。差が割り切れるかで判定すると間違いません。');
+  return Q(4,'剰余類のメンバー','Z の ≡_'+m+' による剰余類 ['+n+'] について、['+n+'] に属する数をすべて選んでください。', built, ex, 'multi');
+}
+function gen4_refine(){
+  var m=pick([6,6,12]);
+  var ks=[1,2,3,4,5,6,8,10,12,18,24].filter(function(k){return k!==m;});
+  var chosen=shuffle(ks).slice(0,6);
+  var mode=Math.random()<0.5?'of':'by'; /* of: ≡_m の細分 (= m|k), by: ≡_m が細分になる相手 (= k|m) */
+  var hasHit=chosen.some(function(k){return mode==='of'? k%m===0 : m%k===0;});
+  if(!hasHit){ var fix = mode==='of'? [2*m,3*m].filter(function(k){return chosen.indexOf(k)<0;})[0] : [1,2,3].filter(function(k){return m%k===0&&chosen.indexOf(k)<0;})[0]; if(fix!==undefined) chosen[chosen.length-1]=fix; }
+  var labels=chosen.map(function(k){return '≡_'+k;});
+  var correct=chosen.filter(function(k){return mode==='of'? (k%m===0) : (m%k===0);}).map(function(k){return '≡_'+k;});
+  var built=multiOpts(labels, correct);
+  var ex=EX(mode==='of'?'≡_'+m+' の「細分」になっている関係を聞いています。細分とは、グループ分けがより細かくなることです。':'≡_'+m+' がその細分になる（≡_'+m+' ⊆ 相手）関係を聞いています。',
+    'R₁ が R₂ の細分 ⟺ R₁ ⊆ R₂ ⟺ 同値類が小さくなる。合同では ≡_p ⊆ ≡_q ⟺ q が p を割り切る（p で割って余りが同じなら、p の約数 q で割っても余りは同じだから）。',
+    [mode==='of'?'≡_k が ≡_'+m+' の細分になるのは、'+m+' が k を割り切るとき。候補を1つずつ確認すると、当はまるのは '+correct.join('、')+' です。':'≡_'+m+' ⊆ ≡_k になるのは、k が '+m+' を割り切るとき。候補を1つずつ確認すると、当はまるのは '+correct.join('、')+' です。'],
+    '答えは '+(correct.length?correct.join('、'):'なし'),
+    '向きが最大のひっかけです。「≡_6 は ≡_2 の細分」＝「6で分ける方が細かい」。法が大きいほどグループは細かくなります（講義19.1）。');
+  return Q(4,'同値関係の細分',(mode==='of'?'≡_'+m+' の細分である関係':'≡_'+m+' がその細分になる（≡_'+m+' ⊆ ・ が成り立つ）関係')+'をすべて選んでください。', built, ex, 'multi');
+}
+function gen4_refinePair(){
+  var pairs=[[6,2],[6,3],[4,6],[6,4],[12,3],[8,6],[6,12],[4,2],[9,6],[12,8]];
+  var pr=pick(pairs); var p=pr[0], q=pr[1];
+  var verdict = (p%q===0)?0 : (q%p===0)?1 : 2;
+  var labels=['細分である','細分でない（逆に ≡_'+q+' が ≡_'+p+' の細分である）','細分でない（どちらも他方の細分でない）','判定できない'];
+  var built={options:labels.map(function(t,i){return {id:'o'+i,label:t};}), answer:['o'+verdict]};
+  var ex=EX('≡_'+p+' が ≡_'+q+' の細分かどうかを聞いています。',
+    '≡_p が ≡_q の細分 ⟺ ≡_p ⊆ ≡_q ⟺ q が p を割り切る。理由：p で割った余りが同じ2数は、その差が p の倍数。q が p を割り切れば差は q の倍数にもなります。',
+    ['q = '+q+' が p = '+p+' を割り切るか確認します：'+p+' ÷ '+q+' は '+(p%q===0?'割り切れます':'割り切れません（余り '+p%q+'）')+'。',
+     verdict===0?'よって ≡_'+p+' ⊆ ≡_'+q+' で、細分です。':(verdict===1?'逆に '+p+' が '+q+' を割り切るので、≡_'+q+' の方が細分です。':'どちらの向きにも割り切れないので、細分の関係にはありません。')],
+    labels[verdict],
+    '「法が大きい方＝細かい方」。≡_6 と ≡_2 なら ≡_6 の方が細分です。大小を取り違えないように。');
+  return Q(4,'細分の判定','≡_'+p+' は ≡_'+q+' の細分ですか。', built, ex);
+}
+function gen4_integer(){
+  var a=1+rnd(5), b=rnd(5); if(a===b)b+=1;
+  var v=a-b;
+  var built=singleOpts(String(v), [String(b-a), String(a+b), String(-(a+b)), String(a*b)]);
+  var ex=EX('N × N 上の同値関係 ∼ による同値類 [('+a+', '+b+')] が、整数でいうどの数に対応するかを聞いています。',
+    '(a, b) ∼ (c, d) ⟺ a + d = b + c。組 (a, b) は「a − b のつもり」の表現で、この同一視によって自然数から整数が構成されます（講義第4回）。',
+    ['対応する整数は a − b = '+a+' − '+b+' = '+v+' です。','確認：[('+a+', '+b+')] = [('+ (v>=0?a-b:0) +', '+(v>=0?0:b-a)+')] の形に直せて、これは整数 '+v+' の標準形です。'],
+    '[('+a+', '+b+')] は整数 '+v+' に対応する',
+    '(b, a) と取り違えると符号が逆になります。「前の数 − 後ろの数」です。');
+  return Q(4,'整数の構成','N × N 上の関係 (a, b) ∼ (c, d) ⟺ a + d = b + c による同値類 [('+a+', '+b+')] は、整数でいうといくつに対応しますか。', built, ex);
+}
+function gen4_poset(){
+  var scenario=rnd(4);
+  var d=pick([2,3]); var X, R, failIdx, failName;
+  if(scenario===0){ X=[d,2*d]; R=relSet([[String(d),String(d)],[String(d),String(2*d)],[String(2*d),String(2*d)]]); R[key([String(2*d),String(d)])]=true; failIdx=2; failName='反対称律'; }
+  else if(scenario===1){ X=[d,2*d,4*d]; R=relSet(X.map(function(x){return [String(x),String(x)];}).concat([[String(d),String(2*d)],[String(2*d),String(4*d)]])); failIdx=3; failName='推移律'; }
+  else if(scenario===2){ X=[d,2*d,4*d]; R=relSet([[String(d),String(d)],[String(2*d),String(2*d)],[String(d),String(2*d)],[String(2*d),String(4*d)],[String(d),String(4*d)]]); failIdx=1; failName='反射律'; }
+  else { X=[d,2*d,4*d]; R=relSet(X.map(function(x){return [String(x),String(x)];}).concat([[String(d),String(2*d)],[String(2*d),String(4*d)],[String(d),String(4*d)]])); failIdx=0; failName=''; }
+  var labels=['半順序である','半順序でない（反射律が成り立たない）','半順序でない（反対称律が成り立たない）','半順序でない（推移律が成り立たない）'];
+  var built={options:labels.map(function(t,i){return {id:'o'+i,label:t};}), answer:['o'+failIdx]};
+  var why = failIdx===0?'反射・反対称・推移のすべてが成り立っています。これは割り算関係 | そのもので、半順序の代表例です。'
+    : failIdx===1?'対角線の組 ('+(4*d)+', '+(4*d)+') が抜けているので反射律が成り立ちません。'
+    : failIdx===2?'('+2*d+', '+d+') と ('+d+', '+2*d+') が両方あるのに '+2*d+' ≠ '+d+' なので反対称律が成り立ちません。'
+    : '('+d+', '+2*d+') と ('+2*d+', '+4*d+') があるのに ('+d+', '+4*d+') がないので推移律が成り立ちません。';
+  var ex=EX('関係 R が半順序かどうかを聞いています。半順序は「一部だけ比べられるランキング」の数学的な姿です。',
+    '半順序 ⟺ 反射律（∀a [aRa]）＋反対称律（aRb ∧ bRa ⇒ a = b）＋推移律（aRb ∧ bRc ⇒ aRc）の3つ全部。',
+    ['R = '+fmtRel(R)+' を3条件でチェックします。', why],
+    labels[failIdx],
+    '同値関係（対称律）と半順序（反対称律）を混同しないこと。対称律は「両方向OK」、反対称律は「両方向あるなら同一元に限る」で、正反対の雰囲気です。');
+  return Q(4,'半順序の判定','集合 {'+X.join(', ')+'} 上の関係 R を次で定めます。<span class="rel">R = '+fmtRel(R)+'</span>R は半順序ですか。', built, ex);
+}
+
+/* ---------- 第5回 ---------- */
+function extremalData(nums){
+  function maximal(x){return !nums.some(function(y){return y!==x&&y%x===0;});}
+  function minimal(x){return !nums.some(function(y){return y!==x&&x%y===0;});}
+  var maxs=nums.filter(maximal), mins=nums.filter(minimal);
+  var greatest=nums.filter(function(x){return nums.every(function(y){return x%y===0;});});
+  var least=nums.filter(function(x){return nums.every(function(y){return y%x===0;});});
+  return {maxs:maxs, mins:mins, greatest:greatest, least:least};
+}
+function gen5_extremal(){
+  var pool=[2,3,4,5,6,8,9,10,12,15];
+  var nums, ext, tries=0;
+  do{ nums=shuffle(pool).slice(0,5+ rnd(2)).sort(function(a,b){return a-b;}); ext=extremalData(nums); tries++; }
+  while((ext.maxs.length<1||ext.mins.length<1)&&tries<40);
+  var mode=pick(['max','min','greatest','least']);
+  var strNums=nums.map(String);
+  if(mode==='max'||mode==='min'){
+    var correct=(mode==='max'?ext.maxs:ext.mins).map(String);
+    var built=multiOpts(strNums, correct);
+    var ex=EX((mode==='max'?'極大元':'極小元')+'を聞いています。割り切る関係 | による半順序（小さい方が「下」）での話です。',
+      mode==='max'?'x が極大元 ⟺ 「x ⊑ y かつ x ≠ y」となる y が存在しない。ここでの順序では x の「上」にあるのは x の倍数なので、極大元とは「自分の倍数が集合内に他にない元」のことです。':'x が極小元 ⟺ 「y ⊑ x かつ y ≠ x」となる y が存在しない。極小元とは「自分の約数が集合内に他にない元」のことです。',
+      ['各元について '+(mode==='max'?'その倍数が集合内に他にあるか':'その約数が集合内に他にあるか')+'を確認します。','当はまるのは '+correct.join('、')+' です。'],
+      (mode==='max'?'極大元は ':'極小元は ')+correct.join('、'),
+      '極大元は複数あってよく、互いに比較不可能です。「いちばん大きい数」が極大元とは限りません（倍数関係でつながっているかが大事）。');
+    return Q(5, mode==='max'?'極大元':'極小元','A = {'+nums.join(', ')+'} に半順序 ⊑ を、x ⊑ y ⟺ x は y を割り切る（x | y）で定めます。A の'+(mode==='max'?'極大元':'極小元')+'をすべて選んでください。', built, ex, 'multi');
+  }
+  var isG = mode==='greatest';
+  var target = isG? ext.greatest : ext.least;
+  var correctLabel = target.length? String(target[0]) : '存在しない';
+  var built=singleOpts(correctLabel, strNums.concat(['存在しない']));
+  var ex=EX((isG?'最大元':'最小元')+'を聞いています。'+(isG?'最大元は「全員の上にある元」':'最小元は「全員の下にある元」')+'で、あれば1つだけです。',
+    isG?'x が最大元 ⟺ すべての y について y ⊑ x。ここでは「集合の元がすべて x を割り切る」＝「x が全員の倍数になっている」ということです。':'x が最小元 ⟺ すべての y について x ⊑ y。ここでは「x が全員の約数になっている」ということです。',
+    ['候補を全員と比べます。'+(target.length? target[0]+' は集合の全員と関係がつながっており、条件を満たします。':'どの元も、比較できない相手がいて、全員とつながる元はありません。たとえば極'+(isG?'大':'小')+'元が複数ある時点で最大元・最小元は存在しません。')],
+    (isG?'最大元は ':'最小元は ')+correctLabel,
+    '極'+(isG?'大':'小')+'元と最大元・最小元の違いが最大のひっかけ。極'+(isG?'大':'小')+'元は「自分の'+(isG?'上':'下')+'に誰もいない」だけですが、最大元・最小元は「全員と比べられる」ことが必要です。講義20.2では最大元・最小元ともに「なし」が答えでした。');
+  return Q(5, isG?'最大元':'最小元','A = {'+nums.join(', ')+'} に半順序 ⊑ を、x ⊑ y ⟺ x | y（x は y を割り切る）で定めます。A の'+(isG?'最大元':'最小元')+'はどれですか。', built, ex);
+}
+function gen5_lex(){
+  var letters=['a','b','c'];
+  var order=shuffle(letters);
+  var rank={}; order.forEach(function(c,i){rank[c]=i;});
+  function word(){ var L=2+rnd(2); var w=''; for(var i=0;i<L;i++)w+=pick(letters); return w; }
+  var ws={}; var wlist=[];
+  var guard=0;
+  while(wlist.length<4&&guard<60){ var w=word(); if(!ws[w]){ws[w]=true;wlist.push(w);} guard++; }
+  /* 接頭辞ペアを1組混ぜる（短い方が前、のルールを試す） */
+  if(Math.random()<0.6){ var base=pick(wlist); var ext=base+pick(letters); if(!ws[ext]){ ws[ext]=true; wlist[wlist.length-1]=ext; } }
+  function cmp(u,v){ var n=Math.min(u.length,v.length); for(var i=0;i<n;i++){ if(u[i]!==v[i]) return rank[u[i]]-rank[v[i]]; } return u.length-v.length; }
+  var sorted=wlist.slice().sort(cmp);
+  var correctLabel=sorted.join(' ≺ ');
+  var perms=new Set();
+  while(perms.size<3){ var p=shuffle(wlist).join(' ≺ '); if(p!==correctLabel)perms.add(p); }
+  var built=singleOpts(correctLabel, Array.from(perms));
+  var ex=EX('辞書式順序で小さい順に並べ替える問題です。国語辞典の並びと同じルールで、字母の順序は通常と違う '+order.join(' ⊏ ')+' です。',
+    '辞書式順序：まず1文字目で比べ、決まらなければ2文字目へ。途中まで全部同じで一方が短い場合は、短い方が前（小さい）です。',
+    ['字母の順位は '+order.map(function(c,i){return c+' が'+(i+1)+'番目';}).join('、')+' です。',
+     '各単語の1文字目から順に比べていくと '+correctLabel+' の順になります。'],
+    '並び順は '+correctLabel,
+    '字母の順序が通常の a, b, c とは限りません。また「短い方が前」の規則（abc ≺ abcd）を忘れがちです（講義20.1）。');
+  return Q(5,'辞書式順序','字母の順序を '+order.join(' ⊏ ')+' とする辞書式順序 ≺ で、次の単語を小さい順に並べたものはどれですか。<span class="rel">'+wlist.join('、')+'</span>', built, ex);
+}
+function gen5_quasi(){
+  var variants=[
+   {q:'次のうち、擬順序（非反射的で推移的な順序）であるものはどれですか。',
+    labels:['(ℝ, <)（実数の大小）','(ℝ, ≤)','じゃんけんの「勝つ」関係','(ℕ, |)（割り切る関係）'], ans:0,
+    steps:['(ℝ, <) は x < x が決して成り立たず（非反射）、x < y かつ y < z なら x < z（推移）なので擬順序です。','(ℝ, ≤) は x ≤ x が成り立つので非反射でなく、じゃんけんは「グーはチョキに勝ち、チョキはパーに勝つのに、グーはパーに負ける」ため推移律が壊れます。(ℕ, |) も x | x なので反射的です。'],
+    trap:'「≤ も < に似ているから擬順序では？」がひっかけ。等号を含むかどうかが決定的な違いです。'},
+   {q:'擬順序 R′ から半順序を作る方法として正しいものはどれですか。',
+    labels:['xRy ⟺ xR′y ∨ x = y と定める','xRy ⟺ xR′y ∧ x = y と定める','xRy ⟺ ¬xR′y と定める','R′ をそのまま使う（擬順序は半順序でもある）'], ans:0,
+    steps:['R′ に「自分自身との組」を付け足すと、非反射だったものが反射的になり、非対称からは反対称が導かれて、半順序になります。','例：< に = を足すと ≤ になります。'],
+    trap:'擬順序は半順序ではありません（反射律を満たさない）。「∨ x = y」の付け足しが本質です。'},
+   {q:'半順序 ⊑ の双対（dual）⊒ の定義として正しいものはどれですか。',
+    labels:['x ⊒ y ⟺ y ⊑ x','x ⊒ y ⟺ x ⊑ y かつ x ≠ y','x ⊒ y ⟺ ¬(x ⊑ y)','x ⊒ y ⟺ x ⊑ y ∨ y ⊑ x'], ans:0,
+    steps:['双対は順序をひっくり返したもの：「以上」と「以下」を入れ替えます。⊑ が半順序なら、その双対 ⊒ も半順序です。'],
+    trap:'双対は「逆関係そのもの」。否定を取る（補関係）とは違います。'}
+  ];
+  var v=pick(variants);
+  var built={options:v.labels.map(function(t,i){return {id:'o'+i,label:t};}), answer:['o'+v.ans]};
+  var ex=EX('擬順序・双対まわりの概念問題です。用語の定義を正確に覚えているかが問われます。',
+    '擬順序 ⟺ 非反射律＋非対称律＋推移律。半順序との違いは「反射的か非反射的か」と「反対称か非対称か」です。',
+    v.steps,
+    '正しいのは「'+v.labels[v.ans]+'」',
+    v.trap);
+  return Q(5,'擬順序と双対', v.q, built, ex);
+}
+
+/* ---------- 第6回 ---------- */
+function gen6_lcmgcd(){
+  var a, b, g, tries=0;
+  do{ a=12+rnd(70); b=12+rnd(70); g=gcd(a,b); tries++; }while((g<2||a===b)&&tries<40);
+  var askJoin=Math.random()<0.5;
+  var ansV=askJoin? lcm(a,b) : g;
+  var built=singleOpts(String(ansV), [String(askJoin? g : lcm(a,b)), String(a*b), String(a+b), String(Math.abs(a-b))]);
+  var ex=EX('(ℕ, |)（割り切る関係の半順序）で '+(askJoin?a+' ∨ '+b+'（結び）':a+' ∧ '+b+'（交わり）')+' を聞いています。∨ は「2つの上限 sup」 、∧ は「2つの下限 inf」の記号です。',
+    '(ℕ, |) は束で、a ∨ b = 最小公倍数（lcm）、a ∧ b = 最大公約数（gcd）。上限は「両方を割り切る数のうち最小のもの」＝最小公倍数、下限は「両方を割り切る数のうち最大のもの」＝最大公約数です。',
+    [a+' と '+b+' の最大公約数は '+g+'、最小公倍数は '+lcm(a,b)+' です。','よって '+(askJoin? a+' ∨ '+b+' = '+lcm(a,b) : a+' ∧ '+b+' = '+g)+' です。'],
+    '答えは '+ansV,
+    '∨ と ∧ の対応を取り違えるのが定番のミス。「∨＝合併っぽい＝大きい方＝最小公倍数」と覚えましょう。講義21.2 の例：60 ∨ 55 = 660、60 ∧ 55 = 5。');
+  return Q(6, askJoin?'結び ∨（最小公倍数）':'交わり ∧（最大公約数)','半順序 (ℕ, |) において '+(askJoin? a+' ∨ '+b : a+' ∧ '+b)+' はいくつですか。', built, ex);
+}
+function gen6_bounds(){
+  var base=['a','b','c'], subs=subsetsOf(base);
+  var labels=subs.map(fmtSubSet);
+  var fam=[]; var f1=pick(subs), f2=pick(subs); fam=[f1,f2];
+  var U=base.filter(function(x){return f1.indexOf(x)>=0||f2.indexOf(x)>=0;});
+  var I=base.filter(function(x){return f1.indexOf(x)>=0&&f2.indexOf(x)>=0;});
+  var mode=pick(['upper','sup','lower','inf']);
+  if(mode==='upper'||mode==='lower'){
+    var target = mode==='upper'? U : I;
+    var correct=subs.filter(function(T){ return mode==='upper'? target.every(function(x){return T.indexOf(x)>=0;}) : T.every(function(x){return target.indexOf(x)>=0;}); }).map(fmtSubSet);
+    var built=multiOpts(labels, correct);
+    var ex=EX(mode==='upper'?'集合族 𝒜 = {'+fam.map(fmtSubSet).join(', ')+'} の上界を全部聞いています。上界とは「𝒜 の全員以上である元（ここでは、全員を含む集合）」です。':'集合族 𝒜 = {'+fam.map(fmtSubSet).join(', ')+'} の下界を全部聞いています。下界とは「𝒜 の全員以下である元（ここでは、全員に含まれる集合）」です。',
+      mode==='upper'?'X が 𝒜 の上界 ⟺ 𝒜 のどの元 Y についても Y ⊆ X。つまり '+fmtSubSet(U)+'（和集合）をまるごと含む集合が上界です。':'X が 𝒜 の下界 ⟺ 𝒜 のどの元 Y についても X ⊆ Y。つまり '+fmtSubSet(I)+'（共通部分）に含まれる集合が下界です。',
+      ['𝒜 の元の和集合は '+fmtSubSet(U)+'、共通部分は '+fmtSubSet(I)+' です。',
+       mode==='upper'?'8つの部分集合のうち '+fmtSubSet(U)+' を含むのは '+correct.join('、')+' です。':'8つの部分集合のうち '+fmtSubSet(I)+' に含まれるのは '+correct.join('、')+' です。'],
+      (mode==='upper'?'上界は ':'下界は ')+correct.join('、'),
+      '講義21.1と同タイプです。上界・下界は「複数ありうる」もの。1つに決まる sup / inf と区別してください。');
+    return Q(6, mode==='upper'?'上界':'下界','半順序 (2^{a,b,c}, ⊆) で、集合族 𝒜 = {'+fam.map(fmtSubSet).join(', ')+'} の'+(mode==='upper'?'上界':'下界')+'をすべて選んでください。', built, ex, 'multi');
+  }
+  var isSup = mode==='sup'; var target2 = isSup? U : I;
+  var others=subs.filter(function(T){return !sameSet(T,target2);});
+  var ds=shuffle(others).slice(0,3).map(fmtSubSet);
+  var built2=singleOpts(fmtSubSet(target2), ds);
+  var ex2=EX((isSup?'上限 sup 𝒜':'下限 inf 𝒜')+' を聞いています。'+(isSup?'sup は「上界の中でいちばん小さいもの」':'inf は「下界の中でいちばん大きいもの」')+'です。',
+    isSup?'sup 𝒜 は 𝒜 の上界のうち最小のもの。(2^A, ⊆) では sup は和集合に一致します。':'inf 𝒜 は 𝒜 の下界のうち最大のもの。(2^A, ⊆) では inf は共通部分に一致します。',
+    ['𝒜 = {'+fam.map(fmtSubSet).join(', ')+'} の和集合は '+fmtSubSet(U)+'、共通部分は '+fmtSubSet(I)+' です。',
+     isSup?'上界は '+fmtSubSet(U)+' を含む集合たちで、その最小は '+fmtSubSet(U)+' 自身です。':'下界は '+fmtSubSet(I)+' に含まれる集合たちで、その最大は '+fmtSubSet(I)+' 自身です。'],
+    (isSup?'sup 𝒜 = ':'inf 𝒜 = ')+fmtSubSet(target2),
+    'sup / inf は (2^A, ⊆) では常に存在しますが、一般の半順序では存在しないこともあります。また sup が 𝒜 の元とは限らない点も重要（(ℝ,≤) の (0,1) の sup は 1 で、1 は (0,1) の元ではない）。');
+  return Q(6, isSup?'上限 sup':'下限 inf','半順序 (2^{a,b,c}, ⊆) で、集合族 𝒜 = {'+fam.map(fmtSubSet).join(', ')+'} の '+(isSup?'sup 𝒜（上限）':'inf 𝒜（下限）')+' はどれですか。', built2, ex2);
+}
+function gen6_closure(){
+  var el=['a','b','c','d'];
+  var kinds=[['r','反射閉包 r(R)'],['s','対称閉包 s(R)'],['t','推移閉包 t(R)'],['rt','反射推移閉包 rt(R)'],['rst','同値閉包 rst(R)']];
+  var kd=pick(kinds); var R, T, tries=0;
+  do{ R=randomRel(el,0.2);
+      T = kd[0]==='r'? reflClosure(R,el) : kd[0]==='s'? symClosure(R) : kd[0]==='t'? transClosure(R,el) : kd[0]==='rt'? transClosure(reflClosure(R,el),el) : rstClosure(R,el);
+      tries++;
+  }while((pairsOf(T).length<1||pairsOf(T).length>9||pairsOf(R).length<1)&&tries<80);
+  var correctLabels=pairsOf(T).map(fmtPair);
+  var pool={}; correctLabels.forEach(function(l){pool[l]=true;});
+  pairsOf(R).forEach(function(p){pool[fmtPair(p)]=true;});
+  var poolArr=Object.keys(pool); var ri=0;
+  while(poolArr.length<Math.min(10,correctLabels.length+3)&&ri<40){ var p=[pick(el),pick(el)]; var l=fmtPair(p); if(!pool[l]){pool[l]=true;poolArr.push(l);} ri++; }
+  var built=multiOpts(poolArr, correctLabels);
+  var added=pairsOf(T).filter(function(p){return !has(R,p);}).map(fmtPair);
+  var ex=EX(kd[1]+' を聞いています。閉包とは「足りないつながりを補って、望む性質を持つ最小の関係に完成させる」操作です。',
+    kd[0]==='r'?'r(R) = R ∪ id_A（自分自身への組を全部足す）。':kd[0]==='s'?'s(R) = R ∪ R⁻¹（逆向きの組を全部足す）。':kd[0]==='t'?'t(R) = R⁺（乗り換えでたどれる組を全部足す）。':kd[0]==='rt'?'rt(R) = R*（自分自身の組と、乗り換えでたどれる組を全部足す）。':'rst(R) は反射・対称・推移の3つをすべて補った、R を含む最小の同値関係です。',
+    ['元の R = '+fmtRel(R)+' です。','補われる組は '+(added.length?added.join('、'):'ありません（もとの R がすでに条件を満たしています）')+' です。','結果は '+fmtRel(T)+' になります。'],
+    kd[1]+' = '+fmtRel(T),
+    kd[0]==='rst'?'rst は「まず対称にしてから推移にする」など順序に注意。新しい組ができると、さらに必要な組が増えることがあります（講義21.3）。':'閉包は「最小」のもの。余分な組まで足すと不正解です。');
+  return Q(6, kd[1],'A = {a, b, c, d} 上の関係 R を次で定めます。<span class="rel">R = '+fmtRel(R)+'</span>'+kd[1]+' に入る組をすべて選んでください。', built, ex, 'multi');
+}
+function gen6_topo(){
+  var X=shuffle([1,2,3,4,5,6,7,8,9,10]).slice(0,7).sort(function(a,b){return a-b;});
+  function isMinimal(x, rem){ return !rem.some(function(y){return y!==x&&x%y===0;}); }
+  function linearExt(){ var rem=X.slice(); var out=[]; while(rem.length){ var mins=rem.filter(function(x){return isMinimal(x,rem);}); var m=pick(mins); out.push(m); rem.splice(rem.indexOf(m),1); } return out; }
+  function valid(seq){ if(seq.length!==X.length)return false; var pos={}; seq.forEach(function(v,i){pos[v]=i;}); return X.every(function(x){return X.every(function(y){return y===x||y%x!==0||pos[y]<pos[x];});}); }
+  var good=linearExt();
+  var wrongs=new Set(); var guard=0;
+  while(wrongs.size<3&&guard<200){ guard++; var s=good.slice(); var i=rnd(s.length-1); var t=s[i]; s[i]=s[i+1]; s[i+1]=t; if(!valid(s)&&s.join(',')!==good.join(',')) wrongs.add(s.join(', ')); }
+  var built=singleOpts(good.join(', '), Array.from(wrongs));
+  var ex=EX('トポロジカルソート、つまり「割り切る関係の順序を壊さない並べ方」を聞いています。約数は必ずその倍数より前に来なければなりません。',
+    '列がトポロジカルソート ⟺ x | y（x ≠ y）ならば、列の中で x が y より前に現れる。料理の手順で「下ごしらえは盛り付けより前」という制約を全部守る並べ方です。',
+    ['正解の列 '+good.join(', ')+' は、すべての約数関係（例：'+X[0]+' は他の多くの元の約数）で約数が先に来ています。','他の選択肢は、どこかで倍数が約数より先に来てしまっている列です。1つずつ「約数が前か」を確認すると見分けられます。'],
+    'トポロジカルソートは '+good.join(', '),
+    'トポロジカルソートは1つとは限りません。講義21.4でも複数の列が答えになっています。「小さい順」が唯一の正解ではない点に注意。');
+  return Q(6,'トポロジカルソート','半順序 ({'+X.join(', ')+'}, |)（割り切る関係）について、トポロジカルソートになっている列はどれですか。', built, ex);
+}
+function gen6_supConcept(){
+  var variants=[
+   {q:'(ℝ, ≤) において、開区間 A = (0, 1) の上限 sup A と最大元について正しいものはどれですか。',
+    labels:['sup A = 1 で、最大元は存在しない','sup A = 1 で、最大元も 1','sup A は存在しない','sup A = 0 で、最大元は存在しない'], ans:0,
+    steps:['(0,1) の上界は 1 以上の実数全体で、その最小が 1。よって sup A = 1。','しかし 1 ∉ (0,1) なので、A の元の中で最大のものはありません。1 にいくらでも近い元はありますが、1 自身は含まれないからです。'],
+    trap:'「sup は集合の元でなければならない」は誤解。sup は属していなくても存在します。sup が集合に属するとき、それが最大元になります。'},
+   {q:'(ℝ, ≤) において、A = { x ∈ ℝ | x < 2 } の上限 sup A と最大元について正しいものはどれですか。',
+    labels:['sup A = 2 で、最大元は存在しない','sup A = 2 で、最大元も 2','sup A は存在しない','sup A = 1 で、最大元は存在しない'], ans:0,
+    steps:['A の上界は 2 以上の実数で、最小の上界は 2。よって sup A = 2。','2 ∉ A なので最大元はありません。'],
+    trap:'(0,1) と同じパターンです。「上限は外側にありうる」ことを体で覚えましょう。'},
+   {q:'(ℝ, ≤) において、閉区間 A = [0, 1] の上限 sup A と最大元について正しいものはどれですか。',
+    labels:['sup A = 1 で、最大元も 1','sup A = 1 で、最大元は存在しない','sup A は存在しない','sup A = 0 で、最大元も 0'], ans:0,
+    steps:['上界の最小は 1 で sup A = 1。今回は 1 ∈ A なので、sup A は A の最大元でもあります。'],
+    trap:'sup が集合に属するか否かで「最大元でもあるか」が決まります。属する場合は最大元＝sup です。'}
+  ];
+  var v=pick(variants);
+  var built={options:v.labels.map(function(t,i){return {id:'o'+i,label:t};}), answer:['o'+v.ans]};
+  var ex=EX('上限 sup と最大元の違いを聞いています。sup は「上界の中でいちばん小さいもの」、最大元は「集合の元の中でいちばん大きいもの」です。',
+    '上界とは A の全員以上である元のこと。sup A は上界集合の最小元。sup A ∈ A のとき、かつそのときに限り、sup A は A の最大元です。',
+    v.steps,
+    '正しいのは「'+v.labels[v.ans]+'」',
+    v.trap);
+  return Q(6,'sup と最大元の違い', v.q, built, ex);
+}
+
+var GEN4=[gen4_member,gen4_refine,gen4_refinePair,gen4_integer,gen4_poset];
+var GEN5=[gen5_extremal,gen5_lex,gen5_quasi];
+var GEN6=[gen6_lcmgcd,gen6_bounds,gen6_closure,gen6_topo,gen6_supConcept];
+var GENS={1:GEN1,2:GEN2,3:GEN3,4:GEN4,5:GEN5,6:GEN6};
+
+/* ============================================================
+   講義演習モード：実際の演習16.1〜21.4（答えは講義の解答で検証、
+   関係の計算はプログラムでも再計算して一致を確認）
+   ============================================================ */
+function LQ(ch, lec, tag, q, built, ex, type){ var o=Q(ch, tag, q, built, ex, type); o.src='lec'; o.lec=lec; return o; }
+var LEC=[];
+(function(){
+  var base=['a','b','c'], subs=subsetsOf(base), subLabels=subs.map(fmtSubSet);
+  /* --- 16.1 --- */
+  LEC.push(LQ(1,'16.1','包含関係 R({a})','演習16.1(1)　2^{a,b,c} 上の関係 R を X R Y ⟺ X ⊆ Y で定めます。R({a}) にあたる集合をすべて選んでください。',
+    multiOpts(subLabels, ['{a}','{a, b}','{a, c}','{a, b, c}']),
+    EX('「{a} から R でつながる相手」＝「{a} を部分集合として含む集合」を全部聞いています。',
+      'R(S) = { T | S ⊆ T }。S の元をすべて含んでいる集合が行き先です。',
+      ['2^{a,b,c} の8つの元のうち、a を含むものは {a}、{a, b}、{a, c}、{a, b, c} の4つです。','これらがちょうど {a} ⊆ T を満たします。'],
+      'R({a}) = {{a}, {a, b}, {a, c}, {a, b, c}}（講義の解答どおり）',
+      'R⁻¹ と混同すると「{a} の部分集合」の方が答えになってしまいます。'), 'multi'));
+  LEC.push(LQ(1,'16.1','包含関係 R⁻¹({b,c})','演習16.1(2)　2^{a,b,c} 上の関係 R を X R Y ⟺ X ⊆ Y で定めます。R⁻¹({b, c}) にあたる集合をすべて選んでください。',
+    multiOpts(subLabels, ['∅','{b}','{c}','{b, c}']),
+    EX('R⁻¹({b, c}) は「{b, c} に向かってくる元」＝「{b, c} の部分集合」を全部聞いています。16.1(1) と向きが逆です。',
+      'X ∈ R⁻¹(S) ⟺ X R S ⟺ X ⊆ S。',
+      ['{b, c} の部分集合は ∅、{b}、{c}、{b, c} の4つです（元2個の集合の部分集合は 2² = 4 個）。'],
+      'R⁻¹({b, c}) = {∅, {b}, {c}, {b, c}}（講義の解答どおり）',
+      '「部分集合の個数＝2^(元の数)」も一緒に確認しておきましょう。'), 'multi'));
+  /* --- 16.2 --- */
+  LEC.push(LQ(1,'16.2','x² の逆関係','演習16.2(1)　f : ℝ → ℝ、x ↦ x² のグラフ R_f の逆関係について、x > 0 のとき R_f⁻¹(x) はどれですか。',
+    singleOpts('{√x, −√x}', ['{√x}', '{−√x}', '{2x}']),
+    EX('逆関係 R_f⁻¹(x) は「f で x になる入力の集合」です。つまり方程式 f(t) = x の解を聞いています。',
+      'R_f⁻¹(x) = { t | f(t) = x }。',
+      ['t² = x（x > 0）の解は t = √x と t = −√x の2つです。','よって R_f⁻¹(x) = {√x, −√x} で、値が2つあるため R_f⁻¹ は関数ではありません。'],
+      'R_f⁻¹(x) = {√x, −√x}、逆関係は関数でない（講義の解答どおり）',
+      '「x² の逆は √x」と片方だけ答えるのが定番のミス。負の解も忘れずに。'), 'single'));
+  LEC.push(LQ(1,'16.2','2x+3 の逆関係','演習16.2(2)　f : ℝ → ℝ、x ↦ 2x + 3 について、R_f⁻¹(x) はどれですか。',
+    singleOpts('{(x − 3)/2}', ['{2x + 3}', ['{(x + 3)/2}'][0], '{(x − 3)·2}']),
+    EX('方程式 2t + 3 = x を t について解く問題です。',
+      'R_f⁻¹(x) = { t | f(t) = x }。解が常にちょうど1つなら、逆関係も関数になります。',
+      ['2t + 3 = x ⟺ 2t = x − 3 ⟺ t = (x − 3)/2。解は1つだけです。'],
+      'R_f⁻¹(x) = {(x − 3)/2}、逆関係も関数である（講義の解答どおり）',
+      '移項の符号ミスに注意。(x + 3)/2 ではありません。'), 'single'));
+  LEC.push(LQ(1,'16.2','log の逆関係','演習16.2(3)　f : ℝ⁺ → ℝ、x ↦ log₂ x について、R_f⁻¹(x) はどれですか。',
+    singleOpts('{2^x}', ['{10^x}', '{x²}', '{log₂ x}']),
+    EX('「2 を何乗したら…」の逆を聞いています。log₂ t = x となる t を求めます。',
+      'R_f⁻¹(x) = { t | log₂ t = x }。',
+      ['log₂ t = x ⟺ t = 2^x。解はちょうど1つです。'],
+      'R_f⁻¹(x) = {2^x}、逆関係も関数である（講義の解答どおり）',
+      '対数と指数は互いに逆の操作です。底が 2 であることに注意。'), 'single'));
+  LEC.push(LQ(1,'16.2','|x| の逆関係','演習16.2(4)　f : ℝ → ℝ、x ↦ |x| について、x > 0 のとき R_f⁻¹(x) はどれですか。',
+    singleOpts('{−x, x}', ['{x}', '{|x|}', '{−x}']),
+    EX('絶対値を取ると x になる入力を聞いています。',
+      'R_f⁻¹(x) = { t | |t| = x }。',
+      ['|t| = x（x > 0）の解は t = x と t = −x の2つです。','値が2つあるので R_f⁻¹ は関数ではありません。'],
+      'R_f⁻¹(x) = {−x, x}、逆関係は関数でない（講義の解答どおり）',
+      'x² の場合と同パターンです。「符号違いの2解」が来たら逆関係は関数になりません。'), 'single'));
+  /* --- 17.1 / 17.2 --- */
+  var R17=relSet([['a','b'],['b','c'],['d','b'],['d','c']]);
+  var S17=relSet([['a','b'],['a','c'],['a','d'],['b','c'],['b','d'],['c','d']]);
+  var q17='集合 {a, b, c, d} 上の関係 R, S を次で定めます。<span class="rel">R = '+fmtRel(R17)+'<br>S = '+fmtRel(S17)+'</span>';
+  function pairPool(){ var pool={}; [compose(S17,R17),compose(R17,S17),compose(S17,inv(R17)),compose(R17,R17),compose(S17,S17),unionR(R17,S17)].forEach(function(Rx){pairsOf(Rx).forEach(function(p){pool[fmtPair(p)]=true;});}); return Object.keys(pool).slice(0,12); }
+  var PP=pairPool();
+  LEC.push(LQ(2,'17.1','R ∘ S', '演習17.1(1)　'+q17+'R ∘ S に入る組をすべて選んでください（合成は「右側を先に」たどります）。',
+    multiOpts(PP, pairsOf(compose(R17,S17)).map(fmtPair)),
+    EX('R ∘ S は「先に S、次に R」の乗り換えです。書く順と たどる順が逆なのが講義の約束でした。',
+      'R ∘ S = { (a, c) | ∃b [ aSb ∧ bRc ] }。',
+      ['S の矢印で中継地点へ行き、R の矢印で仕上げます。全パターンを試すと '+fmtRel(compose(R17,S17))+' になります。','例えば a は S で d へ、R で b, c へ行けるので (a, b), (a, c) が入ります。'],
+      'R ∘ S = '+fmtRel(compose(R17,S17))+'（講義の解答どおり）',
+      '先に R をたどすと 17.1(2) の S ∘ R の答えになってしまいます。'), 'multi'));
+  LEC.push(LQ(2,'17.1','S ∘ R', '演習17.1(2)　'+q17+'S ∘ R に入る組をすべて選んでください。',
+    multiOpts(PP, pairsOf(compose(S17,R17)).map(fmtPair)),
+    EX('S ∘ R は「先に R、次に S」の乗り換えです。17.1(1) と答えが違うことを確認しましょう。',
+      'S ∘ R = { (a, c) | ∃b [ aRb ∧ bSc ] }。合成は一般に交換法則を満たしません。',
+      ['R の矢印の先から S の矢印を続けます。全パターンを試すと '+fmtRel(compose(S17,R17))+' になります。'],
+      'S ∘ R = '+fmtRel(compose(S17,R17))+'（講義の解答どおり）',
+      'R ∘ S と S ∘ R は別物。これが合成の最重要ポイントです。'), 'multi'));
+  LEC.push(LQ(2,'17.1','S ∘ R⁻¹', '演習17.1(3)　'+q17+'S ∘ R⁻¹ に入る組をすべて選んでください。',
+    multiOpts(PP, pairsOf(compose(S17,inv(R17))).map(fmtPair)),
+    EX('まず R⁻¹（R の矢印を全部反転）を作り、そのあと「先に R⁻¹、次に S」と合成します。',
+      'R⁻¹ = '+fmtRel(inv(R17))+'。S ∘ R⁻¹ = { (a, c) | ∃b [ aR⁻¹b ∧ bSc ] }。',
+      ['R⁻¹ の矢印の先から S を続けると '+fmtRel(compose(S17,inv(R17)))+' になります。'],
+      'S ∘ R⁻¹ = '+fmtRel(compose(S17,inv(R17)))+'（講義の解答どおり）',
+      'R⁻¹ を作るとき、(d, b) の反転は (b, d) です。元の組を消し忘れないように。'), 'multi'));
+  LEC.push(LQ(2,'17.2','R²', '演習17.2(1)　'+q17+'R² = R ∘ R に入る組をすべて選んでください。',
+    multiOpts(PP, pairsOf(compose(R17,R17)).map(fmtPair)),
+    EX('R² は「R を2回繰り返す」＝「R の矢印を2本たどって届くペア」です。',
+      'xR²y ⟺ ちょうど2歩のパスが x から y へ存在する（定理3.2）。',
+      ['a → b → c と d → b → c の2本だけが2歩のパスです。'],
+      'R² = {(a, c), (d, c)}（講義の解答どおり）',
+      'R² は「組の2乗」ではなく関係の合成です。'), 'multi'));
+  LEC.push(LQ(2,'17.2','S²', '演習17.2(2)　'+q17+'S² = S ∘ S に入る組をすべて選んでください。',
+    multiOpts(PP, pairsOf(compose(S17,S17)).map(fmtPair)),
+    EX('S の矢印を2本たどって届くペアを集めます。',
+      'xS²y ⟺ S の2歩パスが存在する。',
+      ['a → b → d、a → c → d、b → c → d の3本が2歩のパスです。'],
+      'S² = {(a, c), (a, d), (b, d)}（講義の解答どおり）',
+      '(a, c) は S 自身にも入っていますが、S² へは「a → b → c」という2歩のパスで入ります。S と S² の両方に同じ組が入ることもあります。'), 'multi'));
+  LEC.push(LQ(2,'17.2','R ∪ S', '演習17.2(3)　'+q17+'R ∪ S に入る組をすべて選んでください。',
+    multiOpts(PP, pairsOf(unionR(R17,S17)).map(fmtPair)),
+    EX('和集合 R ∪ S は「R か S のどちらかに入っている組」を全部集めたものです。',
+      'x(R ∪ S)y ⟺ xRy ∨ xSy。',
+      ['R の4組と S の6組を合わせ、重複（(a, b) と (b, c) は両方にある）を取り除くと8組になります。'],
+      'R ∪ S = '+fmtRel(unionR(R17,S17))+'（講義の解答どおり）',
+      '重複する組を2回書かないのが外延的記法の約束です。'), 'multi'));
+  LEC.push(LQ(2,'17.2','R^i = S^j', '演習17.2(4)　'+q17+'R^i = S^j（i, j > 0）となる最小の i, j の組はどれですか。',
+    singleOpts('(i, j) = (3, 4)', ['(i, j) = (2, 3)', '(i, j) = (4, 3)', 'そのような組は存在しない']),
+    EX('R の冪と S の冪を順に計算していき、初めて一致する（どちらも空集合になる）ところを探す問題です。',
+      'Rⁿ は n 歩のパス。パスが存在しなくなれば Rⁿ = ∅ となり、それ以降もずっと ∅ です。',
+      ['R¹ は4組、R² = {(a, c), (d, c)}、R³ = ∅（c から先の矢印がない）。','S¹ は6組、S² は3組、S³ = {(a, d)}、S⁴ = ∅。','よって初めて両方 ∅ になるのは i = 3, j = 4 です。'],
+      '(i, j) = (3, 4)（講義の解答どおり）',
+      '「冪は減っていく」とは限りませんが、この例では長さの上限があるため空になります。'), 'single'));
+  /* --- 18.x --- */
+  var R18=relSet([['a','a'],['a','b'],['b','a'],['b','b'],['c','c'],['c','d'],['e','e']]);
+  LEC.push(LQ(3,'18.1','同値関係でない理由','演習18.1(1)　集合 {a, b, c, d, e} 上の関係 R を次で定めます。<span class="rel">R = '+fmtRel(R18)+'</span>R は同値関係ではありません。成り立っていない性質をすべて選んでください。',
+    multiOpts(['反射律','対称律','推移律'], ['反射律','対称律']),
+    EX('同値関係の3条件（反射・対称・推移）を1つずつチェックする問題です。',
+      '反射律：全員が (x, x) を持つか。対称律：(x, y) があれば (y, x) もあるか。推移律：2歩で届く組がすべて入っているか。',
+      ['反射律：(d, d) がないので不成立。','対称律：(c, d) はあるのに (d, c) がないので不成立。','推移律：2歩の組を全部調べると、すべて R に含まれているので成立。'],
+      '成り立っていないのは反射律と対称律（講義の解答どおり）',
+      '1つでも欠ければ同値関係ではありません。「だいたい対称」は対称ではありません。'), 'multi'));
+  LEC.push(LQ(3,'18.1','最小の同値関係への拡張','演習18.1(2)　上の R（演習18.1）を含む最小の同値関係 R′ を作るには、R にどの組を追加すればよいですか。追加する組をすべて選んでください。',
+    multiOpts(['(d, d)','(d, c)','(c, e)','(d, e)','(e, d)'], ['(d, d)','(d, c)']),
+    EX('「足りないつながりを補って同値関係に完成させる」問題です。これは rst 閉包（第6回）の先取りです。',
+      '反射律のために (d, d) が、対称律のために (d, c) が必要です。推移律は、この2つを足しても壊れません。',
+      ['(d, d) と (d, c) を追加すると、反射・対称・推移のすべてが成り立ちます。','これ以上少ない追加では同値関係にならないので、これが最小の拡張です。'],
+      'R′ = R ∪ {(d, c), (d, d)}（講義の解答どおり）',
+      '余分な組（(d, e) など）を足すと「最小」になりません。'), 'multi'));
+  LEC.push(LQ(3,'18.2','誤った証明の指摘','演習18.2　「対称的で推移的な関係は反射的である」という主張の“証明”が講義で否定されました。その証明の誤りはどこですか。',
+    singleOpts('a と関係する相手が存在しない元があると、証明の出発点となる組 aRb が取れない', ['対称律の使い方が逆になっている', '推移律は2回までしか使えない', '誤りはない（主張は正しい）']),
+    EX('有名な「一見正しそうな誤った証明」の分析です。証明は「aRb となる b を取る」から始まりますが、その b の存在が保証されていません。',
+      '反例：A = {a, b} で R = ∅（空関係）は対称的かつ推移的ですが、反射的ではありません。矢印のない元については証明が始まりません。',
+      ['対称＋推移から言えるのは「aRb ならば aRa」までです。','どの元にも少なくとも1本矢印があれば反射律が出ますが、それは追加の仮定です。'],
+      '誤りは「a と関係する相手 b の存在を仮定してしまった」点（講義の解答の趣旨）',
+      '対称＋推移 ⇒ 反射、は試験のひっかけの定番です。空関係が反例になります。'), 'single'));
+  LEC.push(LQ(3,'18.3','Z/≡₃','演習18.3　Z の ≡₃ による商集合 Z/≡₃ はどれですか。',
+    singleOpts('{[0], [1], [2]}', ['{[0], [1], [2], [3]}', '{[1], [2], [3]}', '無限に多くの同値類からなる']),
+    EX('整数を 3 で割った余りで分けたグループの名札一覧です。',
+      'Z/≡_m はちょうど m 個の類からなります。[3] = [0]、[4] = [1] のように、代表は 0, 1, 2 で尽きます。',
+      ['[0] = {…, −3, 0, 3, 6, …}、[1] = {…, −2, 1, 4, 7, …}、[2] = {…, −1, 2, 5, 8, …}。','すべての整数はこの3類のどれかに入ります。'],
+      'Z/≡₃ = {[0], [1], [2]}（講義の解答どおり）',
+      '[3] を4つ目の類と数えるのが典型的なミス。[3] は [0] と同じ類です。'), 'single'));
+  /* --- 19.x --- */
+  LEC.push(LQ(4,'19.1','≡₃ の細分','演習19.1(1)　次のうち、≡₃ の細分である関係はどれですか。',
+    singleOpts('≡₆', ['≡₁', '≡₂', '≡₄']),
+    EX('「細分」＝グループ分けがより細かくなることです。',
+      '≡_p が ≡_q の細分 ⟺ q が p を割り切る。6 は 3 で割り切れるので、6で割った余りが同じ2数は、3で割った余りも同じ。つまり ≡₆ ⊆ ≡₃ です。',
+      ['≡₆：6 | 差 なら 3 | 差 も言えるので ⊆ が成り立ち、細分です。','≡₁ は逆に ≡₃ がその細分になる相手、≡₂ と ≡₄ はどちら向きにも割り切れません。'],
+      '≡₃ の細分は ≡₆（講義の解答どおり）',
+      '法が大きい方が「細かい」分け方です。向きを取り違えないように。'), 'single'));
+  LEC.push(LQ(4,'19.1','≡₃ が細分になる相手','演習19.1(2)　≡₃ がその細分になる（≡₃ ⊆ ・ が成り立つ）関係はどれですか。',
+    singleOpts('≡₁', ['≡₂', '≡₆', '≡₉']),
+    EX('今度は「≡₃ の方が細かい側」に来る相手を聞いています。19.1(1) の裏返しです。',
+      '≡_p ⊆ ≡_q ⟺ q が p を割り切る。≡₃ ⊆ ≡_q となるのは q が 3 を割り切るとき、つまり q = 1（か3自身）です。',
+      ['≡₁ は全関係（すべての組）なので、当然 ≡₃ ⊆ ≡₁ です。','≡₆ と ≡₉ は逆に ≡₃ の細分、≡₂ は無関係です。'],
+      '答えは ≡₁（講義の解答では「全関係 Z × Z」と表現されています）',
+      '≡₁ は「余りは常に0」という自明な合同で、類は1つだけ（Z 全体）です。'), 'single'));
+  LEC.push(LQ(4,'19.2','⊆ が全順序になる条件','演習19.2　2^A 上の包含関係 ⊆ は常に半順序です。では、⊆ が全順序になるのは A がどんなときですか。',
+    singleOpts('|A| = 0 または |A| = 1 のとき', ['任意の A で全順序になる', '|A| ≥ 2 のとき', 'A が無限集合のとき']),
+    EX('全順序とは「どの2元も比較可能」な半順序です。部分集合同士がいつでも比べられるのはどんな場合か、を聞いています。',
+      'A に元が2つ（a, b）あると、{a} と {b} はどちらも他方を部分集合として含まず、比較不可能になります。',
+      ['|A| = 0 のとき 2^A = {∅} で自明に全順序。','|A| = 1 のとき 2^A = {∅, {a}} で ∅ ⊆ {a} と比べられます。','|A| ≥ 2 では {a} と {b} が比較不可能なので全順序になりません。'],
+      '|A| = 0 または 1 のとき（講義の解答どおり）',
+      '半順序であること（19.2(1)）と全順序であることは別の話です。'), 'single'));
+  /* --- 20.x --- */
+  var w20=['abc','acb','cab','cba','bac','bca'];
+  LEC.push(LQ(5,'20.1','辞書式順序','演習20.1(1)　字母の順序を a ⊏ b ⊏ c とする辞書式順序で、単語 abc, acb, cab, cba, bac, bca を小さい順に並べたものはどれですか。',
+    singleOpts('abc ≺ acb ≺ bac ≺ bca ≺ cab ≺ cba', ['abc ≺ acb ≺ cab ≺ cba ≺ bac ≺ bca', 'bac ≺ bca ≺ abc ≺ acb ≺ cba ≺ cab', 'abc ≺ bac ≺ acb ≺ bca ≺ cab ≺ cba']),
+    EX('辞書のルール：1文字目 → 2文字目 → 3文字目、の順に比べます。',
+      'a で始まる語（abc, acb）が最初、次に b で始まる語（bac, bca）、最後に c で始まる語（cab, cba）です。各グループ内では2文字目で判定します。',
+      ['1文字目で3グループに分かれます：a…、b…、c…。','a グループ内は2文字目 b < c で abc ≺ acb。b グループは bac ≺ bca、c グループは cab ≺ cba です。'],
+      'abc ≺ acb ≺ bac ≺ bca ≺ cab ≺ cba（講義の解答どおり）',
+      '出題文の順番（abc, acb, cab, cba, bac, bca）は辞書順ではありません。引っ張られないように。'), 'single'));
+  var A20=[3,5,6,7,12,15];
+  LEC.push(LQ(5,'20.2','極小元','演習20.2(1)　A = {3, 5, 6, 7, 12, 15} 上の関係 ≦ を講義の半順序（割り切る関係 |）とします。A の極小元をすべて選んでください。',
+    multiOpts(A20.map(String), ['3','5','7']),
+    EX('極小元は「自分の下に（自分を割り切る）元が他にいない元」です。',
+      'x が極小元 ⟺ A の元で x を割り切るものが x 自身しかない。',
+      ['3：A の中で 3 を割り切るのは 3 だけ → 極小元。5、7 も同様です。','6 は 3 に、12 は 3 と 6 に、15 は 3 と 5 に割り切られるので極小元ではありません。'],
+      '極小元は 3, 5, 7（講義の解答どおり）',
+      '極小元は複数あります。「最小の数」だけを選ぶ問題ではありません。'), 'multi'));
+  LEC.push(LQ(5,'20.2','極大元','演習20.2(3)　A = {3, 5, 6, 7, 12, 15}（順序は割り切る関係 |）の極大元をすべて選んでください。',
+    multiOpts(A20.map(String), ['7','12','15']),
+    EX('極大元は「自分の上に（自分の倍数が）他にいない元」です。',
+      'x が極大元 ⟺ A の元で x の倍数になっているものが x 自身しかない。',
+      ['12 の倍数は A に他になく、15 も同様。7 の倍数も A には 7 だけなので、7 も極大元です。','3 は 6, 12, 15 の、5 は 15 の、6 は 12 の約数なので違います。'],
+      '極大元は 7, 12, 15（講義の解答どおり）',
+      '7 を落としやすい問題です。「大きい数」ではなく「倍数がいないか」で判定してください。最大元は存在しません（20.2(4)）。'), 'multi'));
+  LEC.push(LQ(5,'20.2','最大元・最小元','演習20.2(2)(4)　A = {3, 5, 6, 7, 12, 15}（順序は |）の最小元と最大元について正しいものはどれですか。',
+    singleOpts('最小元なし、最大元もなし', ['最小元は 3、最大元は 15', '最小元なし、最大元は 15', '最小元は 3、最大元なし']),
+    EX('最大元は「全員の倍数」、最小元は「全員の約数」である元です。極大元・極小元との違いが問われます。',
+      '極大元が複数ある時点で、その中に最大元は含まれません（最大元があれば極大元はそれ1つだけになるため）。',
+      ['極小元が 3, 5, 7 と3つあるので、全員の約数である元はありません。','極大元が 7, 12, 15 と3つあるので、全員の倍数である元もありません。'],
+      '最小元なし、最大元もなし（講義の解答どおり）',
+      'この回の最重要ポイント：極大元・極小元（複数ありうる）と最大元・最小元（あれば唯一）の区別です。'), 'single'));
+  /* --- 21.x --- */
+  LEC.push(LQ(6,'21.1','上界','演習21.1(1)　半順序 (2^{a,b,c}, ⊆) で、𝒜 = {{a}, {c}} の上界をすべて選んでください。',
+    multiOpts(subLabels, ['{a, c}','{a, b, c}']),
+    EX('上界は「𝒜 の全員を含む集合」です。',
+      'X が上界 ⟺ {a} ⊆ X かつ {c} ⊆ X ⟺ {a, c} ⊆ X。',
+      ['{a, c} を含む部分集合は {a, c} と {a, b, c} の2つです。'],
+      '上界は {a, c} と {a, b, c}（講義の解答どおり）',
+      '上界は 𝒜 の元である必要はありません（ここでは両方とも 𝒜 の外の元です）。'), 'multi'));
+  LEC.push(LQ(6,'21.1','上限 sup','演習21.1(2)　半順序 (2^{a,b,c}, ⊆) で、𝒜 = {{a}, {c}} の sup 𝒜 はどれですか。',
+    singleOpts('{a, c}', ['{a, b, c}', '{a}', '存在しない']),
+    EX('sup は「上界の中でいちばん小さいもの」です。',
+      '(2^A, ⊆) では sup は和集合に一致します。{a} ∪ {c} = {a, c}。',
+      ['上界は {a, c} と {a, b, c} で、その小さい方は {a, c} です。'],
+      'sup 𝒜 = {a, c}（講義の解答どおり）',
+      '「いちばん大きい上界」ではなく「いちばん小さい上界」が sup です。'), 'single'));
+  LEC.push(LQ(6,'21.1','下界と下限','演習21.1(3)(4)　半順序 (2^{a,b,c}, ⊆) で、𝒜 = {{a}, {c}} の下界と inf 𝒜 の組み合わせとして正しいものはどれですか。',
+    singleOpts('下界は ∅ のみ、inf 𝒜 = ∅', ['下界は ∅ と {a}、inf 𝒜 = {a}', '下界は ∅ と {c}、inf 𝒜 = {c}', '下界は存在しない']),
+    EX('下界は「𝒜 の全員に含まれる集合」です。',
+      'X が下界 ⟺ X ⊆ {a} かつ X ⊆ {c} ⟺ X ⊆ {a} ∩ {c} = ∅。よって下界は ∅ だけです。',
+      ['下界が ∅ しかないので、その最大（＝ inf）も ∅ です。','(2^A, ⊆) では inf は共通部分に一致することも確認できます。'],
+      '下界は ∅、inf 𝒜 = ∅（講義の解答どおり）',
+      '「下界は複数あるはず」と思い込まないこと。この例では1つだけです。'), 'single'));
+  LEC.push(LQ(6,'21.2','60 ∨ 55 と 60 ∧ 55','演習21.2　半順序 (ℕ, |) において、60 ∨ 55 と 60 ∧ 55 の組み合わせとして正しいものはどれですか。',
+    singleOpts('60 ∨ 55 = 660、60 ∧ 55 = 5', ['60 ∨ 55 = 5、60 ∧ 55 = 660', '60 ∨ 55 = 3300、60 ∧ 55 = 5', '60 ∨ 55 = 660、60 ∧ 55 = 15']),
+    EX('(ℕ, |) の結び ∨ は最小公倍数、交わり ∧ は最大公約数です。',
+      '∨ は上限（両方の倍数のうち最小）、∧ は下限（両方の約数のうち最大）。',
+      ['60 = 2²·3·5、55 = 5·11。最大公約数は共通部分 5。','最小公倍数は 60 × 55 ÷ 5 = 660 です。'],
+      '60 ∨ 55 = 660、60 ∧ 55 = 5（講義の解答どおり）',
+      '60 × 55 = 3300 は公倍数ではありますが「最小」ではありません。'), 'single'));
+  var R21=relSet([['a','a'],['b','b'],['b','c'],['c','c'],['c','d']]);
+  var el21=['a','b','c','d'];
+  var PP21=['(a, a)','(b, b)','(c, c)','(d, d)','(b, c)','(c, d)','(b, d)','(d, b)','(d, c)','(c, b)','(a, b)','(a, d)'];
+  LEC.push(LQ(6,'21.3','反射閉包 r(R)','演習21.3(1)　{a, b, c, d} 上の関係 R = '+fmtRel(R21)+' の反射閉包 r(R) に入る組をすべて選んでください。',
+    multiOpts(PP21, pairsOf(reflClosure(R21,el21)).map(fmtPair)),
+    EX('r(R) = R ∪ id_A：足りない「自分自身への組」を補います。',
+      'id_A = {(a, a), (b, b), (c, c), (d, d)}。R に欠けているのは (d, d) だけです。',
+      ['r(R) = R ∪ {(d, d)} = '+fmtRel(reflClosure(R21,el21))+' になります。'],
+      'r(R) = '+fmtRel(reflClosure(R21,el21))+'（講義の解答どおり）',
+      '反射閉包で足すのは対角線の組だけです。'), 'multi'));
+  LEC.push(LQ(6,'21.3','推移閉包 t(R)','演習21.3(2)　R = '+fmtRel(R21)+' の推移閉包 t(R) = R⁺ に入る組をすべて選んでください。',
+    multiOpts(PP21, pairsOf(transClosure(R21,el21)).map(fmtPair)),
+    EX('t(R) は「何歩かでたどれる組」を全部集めたものです。',
+      'R のパスを調べます：b → c → d とたどれるので (b, d) が新たに入ります。他に新しい組はありません。',
+      ['t(R) = R ∪ {(b, d)} = '+fmtRel(transClosure(R21,el21))+' になります。'],
+      't(R) = '+fmtRel(transClosure(R21,el21))+'（講義の解答どおり）',
+      '(d, d) は t(R) には入りません（d から出る矢印がない）。それは r(R) の仕事です。'), 'multi'));
+  LEC.push(LQ(6,'21.3','rst 閉包','演習21.3(3)　R = '+fmtRel(R21)+' の rst 閉包（R を含む最小の同値関係）に入る組をすべて選んでください。',
+    multiOpts(PP21, pairsOf(rstClosure(R21,el21)).map(fmtPair)),
+    EX('反射・対称・推移をすべて補って同値関係に仕上げます。補う過程で新しい組が必要になる「連鎖」に注意です。',
+      '手順：①反射で (d, d) を追加。②対称で (c, b), (d, c) を追加。③推移で b → c → d から (b, d)、d → c → b から (d, b) が必要になります。',
+      ['結果、同値類は {a} と {b, c, d} の2つになり、rst(R) = '+fmtRel(rstClosure(R21,el21))+' です。'],
+      'rst(R) = R ∪ {(d, d), (b, d), (d, b), (d, c), (c, b)}（講義の解答どおり）',
+      '対称化でできた (d, c) と (c, b) から、推移性で (d, b) が生まれるのが見落としやすい点です。'), 'multi'));
+  LEC.push(LQ(6,'21.4','トポロジカルソート','演習21.4　半順序 (A, ⊑) = ({1, 2, …, 10}, |)（割り切る関係）について、トポロジカルソートになっている列はどれですか。',
+    singleOpts('1, 3, 5, 2, 4, 7, 6, 9, 8, 10', ['1, 5, 9, 2, 4, 7, 3, 6, 8, 10', '1, 2, 3, 8, 4, 5, 6, 7, 9, 10', '1, 2, 3, 4, 10, 5, 6, 7, 8, 9']),
+    EX('約数は必ずその倍数より前に来る並びがトポロジカルソートです。',
+      'チェックすべき制約は 2 の倍数（4, 6, 8, 10）、3 の倍数（6, 9）、4 の倍数（8）、5 の倍数（10）などです。',
+      ['正解の列は全制約を満たします。','2番目の列は 9 が 3 より前（9 の約数 3 が後）で違反、3番目は 8 が 4 より前で違反、4番目は 10 が 5 より前で違反です。'],
+      '1, 3, 5, 2, 4, 7, 6, 9, 8, 10 などがトポロジカルソート（講義の解答例と同種）',
+      'トポロジカルソートは複数あります。「小さい順」だけが正解ではありません。'), 'single'));
+})();
+</script>
+
+<script>
+/* ============================================================
+   アプリ本体：画面・採点・スコア・タイマー・復習リスト
+   ============================================================ */
+function $(id){return document.getElementById(id);}
+function esc(s){return s;}
+function stripTags(s){var d=document.createElement('div');d.innerHTML=s;return (d.textContent||'').replace(/\s+/g,' ').trim();}
+
+var S={answered:0,correct:0,streak:0,best:0,perCh:{},review:[]};
+for(var ci=1;ci<=6;ci++)S.perCh[ci]={a:0,c:0};
+
+var session=null; /* {mode, ch, list, idx, exam, timerId, timeLeft, examRec} */
+var curQ=null, selected={}, answered=false;
+
+function renderStats(){
+  var rate=S.answered? Math.round(S.correct/S.answered*100):0;
+  var html='<div class="stat"><span class="lab">解いた問題</span><b>'+S.answered+'</b> 問</div>'
+    +'<div class="stat"><span class="lab">正解</span><b>'+S.correct+'</b> 問</div>'
+    +'<div class="stat"><span class="lab">正答率</span><b>'+rate+'</b>%</div>'
+    +'<div class="stat streak"><span class="lab">連続正解（ストリーク）</span><b>'+S.streak+'</b> 連勝中</div>'
+    +'<div class="stat"><span class="lab">ベストストリーク</span><b>'+S.best+'</b></div>'
+    +'<div class="stat"><span class="lab">復習リスト</span><b>'+S.review.length+'</b> 問</div>';
+  $('stats-bar').innerHTML=html; $('stats-bar-drill').innerHTML=html;
+}
+function renderChapters(){
+  var html='';
+  CHAPTERS.forEach(function(c){
+    var p=S.perCh[c.n];
+    html+='<div class="chrow"><div class="num">'+c.n+'</div><div class="info">'
+      +'<div class="t">第'+c.n+'回　'+c.title+'</div><div class="s">'+c.sub+'</div>'
+      +'<details class="keypoints"><summary>要点カードを読む（例え → 定義）</summary>'
+      +'<div class="analogy"><span class="h">まず、たとえると</span><br>'+c.analogy+'</div>'
+      + c.points.map(function(pt){return '<div class="kpoint"><span class="term">'+pt.term+'</span><div class="plain">'+pt.plain+'</div><div class="formal">'+pt.formal+'</div></div>';}).join('')
+      +'</details></div>'
+      +'<div class="prog">'+(p.a? p.c+' / '+p.a+' 問正解':'未挑戦')+'</div>'
+      +'<button class="btn" data-drill="'+c.n+'">この回を解く</button><button class="btn ghost" data-read="'+c.n+'">解説を読む</button></div>';
+  });
+  $('chapter-list').innerHTML=html;
+  Array.prototype.forEach.call(document.querySelectorAll('[data-drill]'),function(b){
+    b.addEventListener('click',function(){ startSession({mode:'chapter', ch:parseInt(b.getAttribute('data-drill'),10)}); });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-read]'),function(b){
+    b.addEventListener('click',function(){ if(window.goStudyChapter){ window.goStudyChapter(parseInt(b.getAttribute('data-read'),10)); } });
+  });
+}
+function renderGlossary(){
+  $('glossary').innerHTML=GLOSSARY.map(function(g){
+    return '<div class="row"><div class="sym">'+g.sym+'</div><div class="def"><span class="read">'+g.read+'</span><br>'+g.def+'</div></div>';
+  }).join('');
+}
+function renderReviewInto(el, list){
+  if(!list.length){ el.innerHTML='<p class="empty">まだ間違えた問題はありません。ドリルを解くと、間違えた問題がここにたまります。</p>'; return; }
+  el.innerHTML=list.map(function(r){
+    return '<div class="rev-item"><div class="rq">第'+r.ch+'回｜'+r.tag+'：'+r.qtext+'</div>'
+      +'<div class="ra">あなたの答え：'+(r.user||'（未回答）')+'<br>正解：<b>'+r.correct+'</b></div></div>';
+  }).join('');
+}
+function refreshHome(){ renderStats(); renderChapters(); renderReviewInto($('review-list-home'), S.review); }
+
+function show(view){
+  ['view-home','view-drill','view-result'].forEach(function(v){ $(v).classList.toggle('hidden', v!==view); });
+  window.scrollTo(0,0);
+}
+function stopTimer(){ if(session&&session.timerId){ clearInterval(session.timerId); session.timerId=null; } }
+
+function startSession(cfg){
+  stopTimer();
+  session={mode:cfg.mode, ch:cfg.ch||null, list:null, idx:0, exam:cfg.mode==='exam', examRec:[], timerId:null, timeLeft:0, lastGen:{}};
+  if(cfg.mode==='lec'){ session.list=shuffle(LEC); }
+  if(cfg.mode==='exam'){
+    var chs=[1,2,3,4,5,6,1+rnd(6),1+rnd(6),1+rnd(6),1+rnd(6)];
+    session.list=shuffle(chs).map(function(c){ return genQuestion(c); });
+    session.timeLeft=600;
+    $('q-timer').classList.remove('hidden');
+    session.timerId=setInterval(function(){
+      session.timeLeft--;
+      renderTimer();
+      if(session.timeLeft<=0){ finishExam(true); }
+    },1000);
+  } else { $('q-timer').classList.add('hidden'); }
+  show('view-drill');
+  nextQuestion();
+}
+function genQuestion(ch){
+  var gens=GENS[ch]; var f;
+  do{ f=pick(gens); }while(session&&session.lastGen[ch]===f&&gens.length>1);
+  if(session)session.lastGen[ch]=f;
+  return f();
+}
+function renderTimer(){
+  if(!session)return;
+  var t=Math.max(0,session.timeLeft); var mm=Math.floor(t/60), ss=t%60;
+  $('q-timer').textContent='残り '+mm+':'+('0'+ss).slice(-2);
+  $('q-timer').classList.toggle('low', t<=60);
+}
+function nextQuestion(){
+  if(session.mode==='lec'||session.mode==='exam'){
+    if(session.idx>=session.list.length){ finishSession(); return; }
+    curQ=session.list[session.idx];
+  } else if(session.mode==='chapter'){
+    curQ=genQuestion(session.ch);
+  } else { /* random */
+    curQ=genQuestion(1+rnd(6));
+  }
+  selected={}; answered=false;
+  renderQuestion();
+}
+function renderQuestion(){
+  var q=curQ;
+  $('q-tag').textContent='第'+q.ch+'回｜'+q.tag;
+  var lecTag=$('q-lec');
+  if(q.src==='lec'){ lecTag.textContent='講義演習 '+q.lec; lecTag.classList.remove('hidden'); } else lecTag.classList.add('hidden');
+  if(session.mode==='lec') $('q-count').textContent=(session.idx+1)+' / '+session.list.length+' 問';
+  else if(session.mode==='exam') $('q-count').textContent=(session.idx+1)+' / '+session.list.length+' 問（解説は最後に）';
+  else $('q-count').textContent='このセッションで '+((session.answered||0)+1)+' 問目';
+  var total=(session.mode==='lec'||session.mode==='exam')? session.list.length : 10;
+  var done=(session.mode==='lec'||session.mode==='exam')? session.idx : ((session.answered||0)%10);
+  $('q-progress').style.width=Math.round(done/total*100)+'%';
+  $('q-text').innerHTML=q.q+(q.type==='multi'?'<div class="small" style="margin-top:6px">※ あてはまるものをすべて選んでから「答える」を押してください。</div>':'');
+  var box=$('q-opts'); box.innerHTML='';
+  var grid=q.options.length>4||q.options.every(function(o){return /^\(.*\)$/.test(o.label)||/^\{.*\}$/.test(o.label)||o.label==='∅';});
+  var wrap=document.createElement('div'); wrap.className=grid?'optgrid':'opts';
+  q.options.forEach(function(o){
+    var b=document.createElement('button'); b.className='opt'+(grid&&!/^≡/.test(o.label)?'':'');
+    if(grid&&o.label.length>14)b.classList.add('txt');
+    b.innerHTML=o.label; b.setAttribute('data-id',o.id);
+    b.addEventListener('click',function(){ onSelect(o.id, b); });
+    wrap.appendChild(b);
+  });
+  box.appendChild(wrap);
+  $('q-verdict').innerHTML=''; $('q-explain').innerHTML='';
+  $('btn-answer').classList.toggle('hidden', !(q.type==='multi'&&!session.exam));
+  $('btn-next').classList.add('hidden'); $('btn-finish').classList.add('hidden');
+  if(session.exam){ $('btn-next').classList.remove('hidden'); $('btn-next').textContent=(session.idx>=session.list.length-1)?'提出して結果を見る':'次の問題 →'; $('btn-answer').classList.add('hidden'); }
+  renderStats();
+}
+function onSelect(id, btn){
+  if(answered&&!session.exam)return;
+  if(curQ.type==='single'){
+    selected={}; selected[id]=true;
+    Array.prototype.forEach.call($('q-opts').querySelectorAll('.opt'),function(b){ b.classList.toggle('sel', b.getAttribute('data-id')===id); });
+    if(session.exam)return;
+    judge();
+  } else {
+    if(selected[id]){ delete selected[id]; btn.classList.remove('sel'); }
+    else { selected[id]=true; btn.classList.add('sel'); }
+  }
+}
+function sameIds(a,b){ if(a.length!==b.length)return false; var s={}; a.forEach(function(x){s[x]=true;}); return b.every(function(x){return s[x];}); }
+function labelsOf(q, ids){ return q.options.filter(function(o){return ids.indexOf(o.id)>=0;}).map(function(o){return o.label;}); }
+function judge(){
+  if(answered)return;
+  if(curQ.type==='multi'&&Object.keys(selected).length===0){ $('q-verdict').innerHTML='<div class="verdict ng">まず選択肢を1つ以上選んでください。</div>'; return; }
+  answered=true;
+  var selIds=Object.keys(selected);
+  var ok=sameIds(selIds, curQ.answer);
+  recordResult(ok, selIds);
+  Array.prototype.forEach.call($('q-opts').querySelectorAll('.opt'),function(b){
+    var id=b.getAttribute('data-id'); b.disabled=true;
+    var inAns=curQ.answer.indexOf(id)>=0, inSel=!!selected[id];
+    if(inAns&&inSel)b.classList.add('correct');
+    else if(inSel)b.classList.add('wrong');
+    else if(inAns)b.classList.add('missed');
+  });
+  $('q-verdict').innerHTML='<div class="verdict '+(ok?'ok':'ng')+'">'+(ok?'正解！':'不正解…')+'</div>';
+  $('q-explain').innerHTML=explainHTML(curQ);
+  $('btn-answer').classList.add('hidden');
+  if(session.mode==='lec'&&session.idx>=session.list.length-1){ $('btn-finish').classList.remove('hidden'); }
+  else { $('btn-next').classList.remove('hidden'); $('btn-next').textContent='次の問題 →'; }
+  renderStats(); renderChapters();
+}
+function recordResult(ok, selIds){
+  S.answered++; session.answered=(session.answered||0)+1;
+  S.perCh[curQ.ch].a++;
+  if(ok){ S.correct++; S.perCh[curQ.ch].c++; S.streak++; if(S.streak>S.best)S.best=S.streak; }
+  else {
+    S.streak=0;
+    S.review.unshift({ch:curQ.ch, tag:curQ.tag, qtext:stripTags(curQ.q),
+      user:labelsOf(curQ, selIds).join('、')||'（未回答）',
+      correct:labelsOf(curQ, curQ.answer).join('、')});
+  }
+}
+function explainHTML(q){
+  var e=q.ex;
+  var steps=e.steps.map(function(s){return '<li>'+s+'</li>';}).join('');
+  return '<div class="explain">'
+    +'<div class="step"><div class="h">① 何を聞かれている？</div><p>'+e.ask+'</p></div>'
+    +'<div class="step"><div class="h">② 定義を確認</div><p>'+e.def+'</p></div>'
+    +'<div class="step"><div class="h">③ 一歩ずつ考える</div><ul>'+steps+'</ul></div>'
+    +'<div class="step"><div class="h">④ 結論</div><p><b>'+e.concl+'</b></p></div>'
+    +'<div class="step trap"><div class="h">⑤ よくある間違い・ひっかけ</div><p>'+e.trap+'</p></div>'
+    +'<p class="small">記号の読み方が分からなくなったら、トップページの「用語ミニ辞典・記号の読み方」を見直してください。</p>'
+    +'</div>';
+}
+function finishSession(){
+  if(session.mode==='exam'){ finishExam(false); return; }
+  stopTimer();
+  var list=session.list||[];
+  var wrongs=S.review.slice(0, list.length);
+  $('result-title').textContent='講義演習モード：全'+list.length+'問が終わりました';
+  $('result-body').innerHTML='おつかれさまでした。通算成績はトップページのスコアで確認できます。間違えた問題は下の復習リストとトップの復習リストに残っています。';
+  renderReviewInto($('review-list-result'), S.review.slice(0,30));
+  show('view-result');
+}
+function finishExam(timeout){
+  if(!session||session.mode!=='exam')return;
+  stopTimer();
+  /* 現在の問題も含め、未採点のものをすべて採点 */
+  var rec=[];
+  session.list.forEach(function(q, i){
+    var sel = (i===session.idx&&curQ===q)? Object.keys(selected) : (session.examRec[i]||[]);
+    var ok=sameIds(sel, q.answer);
+    S.answered++; S.perCh[q.ch].a++;
+    if(ok){ S.correct++; S.perCh[q.ch].c++; }
+    else S.review.unshift({ch:q.ch, tag:q.tag, qtext:stripTags(q.q), user:labelsOf(q, sel).join('、')||'（未回答）', correct:labelsOf(q, q.answer).join('、')});
+    rec.push({q:q, ok:ok});
+  });
+  S.streak=0;
+  var score=rec.filter(function(r){return r.ok;}).length;
+  $('result-title').textContent='模擬テスト結果：'+score+' / '+rec.length+' 点'+(timeout?'（時間切れ）':'');
+  $('result-body').innerHTML='正答率 '+Math.round(score/rec.length*100)+'%。間違えた問題は復習リストに自動で追加されました。各問題の詳しい解説は、回別ドリルや講義演習モードで同タイプの問題を解くと読めます。';
+  renderReviewInto($('review-list-result'), S.review.slice(0,rec.length));
+  session.mode='done';
+  renderStats(); renderChapters();
+  show('view-result');
+}
+
+/* ---------- イベント ---------- */
+$('btn-answer').addEventListener('click', judge);
+$('btn-next').addEventListener('click', function(){
+  if(session.exam){
+    session.examRec[session.idx]=Object.keys(selected);
+    session.idx++; selected={};
+    if(session.idx>=session.list.length){ finishExam(false); return; }
+    curQ=session.list[session.idx]; answered=false; renderQuestion(); return;
+  }
+  session.idx++; nextQuestion();
+});
+$('btn-finish').addEventListener('click', function(){ session.idx++; finishSession(); });
+$('btn-quit').addEventListener('click', function(){ stopTimer(); session=null; refreshHome(); show('view-home'); });
+$('mode-random').addEventListener('click', function(){ startSession({mode:'random'}); });
+$('mode-lec').addEventListener('click', function(){ startSession({mode:'lec'}); });
+$('mode-exam').addEventListener('click', function(){ startSession({mode:'exam'}); });
+$('mode-review').addEventListener('click', function(){ $('review-card-home').scrollIntoView({behavior:'smooth'}); });
+$('btn-again').addEventListener('click', function(){ refreshHome(); show('view-home'); });
+$('btn-home2').addEventListener('click', function(){ refreshHome(); show('view-home'); });
+
+renderGlossary();
+refreshHome();
+</script>
+
+</main>
+
+<script>
+(function(){
+  var partK = document.getElementById('partK');
+  var partD = document.getElementById('partD');
+  var tabK = document.getElementById('tab-study');
+  var tabD = document.getElementById('tab-drill');
+  function showPart(which, keepScroll){
+    var study = which === 'study';
+    partK.hidden = !study;
+    partD.hidden = study;
+    tabK.setAttribute('aria-selected', study ? 'true' : 'false');
+    tabD.setAttribute('aria-selected', study ? 'false' : 'true');
+    if(!keepScroll) window.scrollTo(0,0);
+  }
+  window.showPart = showPart;
+  tabK.addEventListener('click', function(){ showPart('study'); });
+  tabD.addEventListener('click', function(){ showPart('drill'); });
+  window.goDrillChapter = function(n){
+    showPart('drill');
+    if(typeof window.startSession === 'function'){
+      window.startSession({mode:'chapter', ch:n});
+    }
+  };
+  window.goStudyChapter = function(n){
+    showPart('study', true);
+    var el = document.getElementById('ch' + n);
+    if(el){ el.scrollIntoView({block:'start'}); }
+  };
+  // Inject a drill button into each study chapter (第1〜6回).
+  var playSvg = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>';
+  for(var n = 1; n <= 6; n++){
+    (function(n){
+      var sec = document.getElementById('ch' + n);
+      if(!sec) return;
+      var head = sec.querySelector('.ch-head') || sec;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'x-drill-btn';
+      btn.innerHTML = playSvg + 'この回のドリルを解く（第' + n + '回）';
+      btn.addEventListener('click', function(){ window.goDrillChapter(n); });
+      head.appendChild(btn);
+    })(n);
+  }
+})();
+</script>
+
+</body>
+</html>
